@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react"
 
-function Dashboard() {
+function Dashboard() {  // Dashboard component to display campaign performance
   const [campaigns, setCampaigns] = useState([])
 
+  //useEffect part usually runs after the component mounts
   useEffect(() => {
-    const storedCampaigns =
-      JSON.parse(localStorage.getItem("campaigns")) || []
+    const storedCampaigns = JSON.parse(localStorage.getItem("campaigns")) || []
 
     //simulation engine 
     //autoimpression and auto clicks generating for campaigns
     const updatedCampaigns = storedCampaigns.map((campaign) => {
-    const impressions =
-      Math.floor(Math.random() * 1000) + 100
+    const impressions = Math.floor(Math.random() * 1000) + 100  //to scale the random number into a large range and not to get 0 impression 
 
+      
     const clicks =
       Math.floor(impressions * Math.random() * 0.2)
 
