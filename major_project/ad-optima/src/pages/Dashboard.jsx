@@ -10,11 +10,13 @@ function Dashboard() {  // Dashboard component to display campaign performance
     //simulation engine 
     //autoimpression and auto clicks generating for campaigns
     const updatedCampaigns = storedCampaigns.map((campaign) => {
+
+    //impression  
     const impressions = Math.floor(Math.random() * 1000) + 100  //to scale the random number into a large range and not to get 0 impression 
 
-      
-    const clicks =
-      Math.floor(impressions * Math.random() * 0.2)
+    
+    //clicks
+    const clicks = Math.floor(impressions * Math.random() * 0.2)
 
     return {
       ...campaign,
@@ -29,7 +31,7 @@ function Dashboard() {  // Dashboard component to display campaign performance
   )
 
 
-    setCampaigns(storedCampaigns)
+    setCampaigns(updatedCampaigns)
   }, [])
 
   return (
@@ -39,14 +41,29 @@ function Dashboard() {  // Dashboard component to display campaign performance
       {campaigns.length === 0 ? (
         <p>No campaigns created yet</p>
       ) : (
-        campaigns.map((campaign) => (
-          <div key={campaign.id}>
-            <h3>{campaign.title}</h3>
-            <p>Budget: ₹{campaign.budget}</p>
-            <p>Impressions: {campaign.impressions}</p>
-            <p>Clicks: {campaign.clicks}</p>
-          </div>
-        ))
+
+        campaigns.map((campaign)=>{
+          let ctr
+
+          if (campaign.impressions>0){
+            //click through rate
+            ctr = ((campaign.clicks/campaign.impressions)*100).toFixed(2)
+          }
+          else{
+            ctr=0
+          }
+
+          return(
+            <div key={campaign.id}>
+              <h3>{campaign.title}</h3>
+              <p>Budget:${campaign.budget}</p>
+              <p>Impressions: {campaign.impressions}</p>
+              <p>Clicks: {campaign.clicks}</p>
+              <p>CTR:{ctr}%</p>
+            </div>
+          )
+        })
+
       )}
     </>
   )

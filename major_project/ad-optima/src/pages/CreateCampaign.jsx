@@ -36,8 +36,8 @@ function CreateCampaign() {
           type="text"
           placeholder="Campaign Title"
           value={title}
-          onChange={(e) => setTitle(e.target.value)}  {/*captured typed text n updates state*/}
-        />
+          onChange={(e) => setTitle(e.target.value)}  
+        />{/*captured typed text n updates state*/}
 
         <input
           type="number"
