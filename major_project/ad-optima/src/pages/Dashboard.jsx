@@ -34,9 +34,34 @@ function Dashboard() {  // Dashboard component to display campaign performance
     setCampaigns(updatedCampaigns)
   }, [])
 
+
+  let bestCampaign = null
+  let highestCTR = 0
+
+  campaigns.forEach((campaign)=>{
+    let ctr = 0
+
+    if (campaign.impressions>0){
+      ctr =(campaign.clicks/campaign.impressions)*100
+    }
+
+    if(ctr > highestCTR){
+      highestCTR = ctr
+      bestCampaign = campaign
+    }
+  })
+
   return (
     <>
       <h1>Dashboard</h1>
+
+      {bestCampaign &&(
+      <div>
+        <h2>Best Performing Ad</h2>
+        <p>{bestCampaign.title}</p>
+        <p>CTR: {highestCTR.toFixed(2)}%</p>
+      </div>
+  )}
 
       {campaigns.length === 0 ? (
         <p>No campaigns created yet</p>
