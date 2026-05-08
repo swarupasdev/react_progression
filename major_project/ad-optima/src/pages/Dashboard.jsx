@@ -18,6 +18,8 @@ function Dashboard() {  // Dashboard component to display campaign performance
     //clicks
     const clicks = Math.floor(impressions * Math.random() * 0.2)
 
+
+    //object spread
     return {
       ...campaign,
       impressions,
