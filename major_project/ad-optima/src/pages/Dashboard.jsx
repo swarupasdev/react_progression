@@ -80,6 +80,18 @@ function Dashboard() {  // Dashboard component to display campaign performance
             ctr=0
           }
 
+          let recommendation = ""
+
+            if (ctr > 10) {
+                recommendation = "Increase Budget"
+            }
+            else if (ctr < 3) {
+                recommendation = "Pause Campaign"
+            }
+            else {
+                recommendation = "Monitor Performance"
+            }
+
           return(
             <div key={campaign.id}>
               <h3>{campaign.title}</h3>
@@ -87,6 +99,7 @@ function Dashboard() {  // Dashboard component to display campaign performance
               <p>Impressions: {campaign.impressions}</p>
               <p>Clicks: {campaign.clicks}</p>
               <p>CTR:{ctr}%</p>
+              <p>Recommendation: {recommendation}</p>
             </div>
           )
         })
