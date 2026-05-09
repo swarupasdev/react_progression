@@ -7,6 +7,11 @@ function CreateCampaign() {
   function handleSubmit(e) {  //event object
     e.preventDefault()   //prevent refresh after submission
 
+    if (title === ""|| budget===""||variant === ""){
+      alert("All fields are required")
+      return
+    }
+
     const newCampaign = {
       id: Date.now(),
       title,
@@ -16,18 +21,17 @@ function CreateCampaign() {
       clicks: 0
     }
 
-    const existingCampaigns=
-      JSON.parse(localStorage.getItem("campaigns"))||[]  //preventing null errors 
-    const updatedCampaigns=[...existingCampaigns,newCampaign]   //spread operator
-    localStorage.setItem(
-      "campaigns",
-      JSON.stringify(updatedCampaigns)
-    ) 
+    const existingCampaigns = JSON.parse(localStorage.getItem("campaigns"))||[]  //preventing null errors 
+
+    const updatedCampaigns = [...existingCampaigns,newCampaign]   //spread operator
+
+    localStorage.setItem("campaigns",JSON.stringify(updatedCampaigns)) 
+
     console.log("Campaign Created:", newCampaign)
 
     setTitle("")  //clears title input after create
     setBudget("") //clears budjet input
-    setVariant("")
+    setVariant("")  // clears variant input
   }
 
   return (
