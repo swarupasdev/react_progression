@@ -37,7 +37,7 @@ function Dashboard() {  // Dashboard component to display campaign performance
     setCampaigns(updatedCampaigns)
   }, [])
 
-
+  //best campaign logic
   let bestCampaign = null
   let highestCTR = 0
 
@@ -54,6 +54,41 @@ function Dashboard() {  // Dashboard component to display campaign performance
     }
   })
 
+  //grouping logic
+  let variantWinner = null
+  let highestVariantCTR = 0
+
+  const groupedCampaigns={}
+
+  campaigns.forEach((campaign)=>{
+    if (!groupedCampaigns[campaign.title]){
+      groupedCampaigns[campaign.title]=[]
+    }
+
+    groupedCampaigns[campaign.title].push(campaign)
+
+  })
+
+  //find winning variant
+  Object.values(groupedCampaigns).forEach((group)=>{
+    if (group.length >= 2){
+      group.forEach((campaign)=>{
+        let ctr = 0
+        if (campaign.impressions>0){
+          ctr = (campaign.clicks/campaign.impressions)*100
+        }
+
+        if (ctr>highestVariantCTR){
+          highestVariantCTR = ctr
+          variantWinner = campaign
+        }
+
+      })
+    }
+  })
+
+
+  //delete Campaign
   function deleteCampaign(id){
     const updatedCampaigns = campaigns.filter(   //except the selected campaign it keeps everything else 
       (campaign)=>campaign.id!==id
@@ -63,20 +98,31 @@ function Dashboard() {  // Dashboard component to display campaign performance
 
     localStorage.setItem("campaigns",JSON.stringify(updatedCampaigns))
   }
+
+
   return (
     <>
       <h1>Dashboard</h1>
 
       {bestCampaign &&(
-      <div>
-        <h2>Best Performing Ad</h2>
-        <p>{bestCampaign.title}</p>
-        <p>CTR: {highestCTR.toFixed(2)}%</p>
-      </div>
-  )}
+          <div>
+            <h2>Best Performing Ad</h2>
+            <p>{bestCampaign.title}</p>
+            <p>CTR: {highestCTR.toFixed(2)}%</p>
+          </div>
+      )}
   
+      {variantWinner && (
+        <div>
+          <h2>A/B Test winner</h2>
+          <p>{variantWinner.title}</p>
+          <p>Variant: {variantWinner.variant}</p>
+          <p>CTR: {highestVariantCTR.toFixed(2)}%</p>
+        </div>
+      )}
+
   <CampaignChart campaigns={campaigns}/>
-  
+
       {campaigns.length === 0 ? (
         <p>No campaigns created yet</p>
       ) : (
@@ -103,7 +149,9 @@ function Dashboard() {  // Dashboard component to display campaign performance
             else {
                 recommendation = "Monitor Performance"
             }
+      
 
+            
           return(
             <div key={campaign.id}>
               <h3>{campaign.title}</h3>
