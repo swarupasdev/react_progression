@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import CampaignChart from "../components/CampaignChart"
 
 function Dashboard() {  // Dashboard component to display campaign performance
   const [campaigns, setCampaigns] = useState([])
@@ -73,7 +74,9 @@ function Dashboard() {  // Dashboard component to display campaign performance
         <p>CTR: {highestCTR.toFixed(2)}%</p>
       </div>
   )}
-
+  
+  <CampaignChart campaigns={campaigns}/>
+  
       {campaigns.length === 0 ? (
         <p>No campaigns created yet</p>
       ) : (
