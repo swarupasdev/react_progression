@@ -53,6 +53,15 @@ function Dashboard() {  // Dashboard component to display campaign performance
     }
   })
 
+  function deleteCampaign(id){
+    const updatedCampaigns = campaigns.filter(   //except the selected campaign it keeps everything else 
+      (campaign)=>campaign.id!==id
+    )
+
+    setCampaigns(updatedCampaigns)
+
+    localStorage.setItem("campaigns",JSON.stringify(updatedCampaigns))
+  }
   return (
     <>
       <h1>Dashboard</h1>
@@ -100,6 +109,7 @@ function Dashboard() {  // Dashboard component to display campaign performance
               <p>Clicks: {campaign.clicks}</p>
               <p>CTR:{ctr}%</p>
               <p>Recommendation: {recommendation}</p>
+              <button onClick={(e)=>deleteCampaign(campaign.id)}>Delete</button>
             </div>
           )
         })
