@@ -2,6 +2,7 @@ import { useState } from "react"
 function CreateCampaign() {
   const [title, setTitle] = useState("")
   const [budget, setBudget] = useState("")
+  const [variant, setVariant] = useState("")
 
   function handleSubmit(e) {  //event object
     e.preventDefault()   //prevent refresh after submission
@@ -9,6 +10,7 @@ function CreateCampaign() {
     const newCampaign = {
       id: Date.now(),
       title,
+      variant,
       budget,
       impressions: 0,
       clicks: 0
@@ -25,6 +27,7 @@ function CreateCampaign() {
 
     setTitle("")  //clears title input after create
     setBudget("") //clears budjet input
+    setVariant("")
   }
 
   return (
@@ -46,6 +49,12 @@ function CreateCampaign() {
           onChange={(e) => setBudget(e.target.value)}
         />
 
+        <input
+          type="text"
+          placeholder="variant name (A/B)"
+          value={variant}
+          onChange={(e)=>setVariant(e.target.value)}
+        />  
         <button type="submit">Create</button>
       </form>
     </>
