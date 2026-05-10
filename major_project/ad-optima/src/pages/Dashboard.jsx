@@ -3,6 +3,7 @@ import CampaignChart from "../components/CampaignChart"
 
 function Dashboard() {  // Dashboard component to display campaign performance
   const [campaigns, setCampaigns] = useState([])
+  const [searchterm, setSearchterm] = useState('')
 
   //useEffect part usually runs after the component mounts
   useEffect(() => {
@@ -99,6 +100,8 @@ function Dashboard() {  // Dashboard component to display campaign performance
     localStorage.setItem("campaigns",JSON.stringify(updatedCampaigns))
   }
 
+  const filteredCampaigns = campaigns.filter((campaign) =>
+  campaign.title.toLowerCase().includes(searchterm.toLowerCase()))
 
   return (
     <>
@@ -121,13 +124,20 @@ function Dashboard() {  // Dashboard component to display campaign performance
         </div>
       )}
 
+  <input
+      type="text"
+      placeholder="Search campaigns"
+      value={searchterm}
+      onChange={(e) => setSearchterm(e.target.value)}
+  />
+
   <CampaignChart campaigns={campaigns}/>
 
       {campaigns.length === 0 ? (
         <p>No campaigns created yet</p>
       ) : (
 
-        campaigns.map((campaign)=>{
+        filteredCampaigns.map((campaign)=>{
           let ctr
 
           if (campaign.impressions>0){
