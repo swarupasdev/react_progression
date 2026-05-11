@@ -99,7 +99,7 @@ function Dashboard() {  // Dashboard component to display campaign performance
 
     localStorage.setItem("campaigns",JSON.stringify(updatedCampaigns))
   }
-
+  //filtering campaign logic
   const filteredCampaigns = campaigns.filter((campaign) =>
   campaign.title.toLowerCase().includes(searchterm.toLowerCase()))
 
