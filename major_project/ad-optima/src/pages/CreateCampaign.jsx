@@ -1,4 +1,8 @@
 import { useState } from "react"
+import { databases, DATABASE_ID, COLLECTION_ID} from "../config/Appwrite"
+import { ID } from "appwrite"
+
+
 function CreateCampaign() {
   const [title, setTitle] = useState("")
   const [budget, setBudget] = useState("")
@@ -21,11 +25,27 @@ function CreateCampaign() {
       clicks: 0
     }
 
-    const existingCampaigns = JSON.parse(localStorage.getItem("campaigns"))||[]  //preventing null errors 
+    databases.createDocument(
 
-    const updatedCampaigns = [...existingCampaigns,newCampaign]   //spread operator
-
-    localStorage.setItem("campaigns",JSON.stringify(updatedCampaigns)) 
+      DATABASE_ID, 
+      COLLECTION_ID, 
+      ID.unique(),
+      {
+        title,
+         budget: Number(budget),
+         variant,
+         impressions: 0,
+         clicks: 0,
+         userID: "user123"
+      }
+    )
+    .then((response)=>{
+      console.log("Campaign saved to Appwrite",response)
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+    
 
     console.log("Campaign Created:", newCampaign)
 
