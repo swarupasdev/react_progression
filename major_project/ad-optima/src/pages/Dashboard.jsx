@@ -102,7 +102,7 @@ function Dashboard() {  // Dashboard component to display campaign performance
     )
     .then(()=>{
     const updatedCampaigns = campaigns.filter(   //except the selected campaign it keeps everything else 
-      (campaign)=>campaign.id!==id
+      (campaign)=>campaign.$id!==id
     )
 
     setCampaigns(updatedCampaigns)
@@ -175,14 +175,14 @@ function Dashboard() {  // Dashboard component to display campaign performance
 
             
           return(
-            <div key={campaign.id}>
+            <div key={campaign.$id}>
               <h3>{campaign.title}</h3>
               <p>Budget:${campaign.budget}</p>
               <p>Impressions: {campaign.impressions}</p>
               <p>Clicks: {campaign.clicks}</p>
               <p>CTR:{ctr}%</p>
               <p>Recommendation: {recommendation}</p>
-              <button onClick={(e)=>deleteCampaign(campaign.id)}>Delete</button>
+              <button onClick={(e)=>deleteCampaign(campaign.$id)}>Delete</button>
             </div>
           )
         })
