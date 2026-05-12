@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import CampaignChart from "../components/CampaignChart"
+import { databases, DATABASE_ID, COLLECTION_ID } from "../config/Appwrite"
 
 function Dashboard() {  // Dashboard component to display campaign performance
   const [campaigns, setCampaigns] = useState([])
@@ -7,37 +8,39 @@ function Dashboard() {  // Dashboard component to display campaign performance
 
   //useEffect part usually runs after the component mounts
   useEffect(() => {
-    const storedCampaigns = JSON.parse(localStorage.getItem("campaigns")) || []
+    databases.listDocuments(
+      DATABASE_ID,
+      COLLECTION_ID
+    ).then((response)=>{
+            const storedCampaigns = response.documents
+    
 
-    //simulation engine 
-    //autoimpression and auto clicks generating for campaigns
-    const updatedCampaigns = storedCampaigns.map((campaign) => {
+              //simulation engine 
+              //autoimpression and auto clicks generating for campaigns
+            const updatedCampaigns = storedCampaigns.map((campaign) => {
 
-    //impression  
-    const impressions = Math.floor(Math.random() * 1000) + 100  //to scale the random number into a large range and not to get 0 impression 
+                //impression  
+                const impressions = Math.floor(Math.random() * 1000) + 100  //to scale the random number into a large range and not to get 0 impression 
 
     
-    //clicks
-    const clicks = Math.floor(impressions * Math.random() * 0.2)
+                //clicks
+                const clicks = Math.floor(impressions * Math.random() * 0.2)
 
 
-    //object spread
-    return {
-      ...campaign,
-      impressions,
-      clicks
-    }
+                //object spread
+                return {
+                  ...campaign,
+                  impressions,
+                  clicks
+                }
+            })
+
+          setCampaigns(updatedCampaigns)
+      }).catch((error)=>{
+        console.log(error)
+      })
+
   })
-
-  localStorage.setItem(
-    "campaigns",
-    JSON.stringify(updatedCampaigns)
-  )
-
-
-    setCampaigns(updatedCampaigns)
-  }, [])
-
   //best campaign logic
   let bestCampaign = null
   let highestCTR = 0
@@ -70,6 +73,7 @@ function Dashboard() {  // Dashboard component to display campaign performance
 
   })
 
+
   //find winning variant
   Object.values(groupedCampaigns).forEach((group)=>{
     if (group.length >= 2){
@@ -91,13 +95,21 @@ function Dashboard() {  // Dashboard component to display campaign performance
 
   //delete Campaign
   function deleteCampaign(id){
+    databases.deleteDocument(
+      DATABASE_ID,
+      COLLECTION_ID,
+      id
+    )
+    .then(()=>{
     const updatedCampaigns = campaigns.filter(   //except the selected campaign it keeps everything else 
       (campaign)=>campaign.id!==id
     )
 
     setCampaigns(updatedCampaigns)
 
-    localStorage.setItem("campaigns",JSON.stringify(updatedCampaigns))
+  }).catch((error)=>{
+    console.log(error)
+  })
   }
   //filtering campaign logic
   const filteredCampaigns = campaigns.filter((campaign) =>
