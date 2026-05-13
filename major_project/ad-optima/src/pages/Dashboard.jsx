@@ -8,7 +8,7 @@ function Dashboard() { // Dashboard component to display campaign performance
 
   //useEffect part usually runs after the component mounts
   useEffect(() => {
-    async function fetchCampaign(){
+    async function fetchCampaigns(){
       try {
         
       const user = await account.get()
