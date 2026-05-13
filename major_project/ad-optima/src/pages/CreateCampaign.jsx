@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { databases, DATABASE_ID, COLLECTION_ID} from "../config/Appwrite"
+import { databases,account, DATABASE_ID, COLLECTION_ID} from "../config/Appwrite"
 import { ID } from "appwrite"
 
 
@@ -8,7 +8,7 @@ function CreateCampaign() {
   const [budget, setBudget] = useState("")
   const [variant, setVariant] = useState("")
 
-  function handleSubmit(e) {  //event object
+  async function handleSubmit(e) {  //event object
     e.preventDefault()   //prevent refresh after submission
 
     if (title === ""|| budget===""||variant === ""){
@@ -25,6 +25,8 @@ function CreateCampaign() {
       clicks: 0
     }
 
+    const user = await account.get()
+
     databases.createDocument(
 
       DATABASE_ID, 
@@ -36,7 +38,7 @@ function CreateCampaign() {
          variant,
          impressions: 0,
          clicks: 0,
-         userID: "user123"
+         userID: user.$id
       }
     )
     .then((response)=>{

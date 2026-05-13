@@ -1,17 +1,24 @@
 import { useEffect, useState } from "react"
 import CampaignChart from "../components/CampaignChart"
-import { databases, DATABASE_ID, COLLECTION_ID } from "../config/Appwrite"
-
-function Dashboard() {  // Dashboard component to display campaign performance
+import { databases, account, DATABASE_ID, COLLECTION_ID } from "../config/Appwrite"
+import {Query} from "appwrite"
+function Dashboard() { // Dashboard component to display campaign performance
   const [campaigns, setCampaigns] = useState([])
   const [searchterm, setSearchterm] = useState('')
 
   //useEffect part usually runs after the component mounts
   useEffect(() => {
-    databases.listDocuments(
-      DATABASE_ID,
-      COLLECTION_ID
-    ).then((response)=>{
+    async function fetchCampaign(){
+      try {
+        
+      const user = await account.get()
+      const response = await databases.listDocuments(
+          DATABASE_ID,
+          COLLECTION_ID
+          [
+            Query.equal("userID",user.$id)
+          ]
+        )       
             const storedCampaigns = response.documents
     
 
@@ -36,11 +43,13 @@ function Dashboard() {  // Dashboard component to display campaign performance
             })
 
           setCampaigns(updatedCampaigns)
-      }).catch((error)=>{
+    } catch (error) {
         console.log(error)
-      })
+      }
+  }  
+   fetchCampaigns()
+  },[])
 
-  })
   //best campaign logic
   let bestCampaign = null
   let highestCTR = 0
@@ -136,14 +145,14 @@ function Dashboard() {  // Dashboard component to display campaign performance
         </div>
       )}
 
-  <input
+      <input
       type="text"
       placeholder="Search campaigns"
       value={searchterm}
       onChange={(e) => setSearchterm(e.target.value)}
-  />
+    />
 
-  <CampaignChart campaigns={campaigns}/>
+      <CampaignChart campaigns={campaigns}/>
 
       {campaigns.length === 0 ? (
         <p>No campaigns created yet</p>
