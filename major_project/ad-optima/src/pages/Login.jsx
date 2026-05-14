@@ -1,7 +1,10 @@
-import { useContext } from "react"
-import { useNavigate } from "react-router-dom"
-import { account } from "../config/Appwrite"
+// import { useContext } from "react"
+// import { useNavigate } from "react-router-dom"
+// import { account } from "../config/Appwrite"
 
+import { useState } from "react"
+import { account } from "../config/Appwrite"
+import { useNavigate } from "react-router-dom"
 function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -10,11 +13,11 @@ function Login() {
   async function handleLogic(e){
         e.preventDefault()
         try{
-          const session = await account.createEmailPasswordSession(
+            await account.createEmailPasswordSession(
             email,
             password
           )
-          console.log("Logged in:", session)
+          console.log("Logged in:")
 
           navigate("/dashboard")
         } catch (error){
