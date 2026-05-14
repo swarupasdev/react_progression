@@ -12,11 +12,12 @@ function Login() {
   async function handleLogin(e){
         e.preventDefault()
         try{
+          await account.deleteSession("current").catch(() => {})but
           const response =  await account.createEmailPasswordSession(
             email,
             password
           )
-          console.log(response)
+          console.log("Login Succesful",response)
 
           navigate("/dashboard")
         } catch (error){
