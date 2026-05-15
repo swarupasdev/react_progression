@@ -12,18 +12,19 @@ function Navbar({ title }) {
       <div style={{ display: "flex", gap: "15px" }}>
         <Link to="/">Home</Link>
 
-        {user ? (
-          <>
-            <span>{user.name}</span>
-            <button onClick={logout}>Logout</button>
-          </>
+      {user ? (
+        <>
+          <Link to="/dashboard">Dashboard</Link>
+          <Link to="/create">Create</Link>
+          <span>{user.name}</span>
+          <button onClick={logout}>Logout</button>
+       </>
         ) : (
-          <>
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Signup</Link>
-            <Link to="/create">Create</Link>
-          </>
-        )}
+       <>
+          <Link to="/login">Login</Link>
+          <Link to="/signup">Signup</Link>
+       </>
+      )}
       </div>
     </nav>
   )
