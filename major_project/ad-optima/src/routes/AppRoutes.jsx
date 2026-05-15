@@ -1,43 +1,81 @@
-// decides which page should open for which URL
+// // decides which page should open for which URL
 
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Layout from "../layouts/Layout"
-import ProtectedRoute from "./ProtectedRoute"
-import Home from "../pages/Home"
-import Login from "../pages/Login"
-import Signup from "../pages/Signup"
-import Dashboard from "../pages/Dashboard"
-import CreateCampaign from "../pages/CreateCampaign"
+// import { BrowserRouter, Routes, Route } from "react-router-dom"
+// import Layout from "../layouts/Layout"
+// import ProtectedRoute from "./ProtectedRoute"
+// import Home from "../pages/Home"
+// import Login from "../pages/Login"
+// import Signup from "../pages/Signup"
+// import Dashboard from "../pages/Dashboard"
+// import CreateCampaign from "../pages/CreateCampaign"
 
-function AppRoutes() {
+// function AppRoutes() {
+//   return (
+//     <BrowserRouter>{/*enables routing using URL*/}
+//       <Routes>{/*cotainer for all routes */}
+//         <Route path="/" element={<Layout />}> {/*defines one route*/}
+//           <Route index element={<Home />} />
+//           <Route path="login" element={<Login />} />
+//           <Route path="signup" element={<Signup />} />
+//           <Route
+//             path="dashboard"
+//             element={
+
+//               <ProtectedRoute>
+//                  <Dashboard />     {/*Dashboard under protected route*/}
+//               </ProtectedRoute>
+//             }
+//           />
+//         </Route>
+//         <Route
+//           path="create"
+//           element={
+//             <ProtectedRoute>
+//               <CreateCampaign/>    {/*CreateCampaign under protected route*/}
+//             </ProtectedRoute>
+//           }
+//         />
+//       </Routes>
+//     </BrowserRouter>
+//   )
+// }
+
+// export default AppRoutes
+
+import { createContext, useEffect, useState } from "react"
+import { account } from "../config/Appwrite"
+
+export const AuthContext = createContext()
+
+function AuthProvider({ children }) {
+  const [user, setUser] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function checkUser() {
+      try {
+        const currentUser = await account.get()
+
+        console.log("Current User:", currentUser)
+
+        setUser(currentUser)
+      } 
+      catch (error) {
+        console.log(error)
+        setUser(null)
+      }
+
+      setLoading(false)
+    }
+
+    checkUser()
+  }, [])
+
   return (
-    <BrowserRouter>{/*enables routing using URL*/}
-      <Routes>{/*cotainer for all routes */}
-        <Route path="/" element={<Layout />}> {/*defines one route*/}
-          <Route index element={<Home />} />
-          <Route path="login" element={<Login />} />
-          <Route path="signup" element={<Signup />} />
-          <Route
-            path="dashboard"
-            element={
-
-              <ProtectedRoute>
-                 <Dashboard />     {/*Dashboard under protected route*/}
-              </ProtectedRoute>
-            }
-          />
-        </Route>
-        <Route
-          path="create"
-          element={
-            <ProtectedRoute>
-              <CreateCampaign/>    {/*CreateCampaign under protected route*/}
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
-    </BrowserRouter>
+    <AuthContext.Provider value={{ user, loading, setUser }}>
+      {children}
+    </AuthContext.Provider>
   )
 }
 
-export default AppRoutes
+export default AuthProvider

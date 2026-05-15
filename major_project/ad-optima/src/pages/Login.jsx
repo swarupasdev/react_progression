@@ -12,7 +12,7 @@ function Login() {
   async function handleLogin(e){
         e.preventDefault()
         try{
-          await account.deleteSession("current").catch(() => {})but
+          await account.deleteSession("current").catch(() => {})
           const response =  await account.createEmailPasswordSession(
             email,
             password
