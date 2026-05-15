@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import CampaignChart from "../components/CampaignChart"
 import { databases, account, DATABASE_ID, COLLECTION_ID } from "../config/Appwrite"
 import {Query} from "appwrite"
+
 function Dashboard() { // Dashboard component to display campaign performance
   const [campaigns, setCampaigns] = useState([])
   const [searchterm, setSearchterm] = useState('')
@@ -14,7 +15,7 @@ function Dashboard() { // Dashboard component to display campaign performance
       const user = await account.get()
       const response = await databases.listDocuments(
           DATABASE_ID,
-          COLLECTION_ID
+          COLLECTION_ID,
           [
             Query.equal("userID",user.$id)
           ]
