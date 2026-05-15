@@ -48,32 +48,24 @@ import { account } from "../config/Appwrite"
 
 export const AuthContext = createContext()
 
-function AuthProvider({ children }) {
+export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    async function checkUser() {
-      try {
-        const currentUser = await account.get()
-
-        console.log("Current User:", currentUser)
-
-        setUser(currentUser)
-      } 
-      catch (error) {
-        console.log(error)
+    account.get()
+      .then((response) => {
+        setUser(response)
+        setLoading(false)
+      })
+      .catch(() => {
         setUser(null)
-      }
-
-      setLoading(false)
-    }
-
-    checkUser()
+        setLoading(false)
+      })
   }, [])
 
   return (
-    <AuthContext.Provider value={{ user, loading, setUser }}>
+    <AuthContext.Provider value={{ user, setUser, loading }}>
       {children}
     </AuthContext.Provider>
   )
