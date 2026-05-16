@@ -12,6 +12,13 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",
     "appwrite": "^25.0.0",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.22.3",
+    "nodemon": "^3.1.14",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router-dom": "^7.14.2",
@@ -28,5 +35,10 @@
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.4.0",
     "vite": "^8.0.4"
-  }
+  },
+  "description": "![Alternative Text](./additional/System%20Architecture%20Diagram)",
+  "main": "eslint.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
