@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { ID } from "appwrite"
-import { account } from "../config/Appwrite"
+// import { ID } from "appwrite"
+// import { account } from "../config/Appwrite"
 import { useNavigate } from "react-router-dom"
 
 function Signup() {
@@ -14,16 +14,28 @@ function Signup() {
     e.preventDefault()
 
     try{
-      const response = await account.create(
-        ID.unique(),
-        email,
-        password,
-        name
+      const response = await fetch(
+        "http://localhost:5000/api/auth/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type":"application/json"
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            passowrd
+          })
+        }
       )
 
-      console.log("User created:", response)
+      const data = await response.json()
 
-      navigate("/login")
+      console.log(data)
+
+      if(response.ok){
+        navigate("/login")
+      }
 
     }catch(error){
       console.log(error)
