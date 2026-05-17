@@ -1,9 +1,7 @@
-import { useContext } from "react"
-//import { account } from "../config/Appwrite"
-
 import { useState } from "react"
-import { account } from "../config/Appwrite"
 import { useNavigate } from "react-router-dom"
+
+
 function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -12,12 +10,19 @@ function Login() {
   async function handleLogin(e){
         e.preventDefault()
         try{
-          await account.deleteSession("current").catch(() => {})
-          const response =  await account.createEmailPasswordSession(
-            email,
-            password
+          const response = await fetch(
+            "http://localhost:5000/api/auth/login",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type":"application/json"
+              },
+              body: JSON.stringify({
+                email,
+                password
+              })
+            }
           )
-          console.log("Login Succesful",response)
 
           navigate("/dashboard")
         } catch (error){
