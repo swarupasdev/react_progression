@@ -10,22 +10,21 @@ function Dashboard() { // Dashboard component to display campaign performance
   //useEffect part usually runs after the component mounts
   useEffect(() => {
     async function fetchCampaigns(){
+      const user = JSON.parse(
+      localStorage.getItem("user")
+      )
       try {
         
-      const user = await account.get()
-      const response = await databases.listDocuments(
-          DATABASE_ID,
-          COLLECTION_ID,
-          [
-            Query.equal("userID",user.$id)
-          ]
-        )       
-            const storedCampaigns = response.documents
-    
+      const response = await fetch(
 
+        `http://localhost:5000/api/campaigns/${user.id}`
+
+      )
+
+      const data = await response.json()
               //simulation engine 
               //autoimpression and auto clicks generating for campaigns
-            const updatedCampaigns = storedCampaigns.map((campaign) => {
+            const updatedCampaigns = data.map((campaign) => {
 
                 //impression  
                 const impressions = Math.floor(Math.random() * 1000) + 100  //to scale the random number into a large range and not to get 0 impression 
