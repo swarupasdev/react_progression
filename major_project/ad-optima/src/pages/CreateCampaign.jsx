@@ -11,42 +11,39 @@ function CreateCampaign() {
   async function handleSubmit(e) {  //event object
     e.preventDefault()   //prevent refresh after submission
 
-    if (title === ""|| budget===""||variant === ""){
-      alert("All fields are required")
-      return
-    }
-
-    const newCampaign = {
-      id: Date.now(),
-      title,
-      variant,
-      budget,
-      impressions: 0,
-      clicks: 0
-    }
-
-    const user = await account.get()
-
-    databases.createDocument(
-
-      DATABASE_ID, 
-      COLLECTION_ID, 
-      ID.unique(),
-      {
-        title,
-         budget: Number(budget),
-         variant,
-         impressions: 0,
-         clicks: 0,
-         userID: user.$id
-      }
+    const user = JSON.parse(
+      localStorage.getItem("user")
     )
-    .then((response)=>{
-      console.log("Campaign saved to Appwrite",response)
-    })
-    .catch((error)=>{
+    try{
+
+      const response = await fetch(
+        "http://localhost:5000/api/campaigns",
+        {
+          method: "POST",
+          headers:{
+            "Content-Type":"application/json"
+          },
+          body: JSON.stringify({
+            title,
+            budget,
+            variant,
+            user_id: user.id
+          })
+        }
+      )
+
+      const data = await response.json()
+      
+      console.log(data)
+      if(response.ok){
+        setTitle("")
+        setBudget("")
+        setVariant("")
+      }
+    }catch(error){
       console.log(error)
-    })
+    }
+  }
     
 
     console.log("Campaign Created:", newCampaign)
@@ -85,6 +82,5 @@ function CreateCampaign() {
       </form>
     </>
   )
-}
 
 export default CreateCampaign
