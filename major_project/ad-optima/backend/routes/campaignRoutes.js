@@ -27,4 +27,19 @@ router.post("/",(req,res)=>{
   )
 })
 
+router.get("/:userId", (req,res)=>{
+  const userId = req.params.userId
+
+  const sql =
+    "SELECT * FROM campaigns WHERE user_id=?"
+
+  db.query(sql,[userId],(err,result)=>{
+    if(err){
+      return res.status(500).json(err)
+    }
+
+    res.json(result)
+  })
+})
+
 export default router
