@@ -1,31 +1,51 @@
-import { Link } from "react-router-dom" //client side navigation
-import { useContext } from "react"
-import { AuthContext } from "../context/AuthContext"
+import { Link, useNavigate } from "react-router-dom"
 
-function Navbar({ title }) {
-  const { user, logout } = useContext(AuthContext)
+function Navbar() {
+
+  const navigate = useNavigate()
+
+  const user = JSON.parse(
+    localStorage.getItem("user")
+  )
+
+  function handleLogout(){
+
+    localStorage.removeItem("user")
+    localStorage.removeItem("token")
+
+    navigate("/login")
+  }
 
   return (
-    <nav style={{ display: "flex", justifyContent: "space-between" }}>
-      <h2>{title}</h2>
+    <nav
+      style={{
+        display:"flex",
+        justifyContent:"flex-end",
+        gap:"20px",
+        padding:"20px"
+      }}
+    >
 
-      <div style={{ display: "flex", gap: "15px" }}>
-        <Link to="/">Home</Link>
+      <Link to="/">Home</Link>
 
-      {user ? (
+      {!user ? (
+        <>
+          <Link to="/login">Login</Link>
+          <Link to="/signup">Signup</Link>
+        </>
+      ) : (
         <>
           <Link to="/dashboard">Dashboard</Link>
           <Link to="/create">Create</Link>
+
           <span>{user.name}</span>
-          <button onClick={logout}>Logout</button>
-       </>
-        ) : (
-       <>
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Signup</Link>
-       </>
+
+          <button onClick={handleLogout}>
+            Logout
+          </button>
+        </>
       )}
-      </div>
+
     </nav>
   )
 }
