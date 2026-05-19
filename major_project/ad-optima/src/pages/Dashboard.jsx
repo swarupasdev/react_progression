@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react"
 import CampaignChart from "../components/CampaignChart"
-import { databases, account, DATABASE_ID, COLLECTION_ID } from "../config/Appwrite"
-import {Query} from "appwrite"
 
 function Dashboard() { // Dashboard component to display campaign performance
   const [campaigns, setCampaigns] = useState([])
@@ -103,23 +101,26 @@ function Dashboard() { // Dashboard component to display campaign performance
 
 
   //delete Campaign
-  function deleteCampaign(id){
-    databases.deleteDocument(
-      DATABASE_ID,
-      COLLECTION_ID,
-      id
-    )
-    .then(()=>{
-    const updatedCampaigns = campaigns.filter(   //except the selected campaign it keeps everything else 
-      (campaign)=>campaign.$id!==id
-    )
+  async function deleteCampaign(id){
+    try{
 
-    setCampaigns(updatedCampaigns)
+      const response = await fetch(
+        `http://localhost:5000/api/campaigns/${id}`,
+        {
+          method: "DELETE"
+        }
+      )
+        const updatedCampaigns = campaigns.filter(   //except the selected campaign it keeps everything else 
+          (campaign)=>campaign.id!==id
+        )
 
-  }).catch((error)=>{
+      setCampaigns(updatedCampaigns)
+
+    }catch(error){
     console.log(error)
-  })
+    }
   }
+  
   //filtering campaign logic
   const filteredCampaigns = campaigns.filter((campaign) =>
   campaign.title.toLowerCase().includes(searchterm.toLowerCase()))
