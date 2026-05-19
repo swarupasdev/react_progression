@@ -43,33 +43,34 @@ router.post("/login", (req, res) => {
     }
 
     if (result.length === 0) {
-      return res.json({
+      return res.status(401).json({
         message: "User not found"
       })
     }
 
     const user = result[0]
 
-    const match = await bcrypt.compare(
-      password,
-      user.password
-    )
+    const validPassword = await bcrypt.compare(password,user.password)
 
-    if (!match) {
-      return res.json({
+    if (!validPassword) {
+      return res.status(401).json({
         message: "Invalid password"
       })
     }
 
     const token = jwt.sign(
       { id: user.id },
-      "secretkey"
+      "secretkey",
+      {expiresIn:"1d"}
     )
 
     res.json({
-      message: "Login successful",
       token,
-      user
+      user:{
+        id:user.id,
+        name:user.name,
+        email:user.email
+      }
     })
   })
 })

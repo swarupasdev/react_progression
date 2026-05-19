@@ -24,7 +24,27 @@ function Login() {
             }
           )
 
+          const data = await response.json()
+
+          console.log(data)
+
+          if(response.ok){
+
+            localStorage.setItem(
+              "user",
+              JSON.stringify(data.user)
+            )
+
+            localStorage.setItem(
+              "token",
+              data.token
+            )
+
           navigate("/dashboard")
+
+          }else{
+            alert(data.message)
+          }
         } catch (error){
             console.log(error)
           }
