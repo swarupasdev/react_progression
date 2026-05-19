@@ -1,6 +1,4 @@
 import { useState } from "react"
-// import { ID } from "appwrite"
-// import { account } from "../config/Appwrite"
 import { useNavigate } from "react-router-dom"
 
 function Signup() {
@@ -24,7 +22,7 @@ function Signup() {
           body: JSON.stringify({
             name,
             email,
-            passowrd
+            password
           })
         }
       )

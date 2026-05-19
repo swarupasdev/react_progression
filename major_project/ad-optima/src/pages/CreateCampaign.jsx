@@ -1,6 +1,4 @@
 import { useState } from "react"
-import { databases,account, DATABASE_ID, COLLECTION_ID} from "../config/Appwrite"
-import { ID } from "appwrite"
 
 
 function CreateCampaign() {
@@ -10,6 +8,10 @@ function CreateCampaign() {
 
   async function handleSubmit(e) {  //event object
     e.preventDefault()   //prevent refresh after submission
+
+        if(!title || !budget || !variant){
+          return alert("Fill all fields")
+        }
 
     const user = JSON.parse(
       localStorage.getItem("user")
@@ -46,12 +48,7 @@ function CreateCampaign() {
   }
     
 
-    console.log("Campaign Created:", newCampaign)
 
-    setTitle("")  //clears title input after create
-    setBudget("") //clears budjet input
-    setVariant("")  // clears variant input
-  }
 
   return (
     <>
@@ -82,5 +79,6 @@ function CreateCampaign() {
       </form>
     </>
   )
+}  
 
 export default CreateCampaign
