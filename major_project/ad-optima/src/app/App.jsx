@@ -3,9 +3,11 @@ import { AuthProvider } from "../context/AuthContext"
 
 function App() {
   return (
-    <AuthProvider>
-      <AppRoutes />
-    </AuthProvider>
+    <>
+      <AuthProvider>
+        <AppRoutes />
+      </AuthProvider>
+    </>
   )
 }
 
