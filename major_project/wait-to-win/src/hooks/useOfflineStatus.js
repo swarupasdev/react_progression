@@ -3,7 +3,7 @@ import { useEffect, useState} from "react";
     
     const [isOffline, setOffline] = useState(!navigator.Online);
 
-    useEffect(()=>{
+    useEffect(()=>{                 //useEffect( effectFunction , dependencyArray )
         const goOffline = ()=> setIsOffline(true);
         const goOnline = ()=> setIsOffline(false);
 
