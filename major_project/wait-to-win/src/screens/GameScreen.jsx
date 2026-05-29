@@ -12,6 +12,7 @@ const messages = [
 export default function GameScreen() {
   const [points, setPoints] = useState(1);
   const [message, setMessage] = useState(messages[0]);
+  const [danger, setDanger] = useState(false);
 
   useEffect(() => {
     const rewardInterval = setInterval(() => {
@@ -26,25 +27,56 @@ export default function GameScreen() {
       setMessage(messages[randomIndex]);
     }, 3000);
 
+    const dangerInterval = setInterval(() => {
+      const randomChance = Math.random();
+
+      if (randomChance > 0.7) {
+        setDanger(true);
+      } else {
+        setDanger(false);
+      }
+    }, 2000);
+
     return () => {
       clearInterval(rewardInterval);
       clearInterval(messageInterval);
+      clearInterval(dangerInterval);
     };
   }, []);
 
   const claimReward = () => {
-    alert(`You claimed ${points} points`);
+    if (danger) {
+      alert("You got greedy and lost everything.");
+      setPoints(1);
+      return;
+    }
 
+    alert(`You claimed ${points} points`);
     setPoints(1);
   };
 
   return (
-    <div>
+    <div
+      style={{
+        height: "100vh",
+        background: danger ? "darkred" : "black",
+        color: "white",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        transition: "0.5s",
+      }}
+    >
       <h1>WAIT TO WIN</h1>
 
       <p>{message}</p>
 
       <h2>Reward: {points}</h2>
+
+      {danger && (
+        <h3>Danger Zone</h3>
+      )}
 
       <button onClick={claimReward}>
         Claim Now
