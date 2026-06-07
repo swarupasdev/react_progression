@@ -23,7 +23,7 @@ function sayMyName() {
 // Call the function
 sayMyName();
 
-function addTwoNum(num1, num2) {
+function addTwoNum(num1, num2) {   //paramemter is num1 , num2 . they are placeholders and created by coder while defining a function
     //let result = num1 + num2
     //return result   //have to return the value of the sum to the "result"
     //not a single print statement will print after return statement  or 
