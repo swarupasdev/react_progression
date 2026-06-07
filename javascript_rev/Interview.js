@@ -1,6 +1,8 @@
+//# function:
+
 // function update(user){
 
-//     user.name = "Rahul";
+//     user.name = "Rahul"; //mutation
 
 // }
                                     //reference copied
@@ -26,3 +28,24 @@ let x = 10;
 test(x);
 
 console.log(x);
+
+function update(user){
+
+    user = {
+        name: "Rahul"   //changeing local reference only 
+    };
+
+}
+
+
+let person = {
+    name: "Swarup"
+};
+
+
+update(person);
+
+
+console.log(person.name);
+
+//#hositing
