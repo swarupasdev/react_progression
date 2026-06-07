@@ -48,4 +48,14 @@ update(person);
 
 console.log(person.name);
 
+
+
 //#hositing
+
+hello();   //hoisted the fucntion 
+
+function hello(){
+
+    console.log("Hi");  //js already knew what hello() is during defining 
+
+}
