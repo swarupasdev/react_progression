@@ -61,7 +61,7 @@ function hello(){
 }
 
 
-// sayHi();  you cannnot access it before initilization
+// sayHi();  you cannnot access it before initilizatio
 
 // let sayHi = function(){
 
@@ -76,3 +76,26 @@ let sayHi = function(){
 
 };
 sayHi()  //correct way you can access this sayHi( ) only after expressing it completely 
+
+function add(a,b){
+
+    return a+b;     //
+
+}
+
+// #callback
+function greet(name){
+
+    console.log("Hello " + name);
+
+}
+    //callback function 
+
+function process(callback){      // A callback is a function passed as an argument to another function, so it can be executed later. It allows us to control execution flow and is commonly used in asynchronous JavaScript.
+
+    callback("Swarup");
+
+}
+
+
+process(greet);
