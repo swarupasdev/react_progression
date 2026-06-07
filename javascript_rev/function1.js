@@ -31,8 +31,14 @@ function addTwoNum(num1, num2) {   //paramemter is num1 , num2 . they are placeh
 
 }
 const result = addTwoNum(3, 4)//if nothing is given inside the parameter => output = NaN
-// that bracket bind is parameter and the values inside it are arguments
+// that bracket bind is parameter and the values inside it are arguments that 3,4 inisde [] is the argument
 console.log("Result is: ", result)
+
+// Parameter:
+// Variable while creating function
+
+// Argument:
+// Actual value while calling function
 
 function loginUserMessage(user){
     if (user == undefined){ 
