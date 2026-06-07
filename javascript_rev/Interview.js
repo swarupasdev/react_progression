@@ -99,3 +99,29 @@ function process(callback){      // A callback is a function passed as an argume
 
 
 process(greet);
+
+//#closure
+function outer(){
+
+    let count = 0;
+
+
+    return function inner(){
+
+        count++;
+
+        console.log(count);
+
+    }
+
+}
+
+
+let counter = outer();
+
+
+counter();
+
+counter();
+
+counter();
