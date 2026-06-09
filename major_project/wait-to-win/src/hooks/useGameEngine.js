@@ -130,3 +130,5 @@ export default function useGameEngine(){
 //class.Toggle()= used to hide if class exist and unhide if doesnt 
 //style.display='none' hide
 //style.display="flex" show 
+//event.target refers to the actual element that triggered the event
+//event.currentTarget referes to the element whwre the event listener is attached 
