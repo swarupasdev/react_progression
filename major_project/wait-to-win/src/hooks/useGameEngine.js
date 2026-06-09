@@ -132,3 +132,7 @@ export default function useGameEngine(){
 //style.display="flex" show 
 //event.target refers to the actual element that triggered the event
 //event.currentTarget referes to the element whwre the event listener is attached 
+//event.key gives you which key is being pressed
+//once:true executes the function only once
+//setTimeout executes a block of code after given time
+//nothing
