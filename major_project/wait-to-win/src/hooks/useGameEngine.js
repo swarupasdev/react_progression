@@ -122,3 +122,11 @@ export default function useGameEngine(){
     };
 
 }
+
+//createElement = creates tags inside <></>
+//.innerText =access text values inside 
+//.value = inputs value inside
+//.appendChild = paste whatever changes u r making under whatever id to dom 
+//class.Toggle()= used to hide if class exist and unhide if doesnt 
+//style.display='none' hide
+//style.display="flex" show 
