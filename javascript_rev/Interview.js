@@ -173,7 +173,7 @@ const cart = [
 ];
 
 
-const total = cart.reduce((sum,item)=>{
+const total = cart.reduce((sum,item)=>{   //reduce (accumulator,current value)
 
     return sum + item.price;
 
