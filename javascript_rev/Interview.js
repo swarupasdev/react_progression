@@ -618,3 +618,135 @@ const result20 = users20.filter((user20)=>{
     return user20.country==="India" && user20.skills.includes("JavaScript")
 })
 console.log(result20)
+
+
+//Q21:      Return only tasks created after 2025.
+//Api response
+const tasks21 = [
+
+ {id:1, title:"Task A", year:2024},
+
+ {id:2, title:"Task B", year:2025},
+
+ {id:3, title:"Task C", year:2026}
+
+];
+
+//my code
+const result21  =   tasks21.filter((task21)=>{
+    return task21.year>2025
+})
+console.log(result21)
+
+
+//Q22:      Remove users whose profile is not created yet.
+//Api response
+const users22 = [
+
+ {id:1, name:"Swarup", profile:{age:24}},
+
+ {id:2, name:"Rahul", profile:null},
+
+ {id:3, name:"Amit", profile:{age:30}}
+
+];
+
+//my code
+const result22 = users22.filter((user22)=>{
+    return user22.profile
+})
+console.log(result22)
+
+
+//Q23:      Return only unread notifications.
+//Api response
+const notifications = [
+
+ {id:1, message:"Hello", read:false},
+
+ {id:2, message:"Update", read:true},
+
+ {id:3, message:"Offer", read:false}
+
+];
+
+//my code
+const result23 = notifications.filter((notification)=>{
+    return !notification.read
+})
+console.log(result23)
+
+
+//Q24:      Return products that are eligible for discount. Product is eligible if price is above 5000 OR it is a premium product.
+//Api response
+const products24 = [
+
+ {id:1, name:"Laptop", price:60000, premium:false},
+
+ {id:2, name:"Mouse", price:500, premium:false},
+
+ {id:3, name:"Watch", price:3000, premium:true}
+
+];
+
+//my code
+const result24 = products24.filter((product24)=>{
+    return product24.price>5000 || product24.premium
+})
+console.log(result24)
+
+
+//Q25:      Return users who have at least one order above 10000.
+//Api response
+const users25 = [
+
+ {
+  id:1,
+  name:"Swarup",
+  orders:[
+    {amount:5000},
+    {amount:20000}
+  ]
+ },
+
+ {
+  id:2,
+  name:"Rahul",
+  orders:[
+    {amount:3000}
+  ]
+ }
+
+];
+
+//my code
+const result25=users25.filter((user25)=>{
+    return user25.orders.some((order)=>{
+        return order.amount>10000
+    })
+})
+console.log(result25)
+
+
+//Q26:      Return users where every score is above 50.
+//Api response
+const users26 = [
+
+ {
+  id:1,
+  name:"A",
+  scores:[70,80,90]
+ },
+
+ {
+  id:2,
+  name:"B",
+  scores:[90,40,100]
+ }
+
+];
+
+//my code
+const result26 = users26.filter((user26)=>{
+    return user26.id
+})
