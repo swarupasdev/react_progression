@@ -748,5 +748,221 @@ const users26 = [
 
 //my code
 const result26 = users26.filter((user26)=>{
-    return user26.id
+    return user26.scores.every((score)=>{
+        return score>50
+    })
 })
+console.log(result26)
+
+
+//Q27       Return courses that contain a student named Swarup.
+//Api response
+const courses27 = [
+
+ {
+  id:1,
+  name:"React",
+  students:[
+    {name:"Swarup"},
+    {name:"Rahul"}
+  ]
+ },
+
+ {
+  id:2,
+  name:"Python",
+  students:[
+    {name:"Amit"}
+  ]
+ }
+
+];
+
+//my code
+const searchName = "Swarup"
+const result27 = courses27.filter((course27)=>{
+    return course27.students.some((student)=>{
+        return student.name===searchName
+    })
+})
+console.log(JSON.stringify(result27))
+
+
+//Q28       "Return teams where all members are active."
+//Api response
+const teams = [
+
+ {
+  id:1,
+  name:"Frontend",
+  members:[
+    {name:"A", active:true},
+    {name:"B", active:true}
+  ]
+ },
+
+ {
+  id:2,
+  name:"Backend",
+  members:[
+    {name:"C", active:true},
+    {name:"D", active:false}
+  ]
+ }
+
+];
+
+//my code
+const result28 = teams.filter((team)=>{
+    return team.members.every((member)=>{
+        return member.active
+    })
+})
+console.log(JSON.stringify(result28))
+
+
+//Q29:      Return products that match selected category and are available in stock.
+//Api response
+const products29 = [
+
+ {id:1,name:"Laptop",category:"Electronics",stock:10},
+
+ {id:2,name:"Shirt",category:"Fashion",stock:20},
+
+ {id:3,name:"Phone",category:"Electronics",stock:0}
+
+];
+
+
+const selectedCategory = "Electronics";
+
+//my code
+const result29 = products29.filter((product29)=>{
+    return product29.category.toLowerCase().includes(selectedCategory.toLowerCase()) && product29.stock!==0
+})
+console.log(result29)
+
+
+//Q30:      Return employees who are active, belong to IT department, and have at least one completed project.
+//Api context
+const employees30 = [
+
+ {
+  id:1,
+  name:"Swarup",
+  active:true,
+  department:"IT",
+  projects:[
+    {name:"App", completed:true},
+    {name:"Web", completed:false}
+  ]
+ },
+
+ {
+  id:2,
+  name:"Rahul",
+  active:true,
+  department:"HR",
+  projects:[
+    {name:"HR Tool", completed:true}
+  ]
+ },
+
+ {
+  id:3,
+  name:"Amit",
+  active:true,
+  department:"IT",
+  projects:[
+    {name:"API", completed:false}
+  ]
+ }
+
+];
+
+//my code
+const result30 = employees30.filter((employee30)=>{
+    return employee30.active && employee30.department==='IT' && employee30.projects.some((project)=>{
+        return project.completed
+    })
+})
+console.log(JSON.stringify(result30))
+
+
+// #MAP GRIND
+
+//Q1:       "Return only the names of all users.
+//Api response
+const users31 = [
+
+ {id:1,name:"Swarup"},
+
+ {id:2,name:"Rahul"},
+
+ {id:3,name:"Amit"}
+
+];
+
+//my code
+const result31 = users31.map((user31)=>{
+    return user31.name
+})
+console.log(result31)
+
+
+//Q2:     Return an array containing only product prices.
+const products32 = [
+
+ {id:1,name:"Laptop",price:60000},
+
+ {id:2,name:"Mouse",price:500},
+
+ {id:3,name:"Keyboard",price:2000}
+
+];
+
+//my code
+const result32=products32.map((product32)=>{
+    return product32.price
+})
+console.log(result32)
+
+
+//Q3:       "Add 10% tax to every product price."
+//Api response
+const products33 = [
+
+ {id:1,name:"Laptop",price:60000},
+
+ {id:2,name:"Mouse",price:500}
+
+];
+
+//my code
+const result33=products33.map((product33)=>{
+    return  {
+        ...product33,
+        price: product33.price+(product33.price*(10/100))
+    }
+})
+console.log(result33)
+
+
+//Q4:       Convert all users to active users.
+//Api response
+const users34 = [
+
+ {id:1,name:"Swarup",active:false},
+
+ {id:2,name:"Rahul",active:false}
+
+];
+
+//my code
+const result34=users34.map((user34)=>{
+    return {
+        ...users,
+        active: user34.active=true                                                                                                                                       
+    }
+})
+console.log(result34)
