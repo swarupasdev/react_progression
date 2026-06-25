@@ -903,6 +903,7 @@ const users31 = [
 
 ];
 
+
 //my code
 const result31 = users31.map((user31)=>{
     return user31.name
@@ -961,8 +962,101 @@ const users34 = [
 //my code
 const result34=users34.map((user34)=>{
     return {
-        ...users,
-        active: user34.active=true                                                                                                                                       
+        ...user34,
+        active: true                                                                                                                                       
     }
 })
 console.log(result34)
+
+
+//Q5:       Increase every employee salary by 5000.
+//Api response
+const employees35 = [
+
+ {id:1,name:"Swarup",salary:50000},
+
+ {id:2,name:"Rahul",salary:60000}
+
+];
+
+//my code
+const result35 = employees35.map((employee35)=>{
+    return {
+        ...employee35,
+        salary :employee35.salary+5000
+    }
+
+    })
+console.log(result35)
+
+
+//Q6:       Add a new property role:'user' to every account.
+//Api response
+const accounts36 = [
+
+ {id:1,name:"Swarup"},
+
+ {id:2,name:"Rahul"}
+
+];
+
+//my code
+const result36=accounts36.map((account36)=>{
+    return{
+        ...account36,
+       // user :""
+       role:"user"
+    }
+})
+console.log(result36)
+
+
+//Q7:      Change only the user with id 2 to active:true.
+//Api response
+const users37 = [
+
+ {id:1,name:"Swarup",active:false},
+
+ {id:2,name:"Rahul",active:false},
+
+ {id:3,name:"Amit",active:false}
+
+];
+
+//my code
+const result37=users37.map((user37)=>{
+    if (user37.id===2){
+        return {
+            ...user37,
+            active:true
+        }
+    }
+    //
+    return user37
+})
+console.log(result37)
+
+
+//Q8:       Change only product id 3 price to 1000.
+//Api response
+const products38 = [
+
+ {id:1,name:"Laptop",price:60000},
+
+ {id:2,name:"Mouse",price:500},
+
+ {id:3,name:"Cable",price:200}
+
+];
+
+//my code
+const result38 = products38.map((product38)=>{
+    if(product38.id===3){
+        return {
+            ...product38,
+            price:1000
+        }
+    }
+    return product38
+})
+console.log(result38)
