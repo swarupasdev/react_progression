@@ -1060,3 +1060,72 @@ const result38 = products38.map((product38)=>{
     return product38
 })
 console.log(result38)
+
+
+//Q9:       Increase quantity by 1 only for cart item with id 2.
+//Api response
+const cart39 = [
+
+ {id:1,name:"Laptop",quantity:1},
+
+ {id:2,name:"Mouse",quantity:3},
+
+ {id:3,name:"Keyboard",quantity:2}
+
+];
+
+//my code
+const result39 = cart39.map((eachItem)=>{
+    if(eachItem.id===2){
+        return {
+            ...eachItem,
+            quantity:eachItem.quantity+1
+        }
+    }
+    return eachItem
+})
+console.log(result39)
+
+
+//Q10:      Convert every user's name to uppercase.
+//Api responses
+const users40 = [
+
+ {id:1,name:"Swarup"},
+
+ {id:2,name:"Rahul"},
+
+ {id:3,name:"Amit"}
+
+];
+
+//my code
+const result40 = users40.map((user40)=>{
+    return {
+        ...user40,
+        name:user40.name.toUpperCase()
+    }
+})
+console.log(result40)
+
+
+//Q11:      Every employee receives a ₹2,000 bonus. Add a new property bonus with value 2000 to each employee
+//Api response
+const employees41 = [
+
+ {id:1,name:"Swarup",salary:50000},
+
+ {id:2,name:"Rahul",salary:60000},
+
+ {id:3,name:"Amit",salary:70000}
+
+];
+
+//my code
+const result41 = employees41.map((employee41)=>{
+    return {
+        ...employee41,
+        bonus:2000
+    }
+})
+console.log(result41)
