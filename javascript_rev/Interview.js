@@ -1129,3 +1129,28 @@ const result41 = employees41.map((employee41)=>{
     }
 })
 console.log(result41)
+
+
+//Q12 : Append "(Verified)" to the name of every verified user. Leave other users unchanged."
+
+//Api response
+const users42 = [
+
+{id:1,name:"Swarup",verified:true},
+
+{id:2,name:"Rahul",verified:false},
+
+{id:3,name:"Amit",verified:true}
+
+];
+
+//My code
+const Result42 = users42.map((user42)=>{
+if(user42.verified){
+return {
+...user42,
+name:$`{user42}+(verified)`
+}
+}
+return user42
+})
