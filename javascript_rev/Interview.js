@@ -1145,12 +1145,36 @@ const users42 = [
 ];
 
 //My code
-const Result42 = users42.map((user42)=>{
+const result42 = users42.map((user42)=>{
 if(user42.verified){
 return {
 ...user42,
-name:$`{user42}+(verified)`
+name:`${user42.name}(verified)`
 }
 }
 return user42
 })
+console.log(result42)
+
+
+//Q13:      Create a new array where every product has a new property discountedPrice, which is 20% less than the original price. Do not modify the original price.
+
+//Api response
+const products43 = [
+
+ {id:1,name:"Laptop",price:50000},
+
+ {id:2,name:"Mouse",price:1000},
+
+ {id:3,name:"Keyboard",price:3000}
+
+];
+
+//my code
+const result43 = products43.map((details43)=>{
+    return{
+        ...details42,
+        discountedPrice:details43.price
+    }
+})
+console.log(result42)
