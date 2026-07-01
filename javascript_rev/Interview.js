@@ -1173,8 +1173,135 @@ const products43 = [
 //my code
 const result43 = products43.map((details43)=>{
     return{
-        ...details42,
-        discountedPrice:details43.price
+        ...details43,
+        discountedPrice:details43.price-(details43.price*(20/100))
     }
 })
-console.log(result42)
+console.log(result43)
+
+
+//Q44:      Increase every user's age by 1.
+//Api response
+const users44 = [
+
+ {
+  id:1,
+  name:"Swarup",
+  profile:{
+    age:24
+  }
+ },
+
+ {
+  id:2,
+  name:"Rahul",
+  profile:{
+    age:30
+  }
+ }
+
+];
+
+//my code
+const result44 = users44.map((details44)=>{
+    return{
+        ...details44,
+        // profile:details44.profile.map((detail44)=>{
+        //     return{
+        //         ...detail44,
+        //         age:detail44.age+1
+        //     }
+        //     return detail44
+        // })
+        profile:{
+            ...details44.profile,
+            age:details44.profile.age+1
+        }
+    
+    }
+})
+console.log(JSON.stringify(result44))
+
+
+//Q45:      Increase every project's budget by ₹1000.
+//Api response
+const employees45 = [
+
+ {
+  id:1,
+  name:"Swarup",
+  projects:[
+    {name:"App", budget:5000},
+    {name:"Website", budget:8000}
+  ]
+ },
+
+ {
+  id:2,
+  name:"Rahul",
+  projects:[
+    {name:"CRM", budget:6000}
+  ]
+ }
+
+];
+
+//my code
+const result45 = employees45.map((employee45)=>{
+    return  {
+        ...employee45,
+        projects:employee45.projects.map((details45)=>{
+            return {
+                ...details45,
+                budget:details45.budget+1000
+
+            }
+        })
+    }
+})
+console.log(JSON.stringify((result45)))
+
+
+//Q46:      The user edited one project. Increase the budget of only the project named Website by ₹2000.
+//Api response
+const employees46 = [
+
+ {
+  id:1,
+  name:"Swarup",
+  projects:[
+    {name:"App", budget:5000},
+    {name:"Website", budget:8000}
+  ]
+ },
+
+ {
+  id:2,
+  name:"Rahul",
+  projects:[
+    {name:"CRM", budget:6000}
+  ]
+ }
+
+];
+
+//my code
+const result46 = employees46.map((outerDetails46)=>{
+    
+    return {
+        ...outerDetails46,
+        projects:outerDetails46.projects.map((innerDetail46)=>{
+           if(innerDetail46.name==="Website"){ 
+                 return {
+                     ...innerDetail46,
+                     budget:innerDetail46.budget+2000
+                    }
+            }
+            return innerDetail46
+        })
+    }
+})
+console.log(JSON.stringify((result46)))
+
+
+//Q47:      
