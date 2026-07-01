@@ -1304,4 +1304,85 @@ const result46 = employees46.map((outerDetails46)=>{
 console.log(JSON.stringify((result46)))
 
 
-//Q47:      
+//Q47:      Calculate the total price of all products.
+//Api response
+const products47 = [
+
+ {id:1,price:1000},
+
+ {id:2,price:2000},
+
+ {id:3,price:3000}
+
+];
+
+//my code
+const result47 = products47.reduce((acc47,curr47)=>{
+    return acc47+curr47.price
+},0)
+console.log(result47)
+
+
+//Q48:      Calculate the total salary of all employees.
+//Api response
+const employees48 = [
+
+ {id:1,salary:50000},
+
+ {id:2,salary:60000},
+
+ {id:3,salary:70000}
+
+];
+
+//my code
+const result48 = employees48.reduce((acc48,curr48)=>{
+    return  acc48+curr48.salary
+},0)
+console.log(result48)
+
+
+//Q49:       "Find the total quantity of all cart items."
+//Api response
+const cart49 = [
+
+ {id:1,quantity:2},
+
+ {id:2,quantity:5},
+
+ {id:3,quantity:1}
+
+];
+
+//my code
+const result49 = cart49.reduce((acc49,curr49)=>{
+    return acc49+curr49.quantity
+},0)
+console.log(result49)
+
+
+//Q50:      "Count how many users are verified."
+//Api response
+const users50 = [
+
+ {id:1,verified:true},
+
+ {id:2,verified:false},
+
+ {id:3,verified:true},
+
+ {id:4,verified:true}
+
+];
+
+//my code
+let count;
+const result50 = users50.reduce((acc50,curr50)=>{
+    if(curr50.verified===true){
+
+        return acc50+1
+
+    }
+    return acc50
+},0)
+console.log(result50)
