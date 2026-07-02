@@ -1386,3 +1386,70 @@ const result50 = users50.reduce((acc50,curr50)=>{
     return acc50
 },0)
 console.log(result50)
+
+
+//Q51:          "Return an array containing only the names of verified users."
+//Api response
+const users51 = [
+
+ {id:1,name:"Swarup",verified:true},
+
+ {id:2,name:"Rahul",verified:false},
+
+ {id:3,name:"Amit",verified:true}
+
+];
+
+//my code 
+const result51 = users51.reduce((acc51,curr51)=>{
+    if(curr51.verified){
+        acc51.push(curr51.name)
+    }
+    return acc51
+},[])
+console.log(result51)
+
+//other solution
+
+// const users51 = [
+
+//  {id:1,name:"Swarup",verified:true},
+
+//  {id:2,name:"Rahul",verified:false},
+
+//  {id:3,name:"Amit",verified:true}
+
+// ];
+
+// //mycode
+// const result51 = users51.filter((userDetails51)=>{
+//         return userDetails51.verified
+// }).map((userDetails51)=>{
+//         return userDetails51.name
+// })
+// console.log(result51)
+
+
+//Q52:          Group employees by department.
+//Api response
+const employees52 = [
+
+ {id:1,name:"Swarup",department:"IT"},
+
+ {id:2,name:"Rahul",department:"HR"},
+
+ {id:3,name:"Amit",department:"IT"},
+
+ {id:4,name:"John",department:"Finance"}
+
+];
+
+//my code
+const result52 = employees52.reduce((acc52, curr52)=>{
+    if(!acc52[curr52.department]){
+        acc52[curr52.department]=[]
+    }
+    acc52[curr52.department].push(curr52)
+    return acc52
+},{})
+console.log(result52)
