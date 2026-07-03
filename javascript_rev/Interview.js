@@ -1453,3 +1453,237 @@ const result52 = employees52.reduce((acc52, curr52)=>{
     return acc52
 },{})
 console.log(result52)
+
+
+//Q53:          Find the employee with the highest salary.
+//Api response
+const employees53 = [
+
+ {id:1,name:"Swarup",salary:50000},
+
+ {id:2,name:"Rahul",salary:90000},
+
+ {id:3,name:"Amit",salary:70000}
+
+];
+
+//my code
+const result53 = employees53.reduce((acc53,curr53)=>{
+    if(curr53.salary>acc53.salary){
+        return curr53
+    }
+    return acc53
+})
+console.log(result53)
+
+
+//practice:          find the greatest number betn 1 to 9
+const arr_num=[]
+for(let num = 0 ; num <= 9 ; num++){
+    arr_num.push(num)
+}
+console.log(arr_num)
+const greater=arr_num.reduce((acc_num,curr_num)=>{
+    if(curr_num>acc_num){
+        return curr_num
+    }
+    return acc_num
+})
+console.log(greater)
+
+
+//Q54:         Count how many times each fruit appears.
+const fruits54 = [
+
+ "apple",
+
+ "banana",
+
+ "apple",
+
+ "orange",
+
+ "banana",
+
+ "apple"
+
+];
+
+//my code
+const result54 = fruits54.reduce((acc54,curr54)=>{
+    acc54[curr54]=(acc54[curr54]||0)+1      //if(!acc54[curr54]){ acc54[curr54]=0 } acc54[curr54]++
+    return acc54
+},{})
+console.log(result54)
+
+
+//Q55:          Collect all skills from all users into one single array
+//Api response
+const users55 = [
+
+ {
+   id:1,
+   skills:["JavaScript","React"]
+ },
+
+ {
+   id:2,
+   skills:["Node","MongoDB"]
+ },
+
+ {
+   id:3,
+   skills:["Python"]
+ }
+
+];
+
+//my code 
+const result55 = users55.reduce((acc55, curr55)=>{
+    //return [...acc55,...curr55.skills]    
+    acc55.push(...curr55.skills)
+    return acc55
+},[])
+console.log(result55)
+
+
+//Q56           Calculate the total amount of all orders across all users.
+//Api response
+const users56 = [
+
+ {
+   id:1,
+   orders:[
+     {amount:1000},
+     {amount:2000}
+   ]
+ },
+
+ {
+   id:2,
+   orders:[
+     {amount:500},
+     {amount:1500}
+   ]
+ }
+
+];
+
+//my code
+// const result56 = users56.map((details56)=>{
+//     return details56.orders.reduce((acc56,curr56)=>{
+//         return {
+            
+//         }
+//     },0)
+// })
+// console.log(result56)
+
+//rectify:
+const result56 = users56.reduce((acc56,curr56)=>{
+    const orderTotal = curr56.orders.reduce((orderAcc56,orderCurr56)=>{
+        return orderAcc56+orderCurr56.amount
+    },0)
+    return acc56+orderTotal
+},0)
+console.log(result56)
+
+
+//Q57:          Find the average salary of all employees.
+//Api response
+const employees57 = [
+
+ {id:1,name:"Swarup",salary:50000},
+
+ {id:2,name:"Rahul",salary:60000},
+
+ {id:3,name:"Amit",salary:70000}
+
+];
+
+//my code
+const result57 = employees57.reduce((acc57,curr57)=>{
+    return acc57+curr57.salary
+},0)
+const avg = result57/employees57.length
+console.log(avg)
+
+
+//Q58:          Calculate the total bill.
+//Api response
+const cart58 = [
+
+ {id:1,name:"Laptop",price:50000,quantity:1},
+
+ {id:2,name:"Mouse",price:1000,quantity:2},
+
+ {id:3,name:"Keyboard",price:2000,quantity:3}
+
+];
+
+//my code
+const result58 = cart58.reduce((acc58,curr58)=>{
+    return acc58+(curr58.price*curr58.quantity)
+},0)
+console.log(result58)
+
+
+//Q59:         Find the first inactive user
+//Api response
+ const users59 = [
+
+ {id:1,name:"Swarup",active:true},
+
+ {id:2,name:"Rahul",active:false},
+
+ {id:3,name:"Amit",active:false}
+
+];
+
+//my code
+const result59 = users59.find((user59)=>{
+    return !user59.active
+},{})
+console.log(result59)
+
+// One matching object:	    find() 
+// All matching objects:    filter() 
+// Transform every object:	    map() 
+// One final value:	    reduce() 
+// Check if at least one matches:	some() 
+// Check if all match:	every() 
+
+
+//Q60:          Display the names of only the active employees.
+//api response
+const employees60 = [
+
+ {
+   id:1,
+   name:"Swarup",
+   active:true,
+   salary:60000
+ },
+
+ {
+   id:2,
+   name:"Rahul",
+   active:false,
+   salary:80000
+ },
+
+ {
+   id:3,
+   name:"Amit",
+   active:true,
+   salary:70000
+ }
+
+];
+//my code
+const result60=employees60.filter((employee60)=>{
+    return employee60.active==true
+}).map((employee60)=>{
+    return employee60.name
+})
+console.log(result60)
