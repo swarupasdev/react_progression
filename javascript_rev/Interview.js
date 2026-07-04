@@ -1477,21 +1477,6 @@ const result53 = employees53.reduce((acc53,curr53)=>{
 console.log(result53)
 
 
-//practice:          find the greatest number betn 1 to 9
-const arr_num=[]
-for(let num = 0 ; num <= 9 ; num++){
-    arr_num.push(num)
-}
-console.log(arr_num)
-const greater=arr_num.reduce((acc_num,curr_num)=>{
-    if(curr_num>acc_num){
-        return curr_num
-    }
-    return acc_num
-})
-console.log(greater)
-
-
 //Q54:         Count how many times each fruit appears.
 const fruits54 = [
 
@@ -1687,3 +1672,204 @@ const result60=employees60.filter((employee60)=>{
     return employee60.name
 })
 console.log(result60)
+
+
+//Q61:          Find the first product whose price is greater than ₹10,000.
+//Api response
+const products61 = [
+
+ {id:1,name:"Laptop",price:60000},
+
+ {id:2,name:"Mouse",price:500},
+
+ {id:3,name:"Keyboard",price:2000},
+
+ {id:4,name:"Monitor",price:15000}
+
+];
+
+//my code
+const result61 = products61.find((details61)=>{
+    return details61.price>10000
+})
+console.log(result61)
+
+
+//Q62:          Before showing the dashboard, check whether at least one user is active.
+//Api response
+const users62 = [
+
+ {id:1,name:"Swarup",active:true},
+
+ {id:2,name:"Rahul",active:false},
+
+ {id:3,name:"Amit",active:true}
+
+];
+
+//my code
+const result62 = users62.some((details62)=>{
+    return details62.active
+})
+console.log(result62)
+
+
+//Q63:          Before allowing access, verify that every employee is verified.
+//Api response
+const employees63 = [
+
+ {id:1,name:"Swarup",verified:true},
+
+ {id:2,name:"Rahul",verified:true},
+
+ {id:3,name:"Amit",verified:false}
+
+];
+
+//my code 
+const result63 = employees63.every((details63)=>{
+    return details63.verified
+})
+console.log(result63)
+
+
+//Q64:          On the dashboard, display the names of all active IT employees.
+//Api response
+const employees64 = [
+
+ {id:1,name:"Swarup",department:"IT",salary:60000,active:true},
+
+ {id:2,name:"Rahul",department:"HR",salary:50000,active:false},
+
+ {id:3,name:"Amit",department:"IT",salary:70000,active:true},
+
+ {id:4,name:"John",department:"Finance",salary:80000,active:true}
+
+];
+
+//my code
+const result64 = employees64.filter((details64)=>{
+    return details64.active && details64.department==="IT"
+}).map((details64)=>{
+    return details64.name
+})
+console.log(result64)
+
+
+//Q65:      Display the total amount the customer has to pay.
+//Api response
+const cart65 = [
+
+ {id:1,name:"Laptop",price:50000,quantity:1},
+
+ {id:2,name:"Mouse",price:1000,quantity:2},
+
+ {id:3,name:"Keyboard",price:2000,quantity:3}
+
+];
+
+//my code
+const result65 = cart65.reduce((acc65,curr65)=>{
+    return acc65+(curr65.price*curr65.quantity)
+},0)
+console.log(result65)
+
+
+//Q66:      Deactivate the user whose id is 3.
+//Api response
+const users66 = [
+
+ {id:1,name:"Swarup",active:true},
+
+ {id:2,name:"Rahul",active:false},
+
+ {id:3,name:"Amit",active:true}
+
+];
+
+//my code
+const result66 = users66.map((details66)=>{
+    if(details66.id===3){
+        return {...details66,active:false}
+    }
+    return details66
+})
+console.log(result66)
+
+
+//Q67:         Before login, check whether every account is verified.
+//Api response
+const users67 = [
+
+ {email:"a@gmail.com",verified:true},
+
+ {email:"b@gmail.com",verified:false},
+
+ {email:"c@gmail.com",verified:true}
+
+];
+
+//my code
+const result67 = users67.every((details67)=>{
+    return details67.verified
+})
+console.log(result67)
+
+
+//Q68:      Find the first product that is out of stock.
+//Api response
+const products68 = [
+
+ {id:1,name:"Laptop",stock:5},
+
+ {id:2,name:"Mouse",stock:0},
+
+ {id:3,name:"Keyboard",stock:10}
+
+];
+
+//my code
+const result68 = products68.find((details68)=>{
+    return details68.stock===0
+})
+console.log(result68)
+
+
+//Q69:      find the greatest number betn 1 to 9
+const arr_num=[]
+for(let num = 0 ; num <= 9 ; num++){
+    arr_num.push(num)
+}
+console.log(arr_num)
+const greater=arr_num.reduce((acc_num,curr_num)=>{
+    if(curr_num>acc_num){
+        return curr_num
+    }
+    return acc_num
+})
+console.log(greater)    
+
+
+//Q70:       The + button is not working. When the user clicks + on a product, increase only that product's quantity by 1.
+//Api response
+const cart70 = [
+
+ {id:1,name:"Laptop",price:50000,quantity:1},
+
+ {id:2,name:"Mouse",price:1000,quantity:2},
+
+ {id:3,name:"Keyboard",price:2000,quantity:3}
+
+];
+
+//my code
+const result70 = cart70.map((clickId70)=>{
+    if(clickId70.id===2){
+        return {
+            ...clickId70,
+            quantity:clickId70.quantity+1
+        }
+    }
+    return clickId70
+})
+console.log(result70)
