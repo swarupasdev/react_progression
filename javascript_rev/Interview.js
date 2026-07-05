@@ -1873,3 +1873,191 @@ const result70 = cart70.map((clickId70)=>{
     return clickId70
 })
 console.log(result70)
+
+
+//Q71           The Remove button should delete the clicked product.
+//Api response
+const cart71 = [
+
+ {id:1,name:"Laptop",price:50000,quantity:1},
+
+ {id:2,name:"Mouse",price:1000,quantity:3},
+
+ {id:3,name:"Keyboard",price:2000,quantity:3}
+
+];
+
+//my code
+//const deleteId71=2
+const result71 = cart71.filter((clickedCart71)=>{
+    // if(!clickedCart71.id===2){
+    //     return clickedCart71     //incorrect
+    // }
+    // return clickedCart71
+    return clickedCart71.id!==2  
+})
+console.log(result71)
+
+
+//Q72           As the user types lap, show matching products.
+//Api response
+const cart72 = [
+
+ {id:1,name:"Laptop",price:50000,quantity:1},
+
+ {id:2,name:"Mouse",price:1000,quantity:2},
+
+ {id:3,name:"Keyboard",price:2000,quantity:3}
+
+];
+
+//my code
+const find72 = 'lap'
+const result72 = cart72.filter((details72)=>{
+    return details72.name.toLowerCase().includes(find72.toLowerCase())
+})
+console.log(result72)
+
+
+//Q73:          Show the total quantity of items currently in the cart.
+//Api response
+const cart73 = [
+
+ {id:1,name:"Laptop",price:50000,quantity:1},
+
+ {id:2,name:"Mouse",price:1000,quantity:2},
+
+ {id:3,name:"Keyboard",price:2000,quantity:3}
+
+];
+
+//my code
+const result73 = cart73.reduce((acc73,curr73)=>{
+    return acc73+curr73.quantity
+},0)
+console.log(result73)
+
+//Q74           "Don't allow checkout if any product has quantity 0
+//Api response
+const cart74 = [
+
+ {id:1,name:"Laptop",price:50000,quantity:1},
+
+ {id:2,name:"Mouse",price:1000,quantity:0},
+
+ {id:3,name:"Keyboard",price:2000,quantity:3}
+
+];
+
+//my code
+const result74 = cart74.some((details74)=>{
+    return !details74.quantity
+    //console.log("Can not check out")
+})
+console.log(result74)
+if(result74){
+    console.log("Do not check out")
+}else{
+    console.log("check out")
+}
+
+
+//Q75:         Show only the names of users who are currently online.
+//Api response 
+const users75 = [
+
+ {id:1,name:"Swarup",online:true,lastSeen:"2 min ago"},
+
+ {id:2,name:"Rahul",online:false,lastSeen:"1 hour ago"},
+
+ {id:3,name:"Amit",online:true,lastSeen:"Just now"}
+
+];
+
+//my code
+const result75 = users75.filter((details75)=>{
+    return details75.online
+}).map((details75)=>{
+    return details75.name
+})
+console.log(result75)
+
+
+//Q76:          Show the number of unread notifications.
+//Api response 
+const notifications76 = [
+
+ {id:1,read:false},
+
+ {id:2,read:true},
+
+ {id:3,read:false},
+
+ {id:4,read:false}
+
+];
+
+//my code
+const result76 = notifications76.reduce((acc76,curr76)=>{
+    return acc76+(!curr76.read)
+},0)
+console.log(result76)
+
+
+//Q77:          Return the matching employee object.
+//Api response 
+const employees77 = [
+
+ {id:1,name:"Swarup",department:"IT"},
+
+ {id:2,name:"Rahul",department:"HR"},
+
+ {id:3,name:"Amit",department:"IT"}
+
+];
+
+const search77 = "rah";
+
+//my code
+const result77 = employees77.filter((details77)=>{
+    return details77.name.toLowerCase().includes(search77.toLowerCase())
+})
+console.log(result77)
+
+
+//Q78:          Check whether at least one admin exists.
+//Api response 
+const users78 = [
+
+ {id:1,role:"admin"},
+
+ {id:2,role:"user"},
+
+ {id:3,role:"user"}
+
+];
+
+//my code
+const result78 = users78.some((details78)=>{
+    return details78.role.includes("admin")
+})
+console.log(result78)
+
+
+//Q79:          Verify that every product is in stock.
+//Api response 
+const products79 = [
+
+ {id:1,stock:5},
+
+ {id:2,stock:8},
+
+ {id:3,stock:2}
+
+];
+
+//my code 
+const result79 = products79.every((details79)=>{
+    return details79.stock
+})
+console.log(result79)
