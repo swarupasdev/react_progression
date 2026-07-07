@@ -2061,3 +2061,93 @@ const result79 = products79.every((details79)=>{
     return details79.stock
 })
 console.log(result79)
+
+
+//Q80       Display employee salaries in ascending order.
+//Api response
+const salaries80 = [
+
+50000,
+
+20000,
+
+70000,
+
+40000,
+
+10000
+
+];
+
+//my code
+const result80 = salaries80.sort((a,b)=>{
+    return a-b
+})
+console.log(result80)
+
+
+//Q81       Sort the employee names alphabetically.
+//Api response
+const names81 = [
+
+"Swarup",
+
+"Amit",
+
+"Rahul",
+
+"John"
+
+];
+
+//my code
+const result81 = names81.sort()
+console.log(result81)
+
+const numbers82 = [1, 10, 2, 5];
+
+const sorted=numbers82.sort();
+
+console.log(sorted);
+
+
+//Q82:      Sort employees by salary in ascending order.
+//Api response
+const employees82 = [
+
+ {id:1, name:"Swarup", salary:70000},
+
+ {id:2, name:"Rahul", salary:50000},
+
+ {id:3, name:"Amit", salary:90000},
+
+ {id:4, name:"John", salary:60000}
+
+];
+
+//my code
+const result82 = employees82.sort((a,b)=>{
+    return a.salary-b.salary
+})
+console.log(result82)
+
+
+//Q83:      Sort employees by salary in descending order.
+//Api response
+const employees83 = [
+
+ {id:1, name:"Swarup", salary:70000},
+
+ {id:2, name:"Rahul", salary:50000},
+
+ {id:3, name:"Amit", salary:90000},
+
+ {id:4, name:"John", salary:60000}
+
+];
+
+//my code
+const result83 = employees83.sort((a,b)=>{
+    return b.salary-a.salary
+})
+console.log(result83)
