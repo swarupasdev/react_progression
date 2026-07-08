@@ -2151,3 +2151,163 @@ const result83 = employees83.sort((a,b)=>{
     return b.salary-a.salary
 })
 console.log(result83)
+
+
+//Q84:      Sort the employees alphabetically by their name
+//Api response
+const employees84 = [
+
+ {id:1, name:"Swarup", salary:70000},
+
+ {id:2, name:"Rahul", salary:50000},
+
+ {id:3, name:"Amit", salary:90000},
+
+ {id:4, name:"John", salary:60000}
+
+];
+
+//my code
+const result84 = employees84.sort((a,b)=>{
+    return a.name.localeCompare(b.name)
+})
+console.log(result84)
+
+
+//Q85:      Sort employees by salary in ascending order. If two employees have the same salary, then sort them alphabetically by name.
+//Api response
+const employees85 = [
+
+ {id:1,name:"Swarup",salary:50000},
+
+ {id:2,name:"Rahul",salary:70000},
+
+ {id:3,name:"Amit",salary:50000},
+
+ {id:4,name:"John",salary:70000}
+
+];
+
+//my code
+const result85 = employees85.sort((a,b)=>{
+    if(a.salary===b.salary){
+    return a.name.localeCompare(b.name)
+}
+    return a.salary-b.salary
+})
+
+console.log(result85)
+
+
+//Q86:      Sort products by category alphabetically. If the category is the same, sort by price in descending order.
+//Api response
+const products86 = [
+
+ {id:1,name:"Laptop",category:"Electronics",price:60000},
+
+ {id:2,name:"Phone",category:"Electronics",price:50000},
+
+ {id:3,name:"Shirt",category:"Fashion",price:2000},
+
+ {id:4,name:"Jeans",category:"Fashion",price:3000}
+
+];
+
+const result86 = products86.sort((a,b)=>{
+    if(a.category===b.category){
+        return b.price - a.price
+    }
+    return a.category.localeCompare(b.category)
+})
+console.log(result86)
+
+
+//Q87:      Sort students by marks in descending order.If marks are equal, sort by age in ascending order.If both marks and age are equal, sort alphabetically by name.
+//Api response
+const students87 = [
+
+ {id:1,name:"Swarup",marks:90,age:24},
+
+ {id:2,name:"Rahul",marks:90,age:22},
+
+ {id:3,name:"Amit",marks:95,age:23},
+
+ {id:4,name:"John",marks:90,age:22}
+
+];
+
+const result87 = students87.sort((a,b)=>{
+    if(a.age===b.age && a.marks===b.marks){
+        return a.name.localeCompare(b.name)
+    }
+    else if(a.marks===b.marks){
+        return a.age-b.age
+    }
+    return b.marks - a.marks
+})
+console.log(result87)
+
+
+//Q88:      
+const numbers88 = [5, 3, 8, 1];
+
+const result88 = numbers88.sort((a, b) => a - b);
+
+console.log(result88);
+console.log(numbers88);
+
+
+//Q89:      Group all employees department-wise.
+//Api response
+const employees89 = [
+
+ {id:1,name:"Swarup",department:"IT"},
+
+ {id:2,name:"Rahul",department:"HR"},
+
+ {id:3,name:"Amit",department:"IT"},
+
+ {id:4,name:"John",department:"Finance"},
+
+ {id:5,name:"Rohit",department:"HR"}
+
+];
+
+//my code
+const result89 = employees89.reduce((acc89,curr89)=>{
+    if(!acc89[curr89.department]){
+        acc89[curr89.department]=[]
+    }
+    acc89[curr89.department].push(curr89)
+    return acc89
+},{})
+console.log(JSON.stringify(result89))
+
+
+//Q90:      Count how many employees are in each department.
+//Api response
+const employees90 = [
+
+ {id:1,name:"Swarup",department:"IT"},
+
+ {id:2,name:"Rahul",department:"HR"},
+
+ {id:3,name:"Amit",department:"IT"},
+
+ {id:4,name:"John",department:"Finance"},
+
+ {id:5,name:"Rohit",department:"HR"},
+
+ {id:6,name:"Alex",department:"IT"}
+
+];
+
+//my code
+const result90 = employees90.reduce((acc90,curr90)=>{
+    if(!acc90[curr90.department]){
+        acc90[curr90.department]=0
+    }
+    acc90[curr90.department]++
+    return acc90
+},{})
+console.log(result90)

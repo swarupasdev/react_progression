@@ -1,9 +1,6 @@
-projects:outerDetails46.map((innerDetail46)=>{
-        //   if(innerDetail46.name==="Website"){ 
-        //         return {
-        //             ...innerDetail46,
-        //             budget:innerDetail46.budget+2000
-        //         }
-        //     }
-        //     return innerDetail46
-        // })
+    if(a.age===b.age && a.marks===b.marks){
+        return a.name.localeCompare(b.name)
+    }
+    else if(a.marks===b.marks){
+        return a.age-b.age
+    }
