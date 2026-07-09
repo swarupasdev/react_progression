@@ -2311,3 +2311,40 @@ const result90 = employees90.reduce((acc90,curr90)=>{
     return acc90
 },{})
 console.log(result90)
+
+
+//Q91:      
+console.log(x);
+
+var x = 10;  //undefined
+
+//Q92:
+console.log(a);
+console.log(b);
+
+var a = 5;   //undefined
+let b = 10;  //refrence error
+
+
+//Q93:
+let x93 = 10;
+
+{
+    console.log(x93);   //reference error
+
+    let x93 = 20;
+}
+
+
+//Q94:
+let a94 = 5;
+
+function test() {
+
+    console.log(a94);
+
+    let a94 = 10;
+
+}
+
+test();
