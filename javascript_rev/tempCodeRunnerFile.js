@@ -1,6 +1,16 @@
-    if(a.age===b.age && a.marks===b.marks){
-        return a.name.localeCompare(b.name)
-    }
-    else if(a.marks===b.marks){
-        return a.age-b.age
-    }
+//Q95:
+var a = 1;
+
+function test() {
+
+    console.log(a);
+
+    var a = 2;
+
+    console.log(a);
+
+}
+
+test();
+
+console.log(a);

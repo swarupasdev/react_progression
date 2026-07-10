@@ -2313,38 +2313,60 @@ const result90 = employees90.reduce((acc90,curr90)=>{
 console.log(result90)
 
 
-//Q91:      
-console.log(x);
+// //Q91:      
+// console.log(x);
 
-var x = 10;  //undefined
-
-//Q92:
-console.log(a);
-console.log(b);
-
-var a = 5;   //undefined
-let b = 10;  //refrence error
+// var x = 10;  //undefined
 
 
-//Q93:
-let x93 = 10;
+// //Q92:
+// console.log(a);
+// console.log(b);
 
-{
-    console.log(x93);   //reference error
-
-    let x93 = 20;
-}
+// var a = 5;   //undefined
+// let b = 10;  //refrence error
 
 
-//Q94:
-let a94 = 5;
+// //Q93:
+// let x93 = 10;
 
-function test() {
+// {
+//     console.log(x93);   //reference error
 
-    console.log(a94);
+//     let x93 = 20;
+// }
 
-    let a94 = 10;
 
-}
+// //Q94:
+// let a94 = 5;
 
-test();
+// function test() {
+
+//     console.log(a94);  //reference error
+
+//     let a94 = 10;
+
+// }
+
+// test();
+
+
+// //Q95:
+// var a = 1;
+
+// function test() {
+
+//     console.log(a);
+
+//     var a = 2;
+
+//     console.log(a);
+
+// }
+
+// test();
+
+// console.log(a);
+
+
+//Q96:
