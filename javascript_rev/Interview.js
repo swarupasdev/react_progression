@@ -2369,4 +2369,137 @@ console.log(result90)
 // console.log(a);
 
 
-//Q96:
+// //Q96:
+// let name = "Swarup";
+
+// function greet() {
+//     console.log(name);
+// }
+
+// greet();  //Swarup
+
+
+//Q97:
+let a = 1;
+
+function outer97() {
+
+    let b = 2;
+
+    function inner97() {
+
+        let c = 3;
+
+        console.log(a);
+
+        console.log(b);
+
+        console.log(c);
+
+    }
+
+    inner97();
+
+}
+
+outer97();  // 1 2 3
+
+
+//Q98:
+function outer98() {
+
+    let x = 10;
+
+    function inner98() {
+        console.log(x);
+    }
+
+    return inner98;
+
+}
+
+const fn98 = outer98();
+
+fn98();
+
+
+//Q99:
+function outer99() {
+
+    let count99 = 0;
+
+    function inner99() {
+        count99++;
+        console.log(count99);
+    }
+
+    return inner99;
+
+}
+
+const counter99 = outer99();
+
+counter99(); //1
+counter99(); //2
+counter99(); //3
+
+
+//Q100:
+function outer100() {
+
+    let count100 = 5;
+
+    function inner100() {
+        count100++;
+        console.log(count100);
+    }
+
+    return inner100;
+}
+
+const fn100 = outer100();
+
+fn100();    //6
+fn100();    //7
+fn100();    //8
+
+
+//Q101:
+function outer_101() {
+
+    let x_101 = 10;
+
+    return function () {
+        console.log(x_101);
+    };
+
+}
+
+const fn101 = outer_101();
+const fn101_1 = outer_101();
+
+fn101();    //10
+fn101_1();     //10
+
+
+//Q102:
+function outer102() {
+
+    let count102 = 0;
+
+    return function () {
+        count102++;
+        console.log(count102);
+    };
+
+}
+
+const fn102 = outer102();
+const fn102_1 = outer102();
+
+fn102();    //1
+fn102();    //2
+
+fn102_1();  //1
+
+fn102_1();  //2
