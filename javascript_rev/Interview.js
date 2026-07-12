@@ -2503,3 +2503,108 @@ fn102();    //2
 fn102_1();  //1
 
 fn102_1();  //2
+
+
+//Q103:
+function createBankAccount() {
+
+    let balance = 1000;
+
+    return {
+
+        deposit(amount) {
+            balance += amount;
+            console.log(balance);
+        },
+
+        withdraw(amount) {
+            balance -= amount;
+            console.log(balance);
+        }
+
+    };
+
+}
+
+const account = createBankAccount();
+
+account.deposit(500);
+
+account.withdraw(200);
+
+account.withdraw(300);
+
+
+//Q104:
+console.log(this);
+
+
+//Q105:
+const person105 = {
+    name: "Swarup",
+
+    greet_105() {
+        console.log(this.name);
+    }
+};
+
+person105.greet_105();
+
+
+//Q106:
+const person106 = {
+    name: "Swarup",
+
+    greet106() {
+        console.log(this.name);
+    }
+};
+
+const fn106 = person106.greet106;
+
+fn106();
+
+
+//Q107:
+const person107 = {
+    name: "Swarup",
+
+    greet107() {
+        console.log(this.name);
+    }
+};
+
+const anotherPerson107 = {
+    name: "Rahul",
+    greet107: person107.greet107
+};
+
+anotherPerson107.greet107();
+
+
+//Q108
+const person108 = {
+    name: "Swarup",
+
+    greet108() {
+        return function () {
+            console.log(this.name);
+        };
+    }
+};
+
+const fn108 = person108.greet108();
+
+fn108();
+
+
+//Q109:
+const person109 = {
+    name: "Swarup",
+
+    greet109: () => {
+        console.log(this.name);
+    }
+};
+
+person109.greet109();
