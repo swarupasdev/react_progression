@@ -2536,7 +2536,7 @@ account.withdraw(300);
 
 
 //Q104:
-console.log(this);
+console.log(this);  //{}
 
 
 //Q105:
@@ -2548,7 +2548,7 @@ const person105 = {
     }
 };
 
-person105.greet_105();
+person105.greet_105();      //swarup
 
 
 //Q106:
@@ -2562,7 +2562,7 @@ const person106 = {
 
 const fn106 = person106.greet106;
 
-fn106();
+fn106();    //undefined
 
 
 //Q107:
@@ -2579,7 +2579,7 @@ const anotherPerson107 = {
     greet107: person107.greet107
 };
 
-anotherPerson107.greet107();
+anotherPerson107.greet107();    //Rahul
 
 
 //Q108
@@ -2595,7 +2595,7 @@ const person108 = {
 
 const fn108 = person108.greet108();
 
-fn108();
+fn108();    //undefined
 
 
 //Q109:
@@ -2607,4 +2607,38 @@ const person109 = {
     }
 };
 
-person109.greet109();
+person109.greet109();  //undefined
+
+
+//Q110:
+const person110 = {
+    name: "Swarup",
+
+    greet110() {
+
+        const inner110 = () => {
+            console.log(this.name);
+        };
+
+        inner110();
+    }
+};
+
+person110.greet110();   //swarup
+
+
+//Q111:
+const person111 = {
+    name: "Swarup",
+
+    greet111() {
+
+        return () => {
+            console.log(this.name);
+        };
+    }
+};
+
+const fn111 = person111.greet111();
+
+fn111();    //swarup
