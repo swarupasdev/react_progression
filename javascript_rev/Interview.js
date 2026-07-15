@@ -2642,3 +2642,11 @@ const person111 = {
 const fn111 = person111.greet111();
 
 fn111();    //swarup
+
+
+//Q112:
+console.log(add);
+
+function add() {
+    return 10;
+}
