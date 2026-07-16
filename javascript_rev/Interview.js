@@ -2645,8 +2645,67 @@ fn111();    //swarup
 
 
 //Q112:
-console.log(add);
+console.log(add112);
 
-function add() {
+function add112() {
     return 10;
 }
+
+
+//Q113:
+console.log(x113);
+
+var x113 = 10;
+
+
+// //Q114:
+// console.log(a114);   //reference error
+
+// let a114 = 10;
+
+
+//Q115:
+console.log(a115);  //undefined
+
+var a115 = 10;
+
+console.log(a115);  //10
+
+a115 = 20;  
+
+console.log(a115);  //20
+
+
+//Q116:
+var a116 = 10;
+
+function test() {
+
+    console.log(a116);
+
+    var a116 = 20;
+
+    console.log(a116);
+
+}
+
+test();
+
+console.log(a116);
+
+
+//Q117
+var a117 = 100;
+
+function one117() {
+
+    var a117 = 10;
+
+    function two117() {
+        console.log(a117);
+    }
+
+    two117();
+}
+
+one117();

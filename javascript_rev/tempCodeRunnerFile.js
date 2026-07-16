@@ -1,16 +1,4 @@
-//Q95:
-var a = 1;
+//Q114:
+// console.log(a114);
 
-function test() {
-
-    console.log(a);
-
-    var a = 2;
-
-    console.log(a);
-
-}
-
-test();
-
-console.log(a);
+// let a114 = 10;
