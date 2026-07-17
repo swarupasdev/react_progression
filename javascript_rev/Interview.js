@@ -2694,7 +2694,7 @@ test();
 console.log(a116);
 
 
-//Q117
+//Q117:
 var a117 = 100;
 
 function one117() {
@@ -2709,3 +2709,74 @@ function one117() {
 }
 
 one117();
+
+
+//Q118:
+var a118 = 100;
+
+function one118() {
+
+    var a118 = 10;
+
+    function two118() {
+
+        var a118 = 20;
+
+        console.log(a118);  //20
+
+    }
+
+    two118();   //20
+
+    console.log(a118);  //10
+
+}
+
+one118();   //10
+
+console.log(a118);  //100
+
+
+//Q119:
+var a119 = 100;
+
+function one119() {
+
+    console.log(a119);  //undefined
+
+    var a119 = 10;  //avaScript stops searching as soon as it finds a variable with the requested name, regardless of its value.
+
+    console.log(a119);
+
+}
+
+one119();
+
+
+//Q120: 
+function outer120() {
+
+    let count120 = 0;
+
+    function inner120 () {
+
+        count120 ++;
+
+        console.log(count120);
+
+    }
+
+    return inner120 ;
+
+}
+
+const fn120  = outer120 ();
+
+fn120 ();
+
+fn120 ();
+
+fn120 ();
+
+
+//Q121:
