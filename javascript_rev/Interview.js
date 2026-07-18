@@ -2772,11 +2772,64 @@ function outer120() {
 
 const fn120  = outer120 ();
 
-fn120 ();
+fn120 ();   //1
 
-fn120 ();
+fn120 ();   //2
 
-fn120 ();
+fn120 ();   //3
 
 
 //Q121:
+function outer121() {
+
+    let count121 = 0;
+
+    return function () {
+        count121++;
+        console.log(count121);
+    };
+}
+
+const a121 = outer121();
+const b121 = outer121();
+
+a121();     //1
+a121();     //2
+b121();     //1
+a121();     //3
+b121();     //2
+
+
+//Q122:
+function makeAdder122(x122) {
+    return function(y122) {
+        return x122 + y122;
+    };
+}
+
+const add5 = makeAdder122(5);
+const add10 = makeAdder122(10);
+
+
+//const add5 = makeAdder122(5);
+
+const another122 = add5;
+
+console.log(another122(7));
+console.log(add5(3));
+console.log(add10(3));
+
+
+//Q123:
+function outer123() {
+    let x123 = 5;
+
+    return function () {
+        console.log(x123);
+    };
+}
+
+const a123 = outer123();
+const b123 = a123;
+
+b123();
