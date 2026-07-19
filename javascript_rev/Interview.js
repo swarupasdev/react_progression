@@ -2833,3 +2833,51 @@ const a123 = outer123();
 const b123 = a123;
 
 b123();
+
+
+//Q124:
+function outer124() {
+    let count124 = 0;
+
+    return function () {
+        count124++;
+        console.log(count124);
+    };
+}
+
+const a124 = outer124();
+const b124 = a124;
+
+a124();
+b124();
+a124();
+
+
+//Q125:
+function counter125() {
+
+    let count125 = 0;
+
+    return {
+        increment125() {
+            count125++;
+            console.log(count125);
+        },
+
+        decrement125() {
+            count125--;
+            console.log(count125);
+        },
+
+        getCount125() {
+            console.log(count125);
+        }
+    };
+}
+
+const c125 = counter125();
+
+c125.increment125();
+c125.increment125();
+c125.decrement125();
+c125.getCount125();
