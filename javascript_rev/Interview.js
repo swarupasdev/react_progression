@@ -2881,3 +2881,164 @@ c125.increment125();
 c125.increment125();
 c125.decrement125();
 c125.getCount125();
+
+
+//Q126:
+function counter126() {
+
+    let count126 = 0;
+
+    return {
+        increment126() {
+            count126++;
+            console.log(count126);
+        },
+
+        decrement126() {
+            count126--;
+            console.log(count126);
+        },
+
+        getCount126() {
+            console.log(count126);
+        }
+    };
+}
+
+const c126_1 = counter126();
+const c126_2 = counter126();
+
+c126_1.increment126();  //1
+c126_1.increment126();  //2
+
+c126_2.increment126();  //1
+
+c126_1.getCount126();   //2
+c126_2.getCount126();   //1
+
+
+//Q127
+const person127 = {
+    name: "Swarup",
+
+    greet() {
+        console.log(this.name);
+    }
+};
+
+person127.greet();  //swarup
+
+
+//Q128
+const person128_1 = {
+    name: "Alice",
+
+    greet() {
+        console.log(this.name);
+    }
+};
+
+const person128_2 = {
+    name: "Bob",
+
+    greet: person128_1.greet
+};
+
+person128_1.greet();    //alice
+person128_2.greet();    //bob
+
+
+//Q129
+const person129 = {
+    name: "Swarup",
+
+    greet() {
+        console.log(this.name);
+    }
+};
+
+const sayHello129 = person129.greet;
+
+sayHello129();  //undefined because no object is binding to ```this```
+
+
+//Q130:
+const person130 = {
+    name: "Alice",
+
+    greet() {
+        console.log(this.name);
+    }
+};
+
+const admin130 = {
+    name: "Bob"
+};
+
+admin130.greet = person130.greet;
+
+admin130.greet();   //bob
+
+
+//Q131:
+const person131 = {
+    name: "Alice",
+
+    greet() {
+        console.log(this.name);
+    }
+};
+
+const greet = person131.greet;
+
+const admin131 = {
+    name: "Bob",
+    greet
+};
+
+admin131.greet();   //bob
+
+
+// //Q132:
+// const person132 = {
+//     name: "Alice",
+
+//     greet() {
+//         console.log(this.name);
+//     }
+// };
+
+// setTimeout132(person132.greet, 1000);  type error
+
+
+//Q133:
+const person133 = {
+    name: "Alice",
+
+    greet() {
+        console.log(this.name);
+    }
+};
+
+setTimeout(() => person133.greet(), 1000);
+
+
+// //Q134:
+// const person134 = {
+//     name: "Alice",
+
+//     greet134() {
+//         console.log(this.name);
+//     }
+// };
+
+// const admin134 = {
+//     name: "Bob"
+// };
+
+// const greet134 = person134.greet134.bind(admin134);
+
+// greet134();  //bob
+
+
+//Q135:

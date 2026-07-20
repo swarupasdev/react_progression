@@ -1,11 +1,16 @@
-    // var a118 = 10;
+//Q134:
+// const person134 = {
+//     name: "Alice",
 
-    // function two118() {
+//     greet134() {
+//         console.log(this.name);
+//     }
+// };
 
-    //     var a118 = 20;
+// const admin134 = {
+//     name: "Bob"
+// };
 
-    //     console.log(a118);  //20
+// const greet134 = person134.greet134.bind(admin134);
 
-    // }
-
-    // two118();   //20
+// greet134();
