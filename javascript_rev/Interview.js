@@ -3061,3 +3061,49 @@ person135.greet135.apply(admin135, ["Delhi", "India"]);
 const fn135 = person135.greet135.bind(admin135, "Delhi");
 
 fn135("India");
+
+
+//Q136:
+const person136 = {
+    name: "Alice",
+
+    greet136: () => {
+        console.log(this.name);
+    }
+};
+
+person136.greet136();   //undefined
+
+
+//Q137:
+const person137 = {
+    name: "Alice",
+
+    greet137() {
+
+        const inner137 = () => {
+            console.log(this.name);
+        };
+
+        inner137();
+    }
+};
+
+person137.greet137();   //alice
+
+
+//Q138:
+const person138 = {
+    name: "Alice",
+
+    greet138() {
+
+        function inner138() {
+            console.log(this.name);
+        }
+
+        inner138();
+    }
+};
+
+person138.greet138();   //
