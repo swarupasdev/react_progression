@@ -1,16 +1,11 @@
-//Q134:
-// const person134 = {
+//Q133:
+// const person133 = {
 //     name: "Alice",
 
-//     greet134() {
+//     greet() {
 //         console.log(this.name);
 //     }
 // };
 
-// const admin134 = {
-//     name: "Bob"
-// };
+// setTimeout(() => person133.greet(), 1000);
 
-// const greet134 = person134.greet134.bind(admin134);
-
-// greet134();

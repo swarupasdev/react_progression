@@ -3011,16 +3011,16 @@ admin131.greet();   //bob
 // setTimeout132(person132.greet, 1000);  type error
 
 
-//Q133:
-const person133 = {
-    name: "Alice",
+// //Q133:
+// const person133 = {
+//     name: "Alice",
 
-    greet() {
-        console.log(this.name);
-    }
-};
+//     greet() {
+//         console.log(this.name);
+//     }
+// };
 
-setTimeout(() => person133.greet(), 1000);
+// setTimeout(() => person133.greet(), 1000);
 
 
 // //Q134:
@@ -3042,3 +3042,22 @@ setTimeout(() => person133.greet(), 1000);
 
 
 //Q135:
+const person135 = {
+    name: "Alice",
+
+    greet135(city, country) {
+        console.log(this.name, city, country);
+    }
+};
+
+const admin135 = {
+    name: "Bob"
+};
+
+person135.greet135.call(admin135, "Delhi", "India");
+
+person135.greet135.apply(admin135, ["Delhi", "India"]);
+
+const fn135 = person135.greet135.bind(admin135, "Delhi");
+
+fn135("India");
