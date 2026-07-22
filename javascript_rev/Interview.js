@@ -3106,4 +3106,123 @@ const person138 = {
     }
 };
 
-person138.greet138();   //
+person138.greet138();   //undefined
+
+
+//Q139:
+greet139();
+
+function greet139() {
+    console.log("Hello");
+}
+
+
+// //Q140:
+// greet140();
+
+// var greet140 = function () {
+//     console.log("Hello");
+// };   TypeError: greet140 is a function
+
+
+//Q141:
+console.log(greet141);
+
+var greet141 = function () {
+    console.log("Hello");
+};
+
+
+//Q142:
+console.log(add);
+
+function add(a, b) {
+    return a + b;
+}
+
+
+//Q143:
+sayHi();
+
+function sayHi() {
+    console.log("Hi");
+}
+
+var sayHi = 10;
+
+
+//Q144:
+console.log(add);
+
+var add = function () {
+    return 10;
+};
+
+console.log(add);
+
+
+//Q145:
+hello();
+
+var hello = function () {
+    console.log("Hello");
+};
+
+function hello() {
+    console.log("World");
+}
+
+
+//Q146:
+console.log(greet);
+
+function greet() {
+    return "Hello";
+}
+
+
+//Q147:
+foo();
+
+var foo = () => {
+    console.log("Arrow");
+};
+
+
+//Q148:
+var x = function test() {
+    console.log("Inside");
+};
+
+console.log(typeof x);
+console.log(typeof test);
+
+
+//Q149:
+function outer() {
+    return "A";
+}
+
+var outer = function () {
+    return "B";
+};
+
+console.log(outer());
+
+
+//Q150:
+console.log(a);
+
+var a = function () {
+    return 1;
+};
+
+function a() {
+    return 2;
+}
+
+console.log(a());
+
+var a = 100;
+
+console.log(a);
