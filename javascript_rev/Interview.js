@@ -3226,3 +3226,82 @@ console.log(a150());
 var a150 = 100;
 
 console.log(a150);
+
+
+//Q151:
+function test151(a = 100) {
+    console.log(a);
+}
+
+test151();
+
+//Q152:
+function test(a = 100) {
+    console.log(a);
+}
+
+test(50);
+
+
+//Q153:
+function test(a = 100) {
+    console.log(a);
+}
+
+test(undefined);
+
+
+//Q154;
+function test(a = 100) {
+    console.log(a);
+}
+
+test(null);
+
+
+//Q155:
+function test(a = 100) {
+    console.log(a);
+}
+
+test(0);
+
+
+//Q156:
+function test(a = 100) {
+    console.log(a);
+}
+
+test(false);
+
+
+//Q157:
+function add(a = 5, b = 10) {
+    console.log(a + b);
+}
+
+add(2);
+
+
+//Q158:
+function add(a = 5, b = 10) {
+    console.log(a + b);
+}
+
+add(undefined, 20);
+
+
+//Q159:
+function add(a = 5, b = a) {
+    console.log(a, b);
+}
+
+add(10);
+
+
+//Q160:
+function add(a = b, b = 10) {
+    console.log(a, b);
+}
+
+add();
