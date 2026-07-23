@@ -1,11 +1,6 @@
-//Q133:
-// const person133 = {
-//     name: "Alice",
+//Q147:
+// foo147();
 
-//     greet() {
-//         console.log(this.name);
-//     }
+// var foo147 = () => {
+//     console.log("Arrow147");
 // };
-
-// setTimeout(() => person133.greet(), 1000);
-

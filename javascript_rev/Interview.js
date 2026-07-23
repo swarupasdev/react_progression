@@ -3126,103 +3126,103 @@ function greet139() {
 
 
 //Q141:
-console.log(greet141);
+console.log(greet141); 
 
 var greet141 = function () {
-    console.log("Hello");
+    console.log("Hello141");
 };
 
 
 //Q142:
-console.log(add);
+console.log(add142);
 
-function add(a, b) {
+function add142(a, b) {
     return a + b;
 }
 
 
 //Q143:
-sayHi();
+sayHi143();
 
-function sayHi() {
-    console.log("Hi");
+function sayHi143() {
+    console.log("Hi143");
 }
 
-var sayHi = 10;
+var sayHi143 = 10;
 
 
 //Q144:
-console.log(add);
+console.log(add144);
 
-var add = function () {
+var add144 = function () {
     return 10;
 };
 
-console.log(add);
+console.log(add144);
 
 
 //Q145:
-hello();
+hello145();
 
-var hello = function () {
-    console.log("Hello");
+var hello145 = function () {
+    console.log("Hello145");
 };
 
-function hello() {
-    console.log("World");
+function hello145() {
+    console.log("World145");
 }
 
 
 //Q146:
-console.log(greet);
+console.log(greet146);
 
-function greet() {
-    return "Hello";
+function greet146() {
+    return "Hello146";
 }
 
 
-//Q147:
-foo();
+// //Q147:
+// foo147();
 
-var foo = () => {
-    console.log("Arrow");
-};
+// var foo147 = () => {
+//     console.log("Arrow147");
+// };
 
 
 //Q148:
-var x = function test() {
-    console.log("Inside");
+var x148 = function test148() {
+    console.log("Inside148");
 };
 
-console.log(typeof x);
-console.log(typeof test);
+console.log(typeof x148);
+console.log(typeof test148);
 
 
 //Q149:
-function outer() {
+function outer149() {
     return "A";
 }
 
-var outer = function () {
+var outer149 = function () {
     return "B";
 };
 
-console.log(outer());
+console.log(outer149());
 
 
 //Q150:
-console.log(a);
+console.log(a150);
 
-var a = function () {
+var a150 = function () {
     return 1;
 };
 
-function a() {
+function a150() {
     return 2;
 }
 
-console.log(a());
+console.log(a150());
 
-var a = 100;
+var a150 = 100;
 
-console.log(a);
+console.log(a150);
