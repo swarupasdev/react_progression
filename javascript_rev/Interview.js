@@ -3229,79 +3229,185 @@ console.log(a150);
 
 
 //Q151:
-function test151(a = 100) {
+function test151(a = 151) {
     console.log(a);
 }
 
 test151();
 
+
 //Q152:
-function test(a = 100) {
+function test152(a = 100) {
     console.log(a);
 }
 
-test(50);
+test152(50);
 
 
 //Q153:
-function test(a = 100) {
+function test153(a = 100) {
     console.log(a);
 }
 
-test(undefined);
+test153(undefined);
 
 
 //Q154;
-function test(a = 100) {
+function test154(a = 100) {
     console.log(a);
 }
 
-test(null);
+test154(null);
 
 
 //Q155:
-function test(a = 100) {
+function test155(a = 100) {
     console.log(a);
 }
 
-test(0);
+test155(0);
 
 
 //Q156:
-function test(a = 100) {
+function test156(a = 100) {
     console.log(a);
 }
 
-test(false);
+test156(false);
 
 
 //Q157:
-function add(a = 5, b = 10) {
+function add157(a = 5, b = 10) {
     console.log(a + b);
 }
 
-add(2);
+add157(2);
 
 
 //Q158:
-function add(a = 5, b = 10) {
+function add158(a = 5, b = 10) {
     console.log(a + b);
 }
 
-add(undefined, 20);
+add158(undefined, 20);
 
 
 //Q159:
-function add(a = 5, b = a) {
+function add159(a = 5, b = a) {
     console.log(a, b);
 }
 
-add(10);
+add159(10);
 
 
-//Q160:
-function add(a = b, b = 10) {
-    console.log(a, b);
+// //Q160:
+// function add160(a = b, b = 10) {
+//     console.log(a, b);
+// }
+
+// add160();
+
+
+//Q161:
+function demo(...nums) {
+    console.log(nums);
 }
 
-add();
+demo(1,2,3);
+
+
+//Q162
+function demo(a, ...nums) {
+    console.log(a);
+    console.log(nums);
+}
+
+demo(10,20,30,40);
+
+
+//Q163:
+function demo(a,b,...nums){
+    console.log(a,b);
+    console.log(nums);
+}
+
+demo(1);
+
+
+//Q164:
+function demo(...nums){
+    console.log(nums.length);
+}
+
+demo();
+
+
+//Q165:
+function demo(...nums){
+    console.log(Array.isArray(nums));
+}
+
+demo(1,2,3);
+
+
+//Q166:
+function demo(a = 10, ...rest) {
+    console.log(a);
+    console.log(rest);
+}
+
+demo(undefined,20,30,40);
+
+
+//Q167:
+console.log(add(2));
+
+function add(a = 5) {
+    return a;
+}
+
+var add = function(a = 10) {
+    return a * 2;
+};
+
+
+//Q168:
+function demo(a = 1, b = a, ...rest) {
+    console.log(a);
+    console.log(b);
+    console.log(rest);
+}
+
+demo(undefined, undefined, 10, 20);
+
+
+//Q169:
+function outer(x = 5) {
+    return function(y = x) {
+        console.log(x + y);
+    };
+}
+
+const fn = outer(10);
+fn();
+
+
+//Q170:
+var a = 100;
+
+function test(a = 10, ...rest) {
+
+    console.log(a);
+
+    function a() {
+        return 5;
+    }
+
+    console.log(typeof a);
+
+    rest.push(50);
+
+    console.log(rest);
+}
+
+test(undefined, 20, 30);
