@@ -3309,105 +3309,105 @@ add159(10);
 
 
 //Q161:
-function demo(...nums) {
+function demo161(...nums) {
     console.log(nums);
 }
 
-demo(1,2,3);
+demo161(1,2,3);
 
 
 //Q162
-function demo(a, ...nums) {
+function demo162(a, ...nums) {
     console.log(a);
     console.log(nums);
 }
 
-demo(10,20,30,40);
+demo162(10,20,30,40);
 
 
 //Q163:
-function demo(a,b,...nums){
+function demo163(a,b,...nums){
     console.log(a,b);
     console.log(nums);
 }
 
-demo(1);
+demo163(1);
 
 
 //Q164:
-function demo(...nums){
+function demo164(...nums){
     console.log(nums.length);
 }
 
-demo();
+demo164();
 
 
 //Q165:
-function demo(...nums){
+function demo165(...nums){
     console.log(Array.isArray(nums));
 }
 
-demo(1,2,3);
+demo165(1,2,3);
 
 
 //Q166:
-function demo(a = 10, ...rest) {
+function demo166(a = 10, ...rest) {
     console.log(a);
     console.log(rest);
 }
 
-demo(undefined,20,30,40);
+demo166(undefined,20,30,40);
 
 
 //Q167:
-console.log(add(2));
+console.log(add167(2));
 
-function add(a = 5) {
+function add167(a = 5) {
     return a;
 }
 
-var add = function(a = 10) {
+var add167 = function(a = 10) {
     return a * 2;
 };
 
 
 //Q168:
-function demo(a = 1, b = a, ...rest) {
+function demo168(a = 1, b = a, ...rest) {
     console.log(a);
     console.log(b);
     console.log(rest);
 }
 
-demo(undefined, undefined, 10, 20);
+demo168(undefined, undefined, 10, 20);
 
 
 //Q169:
-function outer(x = 5) {
+function outer169(x = 5) {
     return function(y = x) {
         console.log(x + y);
     };
 }
 
-const fn = outer(10);
-fn();
+const fn169 = outer169(10);
+fn169();
 
 
 //Q170:
-var a = 100;
+var a170 = 100;
 
-function test(a = 10, ...rest) {
+function test170(a170 = 10, ...rest170) {
 
-    console.log(a);
+    console.log(a170);
 
-    function a() {
+    function a170() {
         return 5;
     }
 
-    console.log(typeof a);
+    console.log(typeof a170);
 
-    rest.push(50);
+    rest170.push(50);
 
-    console.log(rest);
+    console.log(rest170);
 }
 
-test(undefined, 20, 30);
+test170(undefined, 20, 30);
