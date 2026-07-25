@@ -3411,3 +3411,17 @@ function test170(a170 = 10, ...rest170) {
 }
 
 test170(undefined, 20, 30);
+
+
+//Q171: Write a function delay(ms) that returns a Promise which resolves after ms milliseconds.
+
+//Q172: Create a Promise that resolves with "Login Successful" after 2 seconds.
+
+//Q173: Write a Promise that rejects with "Invalid Credentials" after 1 second.
+
+//Q174: Write a function isEven(num) that returns a Promise.
+
+// Resolve if the number is even.
+// Reject if the number is odd.
+
+//Q175  Fetch User -> Fetch Orders->Fetch Payment->Print "Completed"
