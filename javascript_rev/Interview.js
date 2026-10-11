@@ -3429,7 +3429,7 @@
 
 
 // -----------------------------------------new----------------------------------------------------
-
+// JS-01 VARIABLE
 
 // Q1 - Reassignment 
 // Declare a variable named score with the value 50. Reassign it to 75 and print it.
@@ -3537,3 +3537,145 @@ function cart(){
     console.log(total2)
 }
 cart();
+
+
+// JS-O1 DATATYPES AND TYPE CHECKING 
+// STRING, NUMBER, BOOLEAN, UNDEFINED, NULL, BIGINT, SYMBOL, OBJECT
+
+// Q1 — Declare different types
+// Declare five variables: a string containing your name, a number containing your age, a boolean indicating whether you are learning JavaScript, an undefined variable, and a null variable. Use let or const appropriately.
+
+//ans:
+const name2 = 'Swarup';
+const age2 = 24;
+const javaScript2 = true;
+let unknown2;
+const zero2 = null;
+
+
+
+// Q2 — Check data types
+// Declare a string, a number, and a boolean. Use console.log() and typeof to display the type of each value.
+
+//ans:
+const name3 = 'Swarup';
+const age3 = 24;
+const javaScript3 = true;
+let unknown3;
+const zero3 = null;
+
+console.log(typeof (name3))
+console.log(typeof age3)
+console.log(typeof javaScript3)
+console.log(typeof unknown3)
+console.log(typeof zero3)
+
+
+
+// Q3 — Correct the data types
+// Create variables for a product price of 499, a product name of 'Keyboard', and whether the product is available (true). Choose the correct data type for each.
+
+//ans:
+const product2={
+    name4: 'keyboard',
+    price4: '499',
+    available4: true
+}
+if(product2.available4){
+
+    console.log("Ready to checkout")
+
+}
+else{
+    console.log("Unavailable")
+}
+
+
+// Q4 — Undefined versus null
+// Create one variable whose value is undefined and another whose value is null. Use console.log() and typeof to inspect both.
+
+//ans:
+let notDefine;
+const zero4 = null;
+console.log(typeof (notDefine))
+console.log(typeof (zero4))
+
+
+// Q5 — Industrial scenario
+// A product's discount is currently unknown. Declare a variable to represent that the discount has not yet been provided. Then show how you would represent a known discount of 0. Choose values that distinguish 'not provided' from 'no discount'.
+
+let discount;
+//discount=0
+if(typeof discount){
+    console.log(typeof discount)
+    //console.log("Undefined")
+}
+
+// Q1 — String
+// Create a variable called userName containing your name. Then print its type using typeof.
+
+//ans:
+const userName = 'Swarup'
+console.log(typeof userName)
+
+// Q2 — Number
+// Create a variable called salary containing 50000. Print its value and its type.
+
+//ans:
+const salary = 50000;
+console.log(salary);
+console.log(typeof salary);
+
+// Q3 — Boolean
+// Create a variable called isLoggedIn containing true. Print its type.
+
+//ans:
+const isLoggedIn = true;
+console.log(typeof isLoggedIn)
+
+// Q4 — Undefined
+// Create a variable called phoneNumber without assigning any value. Print its type using typeof.
+
+//ans:
+let phoneNumber;
+console.log(typeof phoneNumber)
+
+// Q5 — Null
+// Create a variable called profilePicture and intentionally assign it null. Print:
+// 1. Its value
+// 2. Its type using typeof
+
+//ans:
+const profilePicture = null;
+console.log(typeof profilePicture)
+console.log(profilePicture)
+
+// Q6 — Important distinction
+// Create these two variables:
+// age = 24
+// ageText = "24"
+// Use typeof on both so that you can clearly verify that one is a number and the other is a string.
+
+//ans:
+const age = 24
+const ageText = "24"
+console.log(typeof age)
+console.log(typeof ageText)
+
+// Q7 — Industrial-style scenario
+// A user has not provided a discount yet. Create:
+// discount
+// without assigning a value.
+// Another user has explicitly received no discount, so create:
+// discountAmount
+
+// with the value 0.
+// Print the type of both variables.
+// No if, no operators, no arrays, no functions, no React. Just declaration → value → typeof.
+
+//ans:
+let discount1;
+let discountAmount = 0 ;
+
+console.log(typeof discount1)
+console.log(typeof discountAmount)
