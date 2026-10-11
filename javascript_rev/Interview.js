@@ -3679,3 +3679,125 @@ let discountAmount = 0 ;
 
 console.log(typeof discount1)
 console.log(typeof discountAmount)
+
+// Q1 — Arithmetic
+// A product costs ₹799 and the customer buys 4.
+// Create:
+// price
+// quantity
+// total
+// Calculate the total using an arithmetic operator and print it.
+
+//ans:
+const product5 = 799;
+let quantity5 = 4;
+const total5 = 799*4
+
+console.log(total5)
+
+
+// Q2 — Remainder
+// Create:
+// totalItems = 17
+// Find how many items are left over after putting them into groups of 5.
+// Use %.
+
+//ans:
+  const totalItem = 17
+  const group = 5
+  const itemsLeft = totalItem%group
+  console.log(itemsLeft)
+
+
+
+// Q3 — Compound assignment
+// Start with:
+// let wallet = 5000;
+
+// Then:
+// - Add ₹1500
+// - Subtract ₹700
+// - Add ₹300
+// Use compound assignment operators (+=, -=), not:
+// wallet = wallet + 1500;
+// Finally print the wallet balance.
+
+//ans:
+let wallet = 5000
+wallet += 1500
+wallet -=700
+wallet += 300
+
+console.log(wallet)
+
+// Q4 — Increment/decrement
+// Create:
+// let loginAttempts = 0;
+// Simulate:
+// - One failed login attempt
+// - Another failed login attempt
+// - One attempt being removed/reset
+// Use ++ and --.
+
+//ans:
+let loginAttempts = 0;
+++ loginAttempts;
+loginAttempts++;
+--loginAttempts;
+
+console.log(loginAttempts)
+
+// Q5 — Comparisons
+// Create:
+// const age = 24;
+
+// Write code that checks whether:
+// - age is greater than 18
+// - age is less than 30
+// - age is exactly 24
+// Print each result.
+// Use comparison operators.
+
+//ans:
+const age6 = 24;
+age6 >= 18 || age6<= 30 || age6 == 24
+console.log(age6)
+
+// Q6 — Small industrial scenario
+// An e-commerce application has:
+// const productPrice = 1200;
+// const quantity = 3;
+// const deliveryFee = 80;
+// Calculate:
+// subtotal
+// finalTotal
+// The calculation should be:
+// product price × quantity → subtotal
+// then:
+// subtotal + delivery fee → final total
+// Use variables rather than putting the entire calculation directly inside console.log().
+
+//ans:
+const productPrice6 = 1200;
+const quantity6 = 3;
+const deliveryFee6 = 80;
+const subtotal6 = productPrice6*quantity6
+const finalTotal6 = subtotal6 + deliveryFee6
+
+console.log(finalTotal6)
+
+
+// Q7 — Manager-style coding question
+// You have:
+// let stock = 10;
+
+// Five products are sold.
+// Write the code to reduce the stock appropriately using an assignment operator.
+// Then one new product is added to inventory.
+// Increase the stock using an appropriate operator.
+
+//ans:
+let stock7 = 10;
+stock7-=5;
+stock7+=1;
+console.log(stock7)
