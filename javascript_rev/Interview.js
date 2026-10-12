@@ -3429,6 +3429,44 @@
 
 
 // -----------------------------------------new----------------------------------------------------
+// Track A — JavaScript
+// Module	Topics and practical skills
+// JS-01	Variables, data types, operators, type coercion, equality
+// JS-02	Functions, parameters, return values, callbacks, arrow functions
+// JS-03	Scope, execution context, hoisting, TDZ, closures
+// JS-04	Arrays, objects, references, cloning, map, filter, reduce
+// JS-05	this, prototypes, classes, inheritance, modules
+// JS-06	Promises, async/await, event loop, microtasks and macrotasks
+// JS-07	Fetch API, HTTP errors, retries, cancellation, race conditions
+// JS-08	Exceptions, debugging, clean code, immutability, performance
+// JS-09	Practical coding tasks and mixed interview challenges
+
+// Track B — Database and SQL
+// Module	Topics and practical skills
+// DB-01	Database fundamentals, relational models, tables and schemas
+// DB-02	SQL basics: SELECT, WHERE, sorting and filtering
+// DB-03	Joins, subqueries, CTEs and set operations
+// DB-04	Aggregation: GROUP BY, HAVING, aggregate functions
+// DB-05	Keys, constraints, normalization and schema design
+// DB-06	Indexes, query plans and performance fundamentals
+// DB-07	Transactions, ACID, concurrency and data consistency
+// DB-08	Practical database design and scenario-based SQL challenges
+// We'll use PostgreSQL-style SQL for practice unless your project or workplace uses a different database.
+
+// Track C — React
+// Module	Topics and practical skills
+// RE-01	React fundamentals, JSX, components and props
+// RE-02	State, event handling, controlled forms and state updates
+// RE-03	Rendering, reconciliation, keys and component lifecycle concepts
+// RE-04	useState, useEffect, dependency arrays and cleanup
+// RE-05	API integration, loading states, errors and request cancellation
+// RE-06	Routing, nested routes and navigation
+// RE-07	Context API, prop drilling and state-management decisions
+// RE-08	Custom hooks, reusable components and component architecture
+// RE-09	Performance, unnecessary renders, memoization and debugging
+// RE-10	Production-style scenarios and a complete application challenge
+
+
 // JS-01 VARIABLE
 
 // Q1 - Reassignment 
@@ -3856,3 +3894,103 @@ const quantity7 = 2
 const totalPrice7 = (Number(productPrice7))*quantity7
 
 console.log(totalPrice7)
+
+
+// JS-01 → Mixed Practical Coding
+// Q1 — Shopping Cart
+// const price = 1499;
+// const quantity = 3;
+// Calculate the total cost and store it in total.
+
+//ans:
+const price8 = 1499
+const quantity8 = 3
+const totalProduct8=price8*quantity8
+
+console.log(totalProduct8)
+
+// Q2 — Discount
+// const price = 5000;
+// const discount = 500;
+// Calculate the final price after discount.
+// Store it in finalPrice.
+
+//ans:
+const price9 = 5000;
+const discount9 = 500;
+const finalPrice9 = price9 - discount9
+
+console.log(finalPrice9)
+
+// Q3 — API Data
+// An API sends:
+// const priceFromAPI = "2499";
+// const quantity = 2;
+// Calculate the actual total price.
+// The API value is a string, so handle it correctly.
+
+//ans:
+const priceFromAPI10 = "2499";
+const quantity10 = 2;
+const totalPrice10 = priceFromAPI10 * quantity10 
+
+console.log(totalPrice10)
+
+// Q4 — Wallet
+// A user has:
+// let wallet = 10000;
+// They:
+// 1. Spend ₹2500
+// 2. Receive ₹1500
+// 3. Spend ₹800
+// Update wallet accordingly and print the final balance.
+
+//ans:
+let wallet11 = 10000;
+wallet11-=2500;
+wallet11+=1500;
+wallet11-=800
+
+console.log(wallet11)
+// Q5 — Inventory
+// let stock = 25;
+// A store sells 7 products and receives a shipment of 15 products.
+// Update the stock and print the final amount.
+
+//ans: 
+let stock11 = 25;
+stock11-=7
+stock11+=15
+
+console.log(stock11)
+
+// Q6 — User Input
+// You receive:
+// const userAge = "24";
+// Convert it into the appropriate type and determine whether it represents age 24. 
+// Use strict equality after conversion.
+
+//ans:
+const userAge11 = '24';
+const userAge12 = Number(userAge11)
+
+console.log(userAge12)
+console.log(userAge11 === userAge12)
+
+// Q7 — Boss Round
+// A payment system receives:
+// const amountFromAPI = "1500";
+// const walletBalance = 2000;
+
+// Implement code that:
+// 1. Converts the API amount into the correct type.
+// 2. Checks whether the wallet balance is sufficient.
+// 3. If you're writing only the logic for now, don't use if yet — simply produce the boolean result of the comparison.
+
+//ans:
+const amountFromAPI = '1500'
+const walletBalance = 2000
+
+const convertedAmountFromAPI = Number(amountFromAPI)
+console.log(typeof convertedAmountFromAPI)
+console.log(walletBalance>=convertedAmountFromAPI) 
