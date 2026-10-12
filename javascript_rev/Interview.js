@@ -3760,8 +3760,10 @@ console.log(loginAttempts)
 
 //ans:
 const age6 = 24;
-age6 >= 18 || age6<= 30 || age6 == 24
-console.log(age6)
+
+console.log(age6 > 18);
+console.log(age6 < 30);
+console.log(age6 === 24);
 
 // Q6 — Small industrial scenario
 // An e-commerce application has:
@@ -3801,3 +3803,56 @@ let stock7 = 10;
 stock7-=5;
 stock7+=1;
 console.log(stock7)
+
+
+// JS-01 → Equality & Type Coercion
+// Q1. Compare 25 and "25" using both == and ===.
+
+// ans:
+const numTest = 25
+const stringTest = '25'
+
+console.log(numTest == stringTest)
+console.log(numTest === stringTest)
+
+// Q2. Compare 100 and "100" using != and !==.
+
+// ans:
+const numTest1 = 100
+const stringTest1 = '100'
+
+console.log(numTest1 !== stringTest1)
+console.log(numTest1 != stringTest1)
+
+// Q3. You have:
+// const userInput = "500";
+// Convert it explicitly into a number and store it in price.
+
+// ans:
+const userInput = '500'
+const userNumber = Number(userInput)
+
+console.log(userNumber)
+
+// Q4. You have:
+// const age = 24;
+// Convert it explicitly into a string and store it in ageText.
+
+//ans: 
+const age7 = 24;
+const ageText7 = String(age7)
+
+console.log(ageText7)
+
+// Q5. Industrial scenario
+// An API gives you:
+// const productPrice = "499";
+// const quantity = 2;
+// Convert productPrice into a number and calculate the total price.
+
+//ans:
+const productPrice7 = '499'
+const quantity7 = 2
+const totalPrice7 = (Number(productPrice7))*quantity7
+
+console.log(totalPrice7)
