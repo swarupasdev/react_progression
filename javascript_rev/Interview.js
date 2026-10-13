@@ -3994,3 +3994,115 @@ const walletBalance = 2000
 const convertedAmountFromAPI = Number(amountFromAPI)
 console.log(typeof convertedAmountFromAPI)
 console.log(walletBalance>=convertedAmountFromAPI) 
+
+
+// JS-02: Functions, Parameters, Arguments, and return behavior
+
+// boss round 
+// Q1
+// Create a function called:
+// greetUser
+
+// It should accept a name parameter and print:
+// Hello Swarup
+
+// when called with "Swarup".
+
+//ans:
+function greetUser(name){
+    console.log("hello "+name)
+}
+greetUser('Swarup')
+
+// Q2
+// Create:
+// calculateSquare
+
+// It accepts a number and returns its square.
+// Call it with 8 and store the returned value in a variable called result.
+// Then print result.
+
+//ans:
+function calculateSquare(arm){
+    return arm*arm
+}
+
+const square1Area = calculateSquare(8)
+console.log(square1Area)
+// Q3
+// Create:
+// calculateTotal
+
+// It should accept:
+// price
+// quantity
+
+// and return the total.
+// Call it with:
+// 799
+// 4
+
+// and print the returned value.
+
+//ans:
+function calculateTotalNew(priceNew, quantityNew){
+    const totalNew = priceNew*quantityNew
+    return totalNew
+}
+const finalCalculateTotalNew=calculateTotalNew(799,4)
+console.log(finalCalculateTotalNew)
+
+// Q4
+// Create:
+// calculateDiscountedPrice
+
+// Parameters:
+// price
+// discount
+
+// Return:
+// price - discount
+
+// Call it with:
+// 5000
+// 500
+
+// and print the result.
+
+//ans:
+function calculateDiscountedPrice(priceNew1,discountNew1){
+    return priceNew1 - discountNew1
+}
+const finalCalculateDiscountedPrice = calculateDiscountedPrice(5000,500)
+console.log(finalCalculateDiscountedPrice)
+
+// Q5 — Practical
+// Create:
+// calculateFinalPrice
+
+// It should accept:
+// price
+// quantity
+// deliveryFee
+
+// Calculate:
+// price × quantity + deliveryFee
+
+// and return the final amount.
+// Call it with:
+// 1200
+// 3
+// 80
+
+// Store the returned value in:
+// finalPrice
+
+// and print it.
+
+//ans:
+function newCalculateFinalPrice(newPrice, newQuantity, newDeliveryFee ){
+    const newTotal = newPrice*newQuantity+newDeliveryFee;
+    return newTotal;
+}
+const FinalNewTotal = newCalculateFinalPrice(1200, 3, 80)
+console.log(FinalNewTotal)
