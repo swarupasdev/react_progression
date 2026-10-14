@@ -4106,3 +4106,188 @@ function newCalculateFinalPrice(newPrice, newQuantity, newDeliveryFee ){
 }
 const FinalNewTotal = newCalculateFinalPrice(1200, 3, 80)
 console.log(FinalNewTotal)
+
+// Once JavaScript executes return, the function stops executing.
+// A function without return is undefined 
+// Parameters are matched by position
+// JavaScript allows you to call a function without supplying every argument.
+
+// Q1 — Return
+// Create:
+// calculateDouble(number)
+
+// It should return double the number.
+// Call it with 25 and store the result in result.
+
+//ans: 
+function calculateDouble(number){
+    return number*2
+}
+const newCalculateDouble = calculateDouble(25)
+console.log(newCalculateDouble)
+
+// Q2 — No return
+// Create:
+// showPrice(price)
+
+// It should print:
+// Price: 500
+
+// Call it with 500.
+// Then assign the result of calling the function to a variable called result.
+// Print result.
+// The goal is to observe the difference between printing and returning.
+
+//ans:
+function showPrice(price){
+    return price
+}
+const resultNew = showPrice(500)
+console.log(resultNew)
+
+// Q3 — Multiple parameters
+// Create:
+// calculateBill(price, quantity, tax)
+
+// Return:
+// price × quantity + tax
+
+// Call it with:
+// price = 1000
+// quantity = 3
+// tax = 150
+
+//ans:
+function newCalculateBill(newPrice01,newQuantity01,newTax01){
+    return newPrice01*newQuantity01+newTax01
+}
+const finalResult = newCalculateBill(1000, 3, 150)
+console.log(finalResult)
+
+// Q4 — Default parameter
+// Create:
+// calculateShippingCost(distance, rate = 10)
+
+// Return:
+// distance × rate
+
+// Test it twice:
+// calculateShippingCost(20)
+// calculateShippingCost(20, 15)
+
+//ans: 
+function calculateShippingCost(distance, rate = 10){
+    return distance*rate
+}
+const newCalculateShippingCost=calculateShippingCost(20)
+const anotherNewCalculateShippingCost=calculateShippingCost(20, 15)
+
+console.log(newCalculateShippingCost)
+console.log(anotherNewCalculateShippingCost)
+
+
+// Q5 — Practical scenario
+// Create:
+// calculateCartTotal(price, quantity = 1)
+
+// Return the total.
+// Test:
+// calculateCartTotal(999)
+// calculateCartTotal(999, 3)
+
+// The first call should assume one item because no quantity was supplied.
+
+//ans:
+function calculateCartTotal(newPrice02, newQuantity = 1){
+    const newAnotherTotal = newPrice02*newQuantity
+    return newAnotherTotal
+}
+
+const newAnotherTotal01 = calculateCartTotal(999)
+const newAnotherTotal02 = calculateCartTotal(999, 3)
+
+console.log(newAnotherTotal01)
+console.log(newAnotherTotal02)
+
+
+//EXPRESSION
+// Q1 — Greeting
+// Create a function expression:
+// greetUser(name)
+
+// It should print:
+// Hello, Swarup
+
+// when called with "Swarup".
+
+//ans: 
+const greetUser03 = function(newName03){
+    return newName03
+};
+console.log('Hello '+greetUser03('Swarup'))
+// Q2 — Square
+// Create:
+// calculateSquare(number)
+
+// It should return the square.
+// Example:
+// calculateSquare(7)
+
+// should return 49.
+
+//ans:
+const calculateSquare03 = function(number03){
+    return number03*number03
+}
+console.log(calculateSquare03(7))
+
+// Q3 — Cart total
+// Create:
+// calculateTotal(price, quantity)
+
+// Return:
+// price × quantity
+
+// Test it with:
+// price = 250
+// quantity = 4
+
+//ans:
+const calculateTotal03 = function(newPrice03, newQuantity03){
+    return newPrice03*newQuantity03
+}
+console.log(calculateTotal03(250,4))
+// Q4 — Final price
+// Create:
+// calculateFinalPrice(price, quantity, deliveryFee)
+
+// Return:
+// price × quantity + deliveryFee
+
+// Test:
+// price = 500
+// quantity = 3
+// deliveryFee = 50
+
+//ans:
+const calculateFinalPrice04 = function(newprice04, newquantity04, newdeliveryFee05){
+    return newprice04* newquantity04+ newdeliveryFee05
+};
+console.log(calculateFinalPrice04(500,3,50))
+
+// Q5 — Industrial-style
+// Create:
+// calculateSalary(basicSalary, bonus)
+
+// Return the employee's total salary:
+// basicSalary + bonus
+
+// Test:
+// basicSalary = 30000
+// bonus = 5000
+
+//ans:
+const calculateSalary05 = function(basicSalary05, bonus05){
+    return basicSalary05+ bonus05
+};
+console.log(calculateSalary05(30000,5000))
