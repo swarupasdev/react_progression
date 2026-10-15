@@ -4291,3 +4291,206 @@ const calculateSalary05 = function(basicSalary05, bonus05){
     return basicSalary05+ bonus05
 };
 console.log(calculateSalary05(30000,5000))
+
+// arrow function
+// Q1
+// function greetUser(name) {
+//     return "Hello " + name;
+// }
+
+//ans:
+const greetUser07 = (name08)=>{
+    return 'hello '+name08
+}
+console.log(greetUser07('Swarup'))
+
+// Q2
+// function calculateSquare(number) {
+//     return number * number;
+// }
+
+//ans:
+const calculateTotal07 = (price07, quantity07) => {
+    return price07 * quantity07;
+}
+console.log(calculateTotal07(30,4))
+// Q3
+// function calculateTotal(price, quantity) {
+//     return price * quantity;
+// }
+
+//ans:
+const calculateTotal08 = (price08, quantity08)=> {
+    return price08 * quantity08;
+}
+console.log(calculateTotal08(560, 4))
+
+// Q4
+// function calculateFinalPrice(price, quantity, deliveryFee) {
+//     return price * quantity + deliveryFee;
+// }
+//ans:
+const calculateFinalPrice09 = (price09, quantity09, deliveryFee09)=> {
+    return price09 * quantity09 + deliveryFee09;
+}
+console.log(calculateFinalPrice09(5000,5,50))
+
+// Q5 — Industrial-style
+// Create an arrow function:
+// calculateNetSalary(grossSalary, tax)
+
+// It should return:
+// grossSalary - tax
+
+//ans:
+const calculateNetSalary10 = (grossSalary, tax)=>{
+    const originalSalary =  grossSalary- tax
+    return originalSalary
+}
+console.log(calculateNetSalary10(50000, 5000))
+
+// callback
+// Q1
+// Create:
+// greetUser(name)
+
+// which prints "Hello " + name.
+// Then create:
+// processUser(name, callback)
+
+// which calls the callback with the name.
+// Call it using greetUser as the callback.
+
+//ans:
+function greetUser09(name09){
+    console.log('hello ',name09)
+}
+function processUser09(name09,callback01){
+    callback01(name09)
+}
+processUser09('Swarup',greetUser09)
+
+// Q2
+// Create:
+// calculateTotal(price, quantity, callback)
+
+// Calculate the total and pass it to the callback.
+// Create another function:
+// displayTotal(total)
+
+// which prints:
+// Total: 2000
+
+// when the calculation is 500 × 4.
+
+//ans:
+function calculateTotal10(price10, quantity10, callback10){
+    const afterCalculate10 = price10* quantity10
+    callback10(afterCalculate10)
+}
+function showTotal10(afterCalculate10){
+    console.log('Total: ',afterCalculate10)
+}
+calculateTotal10(500, 4, showTotal10)
+
+// Q3
+// Create:
+// calculateDiscount(price, discount, callback)
+
+// Calculate:
+// price - discount
+
+// and pass the result to the callback.
+// Use another function to print the final price.
+
+//ans:
+function calculateDiscount11(price11, discount11, callback11){
+    const newCalculation11 = price11 - discount11
+    callback11(newCalculation11)
+}
+function finalPrice11(amount){
+    console.log('Final price of the Product: ',amount)
+}
+calculateDiscount11(6000, 400, finalPrice11)
+
+// Q4 — Callback with arrow function
+// Create:
+// calculateTotal(price, quantity, callback)
+
+// Use an arrow function for calculateTotal.
+// Then call it with:
+// 500, 3
+
+// and pass an arrow function as the callback that prints:
+// Total: 1500
+
+//ans:
+const calculateTotal12 = (price12, quantity12, callback12)=>{
+    const finalCalculation12 = price12 * quantity12
+    callback12(finalCalculation12)
+}
+const finalResult12 = amount12=>{
+    console.log('Total: ',amount12)
+}
+calculateTotal12(500, 3, finalResult12)
+// Q5 — Discount
+// Create:
+// calculateDiscountedPrice(price, discount, callback)
+
+// Use an arrow function.
+// Calculate:
+// price - discount
+
+// Then pass the result to a callback that prints:
+// Final Price: ...
+
+//ans:
+const calculateDiscountedPrice13 = (price13, discount13, callback13)=>{
+    const finalCalculateDiscountedPrice13 = price13- discount13
+    callback13(finalCalculateDiscountedPrice13)
+}
+const finalPrice13 = amount13 =>{
+    console.log("final price: ",amount13)
+}
+calculateDiscountedPrice13(5000, 450, finalPrice13)
+
+// Q6 — Salary
+// Create:
+// calculateSalary(basicSalary, bonus, callback)
+
+// Calculate the salary and pass it to a callback.
+// Use:
+// basicSalary = 30000
+// bonus = 5000
+
+//ans:
+const calculateSalary14 = (basicSalary14, bonus14, callback14)=>{
+    const finalTotal14 = basicSalary14 + bonus14
+    callback14(finalTotal14)
+}
+const totalSalary14 = amount14=>{
+    console.log("Total salary: ",amount14)
+}
+calculateSalary14(30000, 5000, totalSalary14)
+
+// Q7 — Industrial scenario
+// Create:
+// processOrder(price, quantity, deliveryFee, callback)
+
+// Calculate:
+// price × quantity + deliveryFee
+
+// Then pass the final amount to the callback.
+// The callback should print:
+// Order processed. Final amount: ...
+
+// Use arrow functions throughout.
+
+const processOrder15 = (price15, quantity15, deliveryFee15, callback15)=>{
+    const calculate15 = price15 * quantity15 + deliveryFee15
+    callback15(calculate15)
+};
+const finalTotal15 = amount15=>{
+    console.log("Total Price: ", amount15)
+}
+processOrder15(50000, 30, 450, finalTotal15)
