@@ -4705,3 +4705,36 @@ calculatePrice18(300);
 // Q5. What happens conceptually when employee() finishes?
 //ans 
 // starts with global execution context when created . then function execution context when employee() was called then it simply executed the code 
+
+
+function first() {
+    console.log("First");
+}
+
+function second() {
+    first();
+    console.log("Second");
+}
+
+function third() {
+    second();
+    console.log("Third");
+}
+
+third();
+
+console.log("Global");
+// Q1: Write the Call Stack after third() is called.
+//ans: third () will search execution context in second (), then second () will search execution context in first() so first will print then second then third then global context will execute 
+
+// Q2: Write the stack when first() is executing.
+//ans: 
+
+// Q3: Write the stack after first() finishes.
+//ans:
+
+// Q4: Write the stack after second() finishes.
+//ans:
+
+// Q5: Write the final output.
+//ans: first -> second -> third -> global
