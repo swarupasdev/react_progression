@@ -4738,3 +4738,26 @@ console.log("Global");
 
 // Q5: Write the final output.
 //ans: first -> second -> third -> global
+
+const tax = 10;
+
+function calculate(price) {
+    const discount = 50;
+    const finalPrice = price - discount + tax;
+
+    console.log(finalPrice);
+}
+
+calculate(500);
+// 1. During the Global Creation Phase, what declarations does JavaScript prepare?
+//ans: tax and calculate
+
+// 2. During the Global Execution Phase, what happens first?
+//ans: const tax = 10;
+
+// 3. When calculate(500) is called, what new execution context is created?
+//ans: after value assigned to tax , calculate(500) is called then calculate()will be created 
+// 4. In that function context, what is the value of price?
+//ans: 500
+// 5. What happens during the function's execution phase?
+//ans: tax = 10;, then call calculate() then function execution context then creation then execution phase then discount = 50 ,price = 500,  final price = 460
