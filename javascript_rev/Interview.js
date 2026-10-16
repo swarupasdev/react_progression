@@ -4671,3 +4671,37 @@ calculatePrice18(300);
 
 
 // JS-03.2 — Execution Context
+// const company = "TechCorp";
+
+// function employee(name) {
+//     const role = "Developer";
+//     const message = name + " is a " + role;
+
+//     console.log(message);
+// }
+
+// employee("Swarup");
+// Q1. What execution context exists before employee() is called?
+
+//ans:
+//global
+
+
+// Q2. When employee("Swarup") runs, what new execution context is created?
+//ans:
+//function execution context
+
+// Q3. What values do these have inside that function context?
+// name: 'swarup'
+// role: "Developer"
+// message: undefined is a developer 
+
+
+// Q4. Is company stored inside the employee function's local variables? If not, how can the function access it?
+
+//ans:
+// not stored but it can accesss it because of comapny exists in global context and global scope, variables inside  employee function went for global scope to access it since it has nothing inside the local scope to access
+
+// Q5. What happens conceptually when employee() finishes?
+//ans 
+// starts with global execution context when created . then function execution context when employee() was called then it simply executed the code 
