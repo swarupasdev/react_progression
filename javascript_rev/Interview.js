@@ -4494,3 +4494,180 @@ const finalTotal15 = amount15=>{
     console.log("Total Price: ", amount15)
 }
 processOrder15(50000, 30, 450, finalTotal15)
+
+// JS-03.1 — Scope.
+// Because JavaScript looks for the variable in the current scope, and if it doesn't find it, it searches the surrounding outer scope.
+// A variable declared inside a function belongs to that function's scope:
+
+// Q1
+// Write code where:
+// globalName = "Swarup"
+// is declared globally.
+// Create a function greetUser() that prints it.
+
+//ans :
+const globalName = 'Swarup'
+const greetuser15 = name15=>{
+    console.log(name15)
+}
+greetuser15(globalName)
+// Q2
+// Create:
+// function calculateSalary() {
+//     const salary = 50000;
+// }
+// Then try to print salary outside the function.
+// Tell me what happens and why.
+
+//ans:
+// function calculateSalary15() {
+//     const salary15 = 50000;
+
+// }
+// console.log(salary15)
+
+// Q3
+// Create:
+// const company = "TechCorp";
+
+// function employee() {
+//     const name = "Swarup";
+
+//     function introduce() {
+//         console.log(company);
+//         console.log(name);
+//     }
+
+//     introduce();
+// }
+
+// Before running it, explain the scope chain for introduce().
+
+//ans:
+const company = "TechCorp";
+
+function employee() {
+    const name = "Swarup";
+
+    function introduce() {
+        console.log(company);
+        console.log(name);
+    }
+
+    introduce();
+}
+employee()
+
+// Q4 — Coding
+// Create:
+// globalTax = 10
+
+// Then create:
+// calculatePrice(price)
+
+// Inside the function, calculate:
+// price + globalTax
+
+// Do not pass globalTax as a parameter. The point is to demonstrate that the function can access a variable from its outer/global scope.
+
+//ans:
+const globalTax16 = 10 
+const calculatePrice16 = (price16,callback16)=>{
+    const totalPrice16 = price16+globalTax16;
+    callback16(totalPrice16);
+}
+const finalPrice16 = amount16=>{
+    console.log('Total price:',amount16)
+}
+calculatePrice16(300, finalPrice16)
+
+// When JavaScript needs a variable, it searches the current scope and then progressively searches outward through the scope chain.
+
+//lexical scope block scope
+
+// Q1
+// What will each console.log() access?
+// const name = "Global";
+
+// if (true) {
+//     const name = "Block";
+//     console.log(name);
+// }
+
+// console.log(name);
+
+// Explain why.
+
+//ans:
+//     block scoped console.log(name); will access 'block', 
+// global scoped console.log(name); will access 'global'
+
+
+
+// Q2
+// Write code with:
+// global variable → company
+// function → employee
+// inner function → introduce
+
+// Make introduce() successfully access both company and an employee variable.
+
+//ans:
+const newVar = 'company';
+const employee01=() =>{
+    const newChar = 'Swarup'
+    const introduction=()=>{
+        console.log("Organisation:",newVar)
+        console.log("employee name:",newChar)
+    }
+    introduction();
+}
+employee01();
+
+// Q3
+// Create two functions:
+// function first() {
+//     const message = "Hello";
+// }
+
+// function second() {
+//     console.log(message);
+// }
+
+// Explain why second() cannot access message.
+
+//ans:
+// second() cannot access message because it is outside of the first() function 
+
+// Q4 — Coding
+// Create:
+// const tax = 10;
+
+// function calculatePrice(price) {
+//     const discount = 50;
+
+//     // create an inner function here
+// }
+
+// Make the inner function print all three values:
+// price
+// discount
+// tax
+
+// Don't use parameters for discount or tax.
+
+//ans:
+const tax04 = 10;
+function calculatePrice18(price18){
+    const discount18 = 50;
+    function finalValue18(){
+        console.log('price: ',price18)
+        console.log('discount: ',discount18)
+        console.log('tax: ',tax04)
+    }
+    finalValue18();
+}
+calculatePrice18(300);
+
+
+// JS-03.2 — Execution Context
