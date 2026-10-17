@@ -4761,3 +4761,114 @@ calculate(500);
 //ans: 500
 // 5. What happens during the function's execution phase?
 //ans: tax = 10;, then call calculate() then function execution context then creation then execution phase then discount = 50 ,price = 500,  final price = 460
+
+console.log(age19);
+
+var age19 = 24;
+
+console.log(age19);
+
+// 1. What happens during Creation Phase?
+//ans: during creation phase age = undefined
+
+// 2. What does the first console.log(age) print?
+//aNS :  UNDEFINED
+// 3. What happens when age = 24 executes?
+//ans : console.log(age) new global context created 
+// 4. What does the second console.log(age) print?
+//ans : 24
+
+// console.log(a);
+// var a = 10;
+
+// console.log(b);
+// let b = 20;
+
+// console.log(c);
+// const c = 30;
+// 1.What happens with a?
+
+//ans: undefined
+
+// 2.What happens with b?
+//ans: reference error
+// 3.What happens with c?
+//ans: reference error
+
+// 4.Why is var different from let and const?
+// ans : initialize with undefined where as let and const in TDZ
+
+//closure
+function createCounter() {
+    let count = 0;
+
+    function increment() {
+        count++;
+        console.log(count);
+    }
+
+    return increment;
+}
+
+const counter = createCounter();
+
+counter();
+counter();
+counter();
+
+//closure
+function createScore() {
+    let score = 0;
+
+    return function increaseScore(points) {
+        score += points;
+        console.log(score);
+    };
+}
+const finalScore = createScore();
+finalScore(10);
+finalScore(20);
+finalScore(5);
+
+//closure
+function createScoreNew() {
+    let scoreNew = 0;
+
+    return function increaseScoreNew(points) {
+        scoreNew += points;
+        console.log(scoreNew);
+    };
+}
+
+const player1 = createScoreNew();
+const player2 = createScoreNew();
+
+player1(10);
+player1(20);
+
+player2(50);  //independent private state 
+player1(5);   //separate lexical environment
+
+//closuer boss round
+function createUser20(){
+    let username20 = '';
+    let loginCount20 = 0;
+    return{
+        logIn20(name20){
+        username20 = name20
+        loginCount20++;
+        console.log(username20,"Logged in.")
+        
+    },
+
+    getLoginCount20(){
+        return loginCount20
+    }
+}
+}
+const user20 = createUser20()
+
+user20.logIn20('Swarup')
+user20.logIn20('Sam')
+
+console.log(user20.getLoginCount20())
