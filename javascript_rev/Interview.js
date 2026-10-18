@@ -4872,3 +4872,134 @@ user20.logIn20('Swarup')
 user20.logIn20('Sam')
 
 console.log(user20.getLoginCount20())
+
+//arrays
+// An array is an ordered collection of values. Each value has a numeric index, starting from 0.
+// The number of elements is available through .length:
+// push() adds to the end:
+// pop() removes the last element:
+// pop() also returns the removed value:
+
+//prices = [100, 250, 500]
+
+// 1. Change 250 to 300.
+//ans:
+
+const pricesArray = [100, 250, 500];
+pricesArray[1] = 300;
+console.log(pricesArray)
+
+// 2. Add 750 using push().
+
+//ans:
+pricesArray.push(750)
+console.log(pricesArray)
+
+
+// 3. Remove the last element using pop().
+
+//ans:
+//pricesArray.pop()
+
+// 4. Store the removed value in a variable.
+
+//ans:
+const poppedValue = pricesArray.pop()
+
+// 5. Print the final array.
+//ans: 
+console.log(pricesArray)
+
+// 6. Print the removed value.
+//ans:
+console.log(poppedValue)
+
+// 7. Print the length of the final array.
+//ans:
+console.log(pricesArray.length)
+
+// shift() removes the first element.
+// unshift() adds an element to the beginning.
+
+const queueOld = ["Swarup", "Sam", "Alex"];
+// 1. Add "John" to the end.
+
+//ans:
+queueOld.push('John')
+console.log(queueOld)
+
+// 2. Remove the first person and store the removed value.
+
+//ans:
+const queueNew = queueOld.shift()
+
+// 3. Add "Rahul" to the beginning.
+
+//ans:
+queueOld.unshift('Rahul')
+
+// 4. Remove the last person and store the removed value.
+
+//ans:
+const queueNew1= queueOld.pop()
+
+// 5. Print the final queue.
+
+//ans:
+console.log(queueOld)
+// 6. Print both removed values.
+
+//ans:
+console.log(queueNew)
+console.log(queueNew1)
+
+// for loop
+const salariesArray = [25000, 35000, 45000, 55000];
+
+
+// 1. Print every salary.
+//ans:
+for(let i = 0; i<=salariesArray.length; i++ ){
+    console.log(salariesArray[i])
+}
+// 2. Print every salary after adding 5000.
+for(let i =0; i<salariesArray.length;i++){
+			console.log(salariesArray[i]+5000)}
+// 3. Calculate the total salary.
+let total21 = 0;
+
+for (let i = 0; i < salariesArray.length; i++) {
+    total21 = total21 + salariesArray[i];
+}
+
+console.log(total21);
+
+const marks = [45, 72, 88, 31, 95, 64];
+// Print every mark.
+// Count how many marks are >= 50.
+// Calculate the total of all marks.
+// Calculate the average.
+
+const marks22 = [45, 72, 88, 31, 95, 64];
+
+for (let i = 0; i < marks22.length; i++) {
+    console.log(marks22[i]);
+}
+
+let passCount22 = 0;
+
+for (let i = 0; i < marks22.length; i++) {
+    if (marks22[i] >= 50) {
+        passCount22++;
+    }
+}
+
+let total22 = 0;
+
+for (let i = 0; i < marks22.length; i++) {
+    total22 = total22 + marks22[i];
+}
+
+console.log("Passed:", passCount22);
+console.log("Total:", total22);
+console.log("Average:", total22 / marks22.length);

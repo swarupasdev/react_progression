@@ -1,6 +1,2 @@
-//Q147:
-// foo147();
-
-// var foo147 = () => {
-//     console.log("Arrow147");
-// };
+const removedValue = pricesArray.pop(3)
+// console.log(removedValue)
