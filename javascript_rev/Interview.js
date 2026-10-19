@@ -5038,3 +5038,41 @@ console.log(copy23)
 
 //ans: because here copy is a shallow copy of original here and modifying copy wont change anything
 
+// Objects
+// Objects store data as key-value pairs.
+// Dot notation is generally preferred when you know the property name.
+const employee25 = {
+    name: "Swarup",
+    age: 24,
+    department: "Engineering"
+};
+
+// 1. Print the employee's name.
+//ans:
+console.log(employee25.name) //accessing a property
+
+// Change age to 25.
+//ans:
+employee25.age = 25
+console.log(employee25.age)  //changing a property
+
+// Change department to "AI Engineering".
+//ans:
+employee25.department = 'AI Engineering'
+console.log(employee25.department)
+
+// Add salary: 60000.
+//ans:
+employee25.salary = 6000
+
+// Add location: "Bhubaneswar".
+//ans:
+employee25.location = 'Bhubaneswar'
+console.log(employee25.location)
+
+// Delete location.
+//ans:
+delete employee25.location
+
+// Print the final object.
+console.log(employee25)
