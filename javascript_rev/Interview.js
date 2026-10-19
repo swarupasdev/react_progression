@@ -5003,3 +5003,38 @@ for (let i = 0; i < marks22.length; i++) {
 console.log("Passed:", passCount22);
 console.log("Total:", total22);
 console.log("Average:", total22 / marks22.length);
+
+//Array References
+const employees22 = ["Swarup", "Sam", "Alex"];
+
+const backupEmployees22 = employees22;
+
+backupEmployees22.push("Rahul");
+backupEmployees22[0] = "John";
+
+console.log(employees22)
+console.log(backupEmployees22)
+
+// JS-04.3: spread operator
+
+const original23 = [10, 20, 30];
+
+const copy23 = [...original23];
+
+copy23.push(40);
+copy23[0] = 100;
+
+// 1. What is original?
+//ans: 
+
+console.log(original23)
+
+// 2. What is copy?
+//ans:
+
+console.log(copy23)
+
+// 3. Why didn't modifying copy modify original?
+
+//ans: because here copy is a shallow copy of original here and modifying copy wont change anything
+
