@@ -5076,3 +5076,52 @@ delete employee25.location
 
 // Print the final object.
 console.log(employee25)
+
+// Object References
+const user26 = {
+    name: "Swarup",
+    age: 24
+};
+
+const user27 = user26;
+
+user27.age = 25;
+
+console.log(user26.age);
+
+//user26 and user27 contains the reference of the same object 
+
+const user28 = {
+    name: "Swarup",
+    age: 24,
+    role: "Developer"
+};
+// Change user29.age to 25
+//ans:
+const user29 = {...user28}
+user29.age = 25
+
+// Change user29.role to "AI Engineer"
+//ns:
+user29.role = 'AI Engineer'
+
+// Print both objects
+//ans:
+console.log(user28)
+console.log(user29)
+
+//shallowcopy trap
+const user30 = {
+    name: "Swarup",
+    address: {
+        city: "Bhubaneswar"
+    }
+};
+
+const user31 = {...user30}
+user31.name = 'Sam'
+user31.address.city = 'hyderabad'
+console.log(user31)
+console.log(user30)  //both object refers to the same nested address object 
+
+//Object spread creates a shallow copy. It creates a new outer object, but nested objects are still referenced rather than recursively copied.
