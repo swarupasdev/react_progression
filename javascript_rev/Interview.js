@@ -5161,3 +5161,31 @@ const result33 = products33.map((product33)=>{
     return product33.name
 })
 console.log(result33)
+
+//map2
+const employees34 = [
+    { name: "Swarup", salary: 50000 },
+    { name: "Sam", salary: 60000 },
+    { name: "Alex", salary: 70000 }
+];
+// Use map() to create a new array containing the salaries after a 10% raise.
+
+const salary34 = employees34.map((employee34)=>{
+    return employee34.salary+(employee34.salary*(10/100))
+})
+console.log(salary34)
+
+//map3
+const employees35 = [
+    { name: "Swarup", salary: 50000 },
+    { name: "Sam", salary: 60000 },
+    { name: "Alex", salary: 70000 }
+];
+
+//Create a new array of employee objects where every employee gets a 10% salary increase.
+
+const newEmployee35 = employees35.map(employee35=>({
+    name: employee35.name,
+    salary: employee35.salary+employee35.salary*(10/100)
+}))
+console.log(newEmployee35)
