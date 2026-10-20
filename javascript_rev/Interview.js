@@ -5125,3 +5125,39 @@ console.log(user31)
 console.log(user30)  //both object refers to the same nested address object 
 
 //Object spread creates a shallow copy. It creates a new outer object, but nested objects are still referenced rather than recursively copied.
+
+
+//Object Traversal & Destructuring
+
+const employee32 = {
+    name32: "Swarup",
+    age32: 24,
+    department32: "AI Engineering",
+    salary32: 60000
+};
+
+// Destructure name and salary.
+//ans :
+const { name32, salary32 }= employee32
+
+// Destructure department, but store it in a variable called team.
+//ans:
+const { department32:team32 } = employee32
+
+// Print all three variables.
+//ans:
+console.log(name32)
+console.log(salary32)
+console.log(team32)
+
+//map
+const products33 = [
+    { name: "Laptop", price: 70000 },
+    { name: "Mouse", price: 1500 },
+    { name: "Keyboard", price: 3000 }
+];
+
+const result33 = products33.map((product33)=>{
+    return product33.name
+})
+console.log(result33)
