@@ -5189,3 +5189,118 @@ const newEmployee35 = employees35.map(employee35=>({
     salary: employee35.salary+employee35.salary*(10/100)
 }))
 console.log(newEmployee35)
+
+//filter
+//filter() keeps elements that satisfy a condition and removes the rest.
+const products36 = [
+    { name: "Laptop", price: 70000 },
+    { name: "Mouse", price: 1500 },
+    { name: "Keyboard", price: 3000 },
+    { name: "Monitor", price: 25000 }
+];
+// Use filter() to create a new array containing only products whose price is greater than ₹5,000.
+const filteredProduct36 = products36.filter((product36)=>{
+     return product36.price>5000
+})
+console.log(filteredProduct36)
+
+//filter1
+const employees37 = [
+    { name: "Swarup", salary: 50000, experience: 2 },
+    { name: "Sam", salary: 80000, experience: 5 },
+    { name: "Alex", salary: 60000, experience: 3 },
+    { name: "John", salary: 45000, experience: 1 }
+];
+
+// Create a new array containing employees who have:
+// salary >= 60000
+// AND
+// experience >= 3
+
+const filteredEmployee37 = employees37.filter((employee37)=>{
+    return employee37.salary>=60000 && employee37.experience>=3
+})
+console.log(filteredEmployee37)
+
+//reduce
+// reduce() → combine elements into one final result
+// const result = array.reduce((accumulator, currentValue) => {
+//     return updatedAccumulator;
+// }, initialValue);
+
+const expenses38 = [1200, 500, 2500, 800, 1500];
+// Use reduce() to calculate the total expenses.
+
+const totalExpenses38 = expenses38.reduce((totalExpense38, expense38)=>{
+    return totalExpense38+expense38
+},0)
+console.log(totalExpenses38)
+
+//reduce 2
+const employees39 = [
+    { name: "Swarup", salary: 50000 },
+    { name: "Sam", salary: 60000 },
+    { name: "Alex", salary: 70000 }
+];
+// Calculate the total salary expense using reduce()
+
+const totalExpenses39 = employees39.reduce((total39, expense39)=>{
+    return total39+expense39.salary
+},0)
+console.log(totalExpenses39)
+
+//combine
+const employees40 = [
+    { name: "Swarup", salary: 50000 },
+    { name: "Sam", salary: 80000 },
+    { name: "Alex", salary: 60000 },
+    { name: "John", salary: 45000 }
+];
+//The company wants the total salary expense only for employees earning ₹60,000 or more.
+const totalSalaryExpenses40 = employees40.filter((employee40)=>{
+    return employee40.salary>=60000
+}).reduce((total40, expense40)=>{
+    return total40+expense40.salary
+},0)
+console.log(totalSalaryExpenses40)
+
+//boss round
+const products41 = [
+    { name: "Laptop", price: 70000, stock: 5 },
+    { name: "Mouse", price: 1500, stock: 0 },
+    { name: "Keyboard", price: 3000, stock: 10 },
+    { name: "Monitor", price: 25000, stock: 3 }
+];
+//Create a new array containing only products that are currently in stock.
+const stockedProducts41 = products41.filter((product41)=>{
+    return product41.stock!=0
+})
+console.log(stockedProducts41)
+
+//challenge - 2 : Using the same products array, create a new array containing:
+// Product name + price
+
+const newArray41 = stockedProducts41.map((stocked41)=>{
+    return `${stocked41.name} - ${stocked41.price}`
+})
+console.log(newArray41)
+
+//challenge-3 : Calculate the total inventory value.
+const finalInventory41 = products41.reduce((total41,product41)=>{
+    return total41+product41.price*product41.stock
+},0)
+
+console.log(finalInventory41)
+
+
+//challenge 4: What is the total inventory value of products that have at least 3 units in stock?
+
+const totalInventory41 = products41.filter((product41)=>{
+
+    return product41.stock>=3
+
+}).reduce((total41,product41)=>{
+    return total41+product41.price*product41.stock
+},0)
+
+console.log(totalInventory41)
