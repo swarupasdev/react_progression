@@ -5304,3 +5304,106 @@ const totalInventory41 = products41.filter((product41)=>{
 },0)
 
 console.log(totalInventory41)
+
+// JS-05.1 — this
+// this refers to the object that is the receiver of the method call.
+
+//this
+const employee42 = {
+    name: "Swarup",
+    department: "AI Engineering",
+
+    showDetails() {
+        // use this
+        console.log(this.name)
+        console.log(this.department)
+    }
+};
+employee42.showDetails();
+
+//this 2
+const employee43 = {
+    name: "Alex",
+    department: "Backend Engineering",
+
+    showDetails() {
+        // use this
+        console.log(this.name)
+        console.log(this.department)
+    }
+};
+employee43.showDetails();
+
+//this 3
+const employee44 = {
+    name: "Swarup",
+
+    showName() {
+        const printName = () => {
+            console.log(this.name);
+        };
+
+        printName();
+    }
+};
+
+employee44.showName();
+
+// employee44.showName() → because it is called as a method, this inside showName is employee44.
+
+// printName is an arrow function.
+
+// Arrow functions do not create their own this.
+
+// Therefore printName captures the this from its surrounding showName function.
+
+// this 4
+// Create an object called user with:
+// - name: "Alex"
+// - a regular method showName()
+// - inside showName(), create an arrow function printName
+// - printName should print the user's name using this
+// - call showName()
+
+const user45 ={
+    name: 'Alex',
+
+    showName(){
+        const printName=()=>{
+            console.log(this.name)
+        }
+        printName();
+    }
+};
+user45.showName();
+
+// this 5
+// Create an object `employee`:
+
+// name: "Swarup"
+// department: "AI Engineering"
+
+// Create a method `showDetails()`.
+
+// Inside it:
+// - create an arrow function called `display`
+// - `display` should print both `this.name` and `this.department`
+// - call `display()`
+
+// Then call `employee.showDetails()`.
+
+const employee46 ={
+    name: 'Swarup',
+    department: "AI Engineering",
+
+    showDetails(){
+        const display=()=>{
+
+            console.log(this.name)
+            console.log(this.department)
+
+        }
+        display();
+    }
+};
+employee46.showDetails();
