@@ -5407,3 +5407,63 @@ const employee46 ={
     }
 };
 employee46.showDetails();
+
+// Arrow function → doesn't create its own this; inherits it.
+// Regular function → has its own this; the call-site determines it.
+
+// const employee47 = {
+//     name: "Swarup",
+
+//     showName() {
+//         function printName() {
+//             console.log(this.name);
+//         }
+
+//         printName();
+//     }
+// };
+
+// employee47.showName();
+
+// regular , arrow this
+const user48 = {
+    name: "Swarup",
+     
+    showName(){
+    function regularFunction() {
+        console.log(this.name);
+    }
+    regularFunction();
+
+    const arrowFunction =() => {
+        console.log(this.name);
+    }
+    arrowFunction();
+}
+};
+user48.showName()
+
+//this 6
+
+// Create two objects: userA and userB.
+// Both should have a name.
+// Create one regular function called showName that prints this.name.
+// Call showName in such a way that it prints userA's name.
+// Then call the same function in such a way that it prints userB's name.
+
+const userA49 ={
+    name: 'Tina'
+
+}
+const userB49 = {
+    name: 'Inna'
+}
+
+function showName49() {
+    console.log(this.name)
+}
+userA49.showName49 = showName49;
+userB49.showName49 = showName49;
+
+userA49.showName49()
+userB49.showName49()
