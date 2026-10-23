@@ -5466,4 +5466,34 @@ userA49.showName49 = showName49;
 userB49.showName49 = showName49;
 
 userA49.showName49()
-userB49.showName49()
+userB49.showName49() 
+
+
+//extracting a method
+const user50 = {
+    name: "Swarup",
+
+    showName() {
+        console.log(this.name);
+    }
+};
+
+const fn50 = user50.showName;
+
+fn50();
+
+// call()
+//“Run this function with this object as this.”
+const userA51 = {
+    name: "Rina"
+};
+
+const userB51 = {
+    name: "Enna"
+};
+
+function showName() {
+    console.log(this.name);
+}
+showName.call(userA51);
+showName.call(userB51);
