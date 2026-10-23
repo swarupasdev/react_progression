@@ -5497,3 +5497,57 @@ function showName() {
 }
 showName.call(userA51);
 showName.call(userB51);
+
+//call()
+// employeeA:
+// name = "Swarup"
+// department = "AI Engineering"
+
+// employeeB:
+// name = "Alex"
+// department = "Backend Engineering"
+
+// Create ONE function:
+// showDetails()
+
+// It should print:
+// this.name
+// this.department
+
+// Use call() to execute the same function once for employeeA
+// and once for employeeB.
+
+const employeeA52 = {
+    name: 'Swarup52',
+    department: 'AI Engineering'
+}
+
+const employeeB52 = {
+    name: 'Alex52',
+    department: 'Backend Engineering'
+}
+
+function showDetails52(){
+    console.log(this.name)
+    console.log(this.department)
+}
+
+showDetails52.call(employeeA52)
+showDetails52.call(employeeB52)
+
+// call() with arguments
+const employeeA53 = {
+    name: 'Swarup53',
+    department: 'AI Engineering53'
+}
+
+function introduction53(role, experience){
+    console.log(this.name)
+    console.log(this.department)
+    console.log(role);
+    console.log(experience);
+
+}
+    
+
+introduction53.call(employeeA53,"ML engineering ", 2)
