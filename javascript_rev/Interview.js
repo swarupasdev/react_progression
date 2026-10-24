@@ -5537,17 +5537,71 @@ showDetails52.call(employeeB52)
 
 // call() with arguments
 const employeeA53 = {
+
     name: 'Swarup53',
     department: 'AI Engineering53'
+
 }
 
 function introduction53(role, experience){
-    console.log(this.name)
-    console.log(this.department)
+
+    console.log(this.name);
+    console.log(this.department);
     console.log(role);
     console.log(experience);
 
 }
-    
 
-introduction53.call(employeeA53,"ML engineering ", 2)
+introduction53.call(employeeA53,"ML engineering ", 2);
+
+
+// apply()
+// It immediately invokes a function and explicitly sets this.
+// functionName.apply(thisObject, [argument1, argument2, ...]);
+
+// employee:
+// name = "Swarup"
+// department = "AI Engineering"
+
+// function showDetails(role, experience, location)
+
+// call with 
+
+// "Software Engineer"
+// 2
+// "Bhubaneswar"
+
+// ans :
+const employee54 = {
+    name : 'Swarup54',
+    department : 'AI Engineering54'
+}
+function showDetails54(role, experience, location){
+
+    console.log(this.name)
+    console.log(this.department)
+    console.log(role)
+    console.log(experience)
+    console.log(location)
+
+}
+
+showDetails54.apply(employee54,["software developer",2,'bhubaneswar'])
+
+
+// bind()
+// bind()  → sets this → returns a new function
+
+// employee:
+// name = "Swarup"
+// department = "AI Engineering"
+
+// Create a regular function showDetails()
+// that prints this.name and this.department.
+
+// Use bind() to create a new function called
+// boundShowDetails.
+
+// Then execute boundShowDetails().
+
+// ans: 
