@@ -5605,3 +5605,79 @@ showDetails54.apply(employee54,["software developer",2,'bhubaneswar'])
 // Then execute boundShowDetails().
 
 // ans: 
+
+const employee55 = {
+    name: 'Swarup',
+    department : "AI Engineering"
+}
+
+function showDetails55(){
+
+    console.log(this.name)
+    console.log(this.department)
+
+}
+
+const bindShowDetails55 = showDetails55.bind(employee55)
+
+bindShowDetails55();
+
+// 1. One employee object.
+// 2. One showDetails() function.
+// 3. Use call() to execute it immediately.
+// 4. Use apply() to execute it immediately with an arguments array.
+// 5. Use bind() to create a new function.
+// 6. Execute the bound function separately.
+
+//ans :
+const employee56 = {
+
+    name: 'Swarup',
+    department : "AI Engineering"
+
+}
+
+function showDetails56(experience, role){
+
+    console.log(this.name)
+    console.log(this.department)
+    console.log(experience)
+    console.log(role)
+
+}
+
+showDetails56.call(employee56,2,"software developer")
+showDetails56.apply(employee56,[2,"software developer"])
+
+const bindShowDetails56 = showDetails56.bind(employee56)
+
+bindShowDetails56(2,'software developer');
+
+// constructor function
+
+// Create a constructor function Student that accepts:
+// name
+// course
+// age
+
+// Inside it, assign all three to this.
+
+// Then create two students using new Student(...).
+
+// ans:
+function Student57(name, course, age){
+    this.name = name 
+    this.course = course
+    this.age = age
+    this.introduce =()=>{
+        console.log(`My name is ${this.name} and I study ${this.course}`)
+    }
+}
+const student571 = new Student57('Swarup','AI',24)
+const student572 = new Student57('Sam','History',22)
+
+console.log(student571)
+console.log(student572)
+
+student571.introduce()
+student572.introduce()
