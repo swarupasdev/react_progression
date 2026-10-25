@@ -5681,3 +5681,327 @@ console.log(student572)
 
 student571.introduce()
 student572.introduce()
+
+
+//JS-05-Prototypes:
+
+// You are reviewing a startup's codebase and find this:
+// function Employee(name, department) {
+//     this.name = name;
+//     this.department = department;
+
+//     this.getDetails = function () {
+//         return `${this.name} - ${this.department}`;
+//     };
+// }
+
+// const employee1 = new Employee("Swarup", "AI");
+// const employee2 = new Employee("Alex", "Backend");
+
+// The senior developer tells you:
+// "This works, but I don't like this implementation. There's a scalability problem."
+
+// Question:
+
+// What is the problem with this implementation, and how would you improve it using a prototype?
+
+// ans:
+function Employee58(name, department) {
+    this.name = name;
+    this.department = department;
+    };
+
+    Employee58.prototype.getDetails = function () {
+        console.log(`${this.name} - ${this.department}`);
+}
+
+const employee1 = new Employee58("Swarup", "AI");
+const employee2 = new Employee58("Alex", "Backend");
+
+employee1.getDetails()
+employee2.getDetails()
+
+// Q2:
+// A senior developer asks:
+// function Employee(name) {
+//     this.name = name;
+// }
+
+// Employee.prototype.sayHello = function () {
+//     console.log(`Hello ${this.name}`);
+// };
+
+// const emp1 = new Employee("Swarup");
+// const emp2 = new Employee("Alex");
+
+// Now the interviewer asks:
+// If sayHello is not physically inside emp1, how can emp1.sayHello() work?
+
+// Explain the lookup process JavaScript follows when it cannot find a property/method directly on the object.
+
+//ans:
+function Employee59(name) {
+    this.name = name;
+}
+
+Employee59.prototype.sayHello = function () {
+    console.log(`Hello ${this.name}`);
+};
+
+const emp1 = new Employee59("Swarup");
+const emp2 = new Employee59("Alex");
+
+// JavaScript first looks for sayHello directly on emp1. If it doesn't find it, it follows emp1's internal prototype link to Employee.prototype. Since sayHello exists there, JavaScript uses that function. This lookup can continue further up the prototype chain if it isn't found
+
+// Q3 - Scenario
+// You're working on a startup's backend codebase. You find:
+// function User(name) {
+//     this.name = name;
+// }
+
+// User.prototype.login = function () {
+//     console.log(`${this.name} logged in`);
+// };
+
+// const user1 = new User("Swarup");
+// const user2 = new User("Alex");
+
+// A junior developer says:
+// "Since login is on User.prototype, when user1.login() runs, this should refer to User.prototype."
+
+// Do you agree or disagree? Explain why.
+
+//ans:
+function User60(name) {
+    this.name = name;
+}
+
+User60.prototype.login = function () {
+    console.log(`${this.name} logged in`);
+};
+
+const user601 = new User60("Swarup");
+const user602 = new User60("Alex");
+
+user601.login()
+
+// I disagree. The method is found through the prototype chain, but that is separate from how this is determined. Since the method is called as user1.login(), this refers to user1. The prototype determines where JavaScript finds the method; the call-site determines this.
+
+// Q4 - sceanrio
+function Employee61(name) {
+    this.name = name;
+}
+
+Employee61.prototype.introduce = function () {
+    console.log(`I am ${this.name}`);
+};
+
+const employee61 = new Employee61("Swarup");
+
+const fn61 = employee61.introduce;
+
+fn61();
+
+// A senior developer asks:
+// "Why doesn't fn61() behave the same way as employee61.introduce()?"
+
+// Explain what changed when we assigned:
+// const fn61 = employee61.introduce;
+
+// const fn61 = employee61.introduce stores a reference to the same function; it doesn't copy or modify the function. But when I call fn(), I'm calling it as a standalone function rather than as employee.introduce(). Therefore, the original receiver employee is no longer associated with the call, so this is different.
+
+// Q-5:
+// function Employee(name) {
+//     this.name = name;
+// }
+
+// Employee.prototype.introduce = function () {
+//     console.log(`I am ${this.name}`);
+// };
+
+// const employee1 = new Employee("Swarup");
+// const employee2 = new Employee("Alex");
+
+// A senior developer asks:
+// "If employee1 and employee2 don't each have their own introduce function, how can both objects call it? And are they using the same function or two different functions?"
+
+// ans :
+function Employee62(name) {
+    this.name = name;
+}
+
+Employee62.prototype.introduce = function () {
+    console.log(`I am ${this.name}`);
+};
+
+const employee621 = new Employee62("Swarup");
+const employee622 = new Employee62("Alex");
+
+employee621.introduce()
+employee622.introduce()
+
+// Q-6:
+// function Employee(name) {
+//     this.name = name;
+// }
+
+// Employee.prototype.introduce = function () {
+//     console.log(`I am ${this.name}`);
+// };
+
+// const employee1 = new Employee("Swarup");
+// const employee2 = new Employee("Alex");
+
+// employee1.introduce = function () {
+//     console.log("Custom introduction");
+// };
+
+// employee1.introduce();
+// employee2.introduce();
+
+// Why do these two calls produce different results even though introduce originally exists on the same prototype?
+
+//ans:  JavaScript searches the object first, then its prototype chain. It uses the first matching property it finds.
+
+// Q-7:
+// function Employee(name) {
+//     this.name = name;
+// }
+
+// Employee.prototype.role = "Developer";
+
+// const employee1 = new Employee("Swarup");
+// const employee2 = new Employee("Alex");
+
+// employee1.role = "ML Engineer";
+
+// console.log(employee1.role);
+// console.log(employee2.role);
+// console.log(Employee.prototype.role);
+
+// The junior developer says:
+// "Since role is originally on the prototype, changing employee1.role should change the prototype value and therefore also change employee2.role."
+
+// Do you agree or disagree?
+
+// I disagree. When I assign employee1.role, JavaScript creates an own property on employee1 rather than modifying the inherited property on Employee.prototype. That own property shadows the prototype property for employee1. employee2 continues to resolve role from the prototype.
+
+// Q-8:
+// function Employee(name) {
+//     this.name = name;
+// }
+
+// Employee.prototype.department = "Engineering";
+
+// const employee = new Employee("Swarup");
+
+// console.log(employee.department);
+
+// Now imagine the code later does:
+// Employee.prototype.department = "AI Engineering";
+
+// and then:
+// console.log(employee.department);
+
+// What will the second console.log() print, and why?
+
+//ans:
+function Employee65(name) {
+    this.name = name;
+}
+
+Employee65.prototype.department = "Engineering";
+
+const employee651 = new Employee65("Swarup");
+
+console.log(employee651.department);
+
+Employee65.prototype.department = "AI Engineering";
+
+console.log(employee651.department);
+
+// Q-9
+// function Employee(name) {
+//     this.name = name;
+// }
+
+// Employee.prototype.department = "Engineering";
+
+// const employee1 = new Employee("Swarup");
+// const employee2 = new Employee("Alex");
+
+// employee1.department = "AI";
+
+// delete employee1.department;
+
+// console.log(employee1.department);
+
+// The developer says:
+// "We deleted employee1.department, so it should now be undefined."
+
+// Do you agree?
+
+// Explain what JavaScript does after the deletion and where it looks next.
+
+// ans:
+function Employee66(name) {
+    this.name = name;
+}
+
+Employee66.prototype.department = "Engineering";
+
+const employee661 = new Employee66("Swarup");
+const employee662 = new Employee66("Alex");
+
+employee661.department = "AI";
+
+delete employee661.department;
+
+console.log(employee661.department);
+
+//delete removes the property from the object on which you perform the operation. It does not remove the inherited property from the prototype.
+
+// Q-10
+// function Employee(name) {
+//     this.name = name;
+// }
+
+// Employee.prototype.getName = function () {
+//     return this.name;
+// };
+
+// const employee1 = new Employee("Swarup");
+// const employee2 = new Employee("Alex");
+
+// employee1.getName = function () {
+//     return "Custom: " + this.name;
+// };
+
+// console.log(employee1.getName());
+// console.log(employee2.getName());
+
+// A senior interviewer asks:
+
+// Why do the two objects produce different results even though getName was originally defined on the same prototype?
+
+// Explain the complete chain:
+// 1. Where JavaScript looks for getName on employee1
+// ans: employee1.prototype
+
+// 2. Where it looks for getName on employee2
+// ans: Employee.prototype
+
+// 3. Which function gets executed in each case
+//ans: in console.log(employee1.getName()); case :
+// employee1.getName = function () {
+//     return "Custom: " + this.name;
+// }; willbe executed
+
+// in console.log(employee2.getName()); case:
+// Employee.prototype.getName = function () {
+//     return this.name;
+// }; will be executed
+
+// 4. What this refers to in each call
+// ans: // console.log(employee1.getName()); here this referes to employee1
+// console.log(employee2.getName()); here this referes to employee2
