@@ -6005,3 +6005,290 @@ console.log(employee661.department);
 // 4. What this refers to in each call
 // ans: // console.log(employee1.getName()); here this referes to employee1
 // console.log(employee2.getName()); here this referes to employee2
+
+// JS-05 classes 
+
+// "Classes don't replace JavaScript's prototype system. They provide a cleaner and more structured syntax for creating objects and defining prototype methods and inheritance. This makes object-oriented code easier to read, maintain, and standardize across a large codebase."
+
+// Q-1
+// Why would a startup team prefer class syntax over manually writing constructor functions and prototype assignments?
+
+// ans : class gives a clearer and more structured way to define constructors, instance data, prototype methods, and inheritance. It improves readability and maintainability for a team, while still using JavaScript's prototype system underneat
+
+// Q-2
+// function Product(name, price, category) {
+//     this.name = name;
+//     this.price = price;
+//     this.category = category;
+// }
+
+// Product.prototype.getDetails = function () {
+//     return `${this.name} - ₹${this.price} - ${this.category}`;
+// };
+
+// Convert this into a class.
+
+// Requirements:
+// - Use class Product
+// - Use a constructor
+// - Store name, price, and category
+// - Create getDetails() as a class method
+// - Create two products and call getDetails() on both
+// Write the code yourself.
+
+// ans :
+class Product68{
+constructor (name, price, category) {
+    this.name = name;
+    this.price = price;
+    this.category = category;
+}
+getDetails() {
+    console.log(`${this.name} - ₹${this.price} - ${this.category}`);
+};
+}
+
+const product681 = new Product68('Laptop', 5000 , 'Hardware')
+const product682 = new Product68('Cake', 500 , 'Snack')
+
+product681.getDetails()
+product682.getDetails()
+
+//Q-3
+// class Employee {
+//     constructor(name) {
+//         this.name = name;
+//     }
+
+//     introduce() {
+//         console.log(`I am ${this.name}`);
+//     }
+// }
+
+// Now the startup wants a Manager class where every manager is also an employee, but managers additionally have a teamSize.
+
+// The senior developer asks:
+// "Would you create another completely independent Manager class, or would you use JavaScript's class inheritance? What would you choose and why?"
+
+class Employee69 {
+    constructor(name) {
+        this.name = name;
+    }
+
+    introduce() {
+        console.log(`I am ${this.name}`);
+    }
+}
+
+// Q-4
+// class Employee {
+//     constructor(name) {
+//         this.name = name;
+//     }
+
+//     introduce() {
+//         console.log(`I am ${this.name}`);
+//     }
+// }
+
+// Now the startup wants a Manager class where every manager is also an employee, but managers additionally have a teamSize.
+
+// The senior developer asks:
+// "Would you create another completely independent Manager class, or would you use JavaScript's class inheritance? What would you choose and why?"
+
+//ans:
+class Employee70 {
+    constructor(name) {
+        this.name = name;
+    }
+}
+
+class Manager70 extends Employee70 {
+    constructor(name, teamSize) {
+        super(name);  //super keyword to inherit the parameter property
+        this.teamSize = teamSize;
+    }
+
+    introduce70() {
+        console.log(`I am ${this.name}`);
+    }
+}
+
+// Q-4
+// class Employee {
+//     constructor(name) {
+//         this.name = name;
+//     }
+
+//     introduce() {
+//         console.log(`I am ${this.name}`);
+//     }
+// }
+
+// Create a Manager class that:
+// - extends Employee
+// - receives name and teamSize
+// - keeps the name using the parent constructor
+// - stores teamSize
+// - has a method showTeamSize() that prints:
+// Swarup manages 8 people
+
+// Then create:
+// const manager = new Manager("Swarup", 8);
+
+// and call both:
+// manager.introduce();
+// manager.showTeamSize();
+
+// Write the complete code.
+
+// ans :
+class Employee71 {
+    constructor(name) {
+        this.name = name;
+    }
+
+    introduce() {
+        console.log(`I am ${this.name}`);
+    }
+}
+
+class Manager71 extends Employee71{
+    constructor(name,teamSize){
+        super(name)
+        this.teamSize = teamSize
+    }
+
+    showTeamSize(){
+        console.log(`${this.name} manages ${this.teamSize} people`)
+    }
+}
+
+const manager71 = new Manager71("Swarup", 8);
+
+manager71.introduce();
+manager71.showTeamSize();
+
+//Q-5
+// class Manager extends Employee {
+//     constructor(name, teamSize) {
+//         this.name = name;
+//         this.teamSize = teamSize;
+//     }
+// }
+
+// When they run:
+// const manager = new Manager("Swarup", 8);
+
+// JavaScript throws an error.
+
+// The junior asks:
+// "Why can't I use this directly inside the child constructor? Why do I need super() first?"
+
+// Explain what super() does and why it must happen before using this in a derived class constructor.
+
+//ans:
+// In a derived class (extends), you cannot access this until super() has been called.
+
+//Q-6
+// class Employee {
+//     constructor(name) {
+//         this.name = name;
+//     }
+
+//     introduce() {
+//         console.log(`I am ${this.name}`);
+//     }
+// }
+
+// class Manager extends Employee {
+//     constructor(name, teamSize) {
+//         super(name);
+//         this.teamSize = teamSize;
+//     }
+
+//     introduce() {
+//         console.log(`I am manager ${this.name}`);
+//     }
+// }
+
+// const manager = new Manager("Swarup", 8);
+
+// manager.introduce();
+
+// The interviewer asks:
+// Both Employee and Manager have an introduce() method. Which one executes, and why?
+
+// Explain the prototype lookup and method overriding involved here.
+
+// ans:
+class Employee72 {
+    constructor(name) {
+        this.name = name;
+    }
+
+    introduce() {
+        console.log(`I am ${this.name}`);
+    }
+}
+
+class Manager72 extends Employee72 {
+    constructor(name, teamSize) {
+        super(name);
+        this.teamSize = teamSize;
+    }
+
+    introduce() {
+        console.log(`I am manager ${this.name}`);
+    }
+}
+
+const manager72 = new Manager72("Swarup", 8);
+
+manager72.introduce();
+
+//ans: Manager overrides the introduce() method inherited from Employee. When manager.introduce() is called, JavaScript first checks the instance and then Manager.prototype. It finds introduce() there, so that implementation executes and the lookup doesn't continue to Employee.prototype.
+
+// Q-8
+// class Employee {
+//     constructor(name) {
+//         this.name = name;
+//     }
+
+//     introduce() {
+//         console.log(`I am ${this.name}`);
+//     }
+// }
+
+// class Manager extends Employee {
+//     constructor(name, teamSize) {
+//         super(name);
+//         this.teamSize = teamSize;
+//     }
+
+//     introduce() {
+//         super.introduce();
+//         console.log(`I manage ${this.teamSize} people`);
+//     }
+// }
+
+// The interviewer asks you:
+// "Walk me through exactly what happens when I execute new Manager("Swarup", 8) and then manager.introduce()."
+
+// Explain the entire flow:
+// 1. Which constructor executes first?
+// ans : constructor(name, teamSize) {
+//     super(name);
+//     this.teamSize = teamSize;
+// }
+
+// 2. What does super(name) do?
+// ans: it will inherit the name of parent class  . It invokes the parent constructor so the parent can initialize the object.
+// 3. When does this.teamSize get created?
+//ans: upon executing new Manager("Swarup", 8) and then manager.introduce() 
+// 4. Where is introduce() found?
+// ans : Employee.prototype
+// 5. Why does super.introduce() execute the parent version?
+// ans: because we called introduce using super keyword which will inherit the parent method 
+// 6. What is this inside both methods?
+// ans: this is inside Manager class in both method
