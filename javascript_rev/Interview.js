@@ -6292,3 +6292,107 @@ manager72.introduce();
 // ans: because we called introduce using super keyword which will inherit the parent method 
 // 6. What is this inside both methods?
 // ans: this is inside Manager class in both method
+
+// Module
+// Named exports use {}.
+// Default exports don't.
+
+// Create two files mentally:
+
+// math.js
+// const add = (a, b) => a + b;
+// const subtract = (a, b) => a - b;
+
+// Export both functions as named exports.
+
+// Then in app.js, import both and calculate:
+// add(20, 10)
+// subtract(20, 10)
+
+// You write the code.
+
+//ans: 
+// in math.js
+// const add = (a, b) => a + b;
+// const substract = (a, b) => a - b;
+// export { add, substract };
+
+// in app.js
+// import{ add, substract} from "./math.js";
+
+//question
+// Write user.js with:
+// const name = "Swarup";
+// const age = 24;
+
+// Make name a default export and age a named export.
+
+// Then import both into app.js.
+
+//export default exports a value/expression, but you can't combine it with const in that declaration form.
+
+// ans :
+// export default "Swarup";
+// export const age = 24;
+// app.js
+// import name from "./user.js"
+// import {age} from "./user.js"
+
+//A module can have one default export:
+
+// A senior developer asks:
+// // user.js
+// const name = "Swarup";
+// export default name;
+
+// Can another file do this?
+// import username from "./user.js";
+
+// Yes or no, and why?
+
+//ans : yes default export does not require the importer to preserve the original variable name.
+
+// user.js:
+// const name = "Swarup";
+// const age = 24;
+// const role = "AI Engineer";
+
+// export default name;
+// export { age, role };
+
+// In app.js, import:
+// - the default export as username
+// - age
+// - role
+// Then print all three.
+
+// ans:
+// in user.js
+// const name = "Swarup";
+// const age = 24;
+// const role = "AI Engineer";
+
+// export default name;
+// export { age, role };
+// in app.js
+// import username from "./user.js"
+// import { age, role } from "./user.js"
+// console.log(age, role, username)
+
+// You're working on a React application. A developer writes:
+// api.js
+// export const getUsers = () => {};
+// export const createUser = () => {};
+// export default "API Service";
+
+// Then another developer writes:
+// import service, { getUsers, createUser } from "./api.js";
+
+// The code works.
+
+// Now the developer says:
+// "Because service is the default export, its variable name must be API Service."
+
+// Do you agree or disagree? Explain why, as you would to a senior developer reviewing the code.
+// disagree
+
