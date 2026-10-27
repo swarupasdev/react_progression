@@ -6396,3 +6396,101 @@ manager72.introduce();
 // Do you agree or disagree? Explain why, as you would to a senior developer reviewing the code.
 // disagree
 
+// JS-06 — Promises
+// Create a Promise called payment.
+
+// Requirements:
+// - If paymentSuccess is true, resolve with "Payment successful".
+// - Otherwise reject with "Payment failed".
+// - Consume it using .then() and .catch().
+// Write the code.
+
+//ans:
+const payment = new Promise((resolve,reject)=>{
+    const paymentSuccess = true;
+
+    if(paymentSuccess){
+        resolve("Payment Succefull")
+    } else{
+        reject("Payment failed")
+    }
+});
+
+payment
+    .then(result =>{
+        console.log(result)
+    })
+    .catch(error=>{
+        console.log(error)
+    });
+
+// You're building a login page.
+// loginUser(username, password)
+
+// returns a Promise.
+
+// You need to:
+// 1. Show "Logging in..." immediately.
+// 2. If login succeeds, print "Welcome Swarup".
+// 3. If login fails, print "Invalid credentials".
+// Write the Promise consumption code using .then() and .catch().
+
+// No async/await yet.    
+
+//ans:
+const logIn = new Promise((resolve,reject)=>{
+    const logInSuccess = true;
+
+    if(logInSuccess){
+        resolve("Welcome Swarup")
+    }else{
+        reject("Invalid credentials")
+    }
+})
+
+console.log("Logging in ...")
+logIn
+    .then(result=>{
+        console.log(result)
+    })
+    .catch(error=>{
+        console.log(error)
+    })
+
+
+// Promise chaining
+
+// Create these three functions:
+// getUser()
+// getProfile(userId)
+// getDashboard(profileId)
+
+// Each should return a Promise.
+
+// Make them resolve:
+// getUser()       → { id: 101, name: "Swarup" }
+// getProfile()    → { id: 501, role: "AI Engineer" }
+// getDashboard()  → "Dashboard loaded"
+
+// Then chain them so that:
+// 1. getUser() runs first.
+// 2. Its id goes into getProfile().
+// 3. The profile's id goes into getDashboard().
+// 4. Finally print the dashboard result.
+// 5. Add one .catch() at the end.
+
+// ans: 
+// getUser()
+//     .then(user=>{
+//         return getProfile(user.id)
+//     })
+//     .then(profile=>{
+//         return getDashboard(profile.id)
+//     })
+//     .then(dashboard=>{
+//         console.log(dashboard)
+//     })
+//     .catch(error=>{
+//         console.log(error)
+//     })
+
