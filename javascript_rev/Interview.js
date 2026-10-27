@@ -6406,23 +6406,23 @@ manager72.introduce();
 // Write the code.
 
 //ans:
-const payment = new Promise((resolve,reject)=>{
-    const paymentSuccess = true;
+// const payment = new Promise((resolve,reject)=>{
+//     const paymentSuccess = true;
 
-    if(paymentSuccess){
-        resolve("Payment Succefull")
-    } else{
-        reject("Payment failed")
-    }
-});
+//     if(paymentSuccess){
+//         resolve("Payment Succefull")
+//     } else{
+//         reject("Payment failed")
+//     }
+// });
 
-payment
-    .then(result =>{
-        console.log(result)
-    })
-    .catch(error=>{
-        console.log(error)
-    });
+// payment
+//     .then(result =>{
+//         console.log(result)
+//     })
+//     .catch(error=>{
+//         console.log(error)
+//     });
 
 // You're building a login page.
 // loginUser(username, password)
@@ -6438,24 +6438,24 @@ payment
 // No async/await yet.    
 
 //ans:
-const logIn = new Promise((resolve,reject)=>{
-    const logInSuccess = true;
+// const logIn = new Promise((resolve,reject)=>{
+//     const logInSuccess = true;
 
-    if(logInSuccess){
-        resolve("Welcome Swarup")
-    }else{
-        reject("Invalid credentials")
-    }
-})
+//     if(logInSuccess){
+//         resolve("Welcome Swarup")
+//     }else{
+//         reject("Invalid credentials")
+//     }
+// })
 
-console.log("Logging in ...")
-logIn
-    .then(result=>{
-        console.log(result)
-    })
-    .catch(error=>{
-        console.log(error)
-    })
+// console.log("Logging in ...")
+// logIn
+//     .then(result=>{
+//         console.log(result)
+//     })
+//     .catch(error=>{
+//         console.log(error)
+//     })
 
 
 // Promise chaining
@@ -6494,3 +6494,119 @@ logIn
 //         console.log(error)
 //     })
 
+
+// JS-06 - async/await
+
+// When you write:
+// async function x () {
+// }
+// you are declaring an asynchronous function.
+// An async function always returns a Promise.
+
+// What does await do?
+// Suppose:
+// const user = await getUser();
+
+// getUser() returns a Promise.
+
+// await says:
+
+// Wait for this Promise to settle, and give me its fulfilled value.
+
+// Convert this Promise chain into async/await:
+// getUser()
+//     .then(user => {
+//         return getProfile(user.id);
+//     })
+//     .then(profile => {
+//         return getDashboard(profile.id);
+//     })
+//     .then(dashboard => {
+//         console.log(dashboard);
+//     })
+//     .catch(error => {
+//         console.log(error);
+//     });
+
+// Use:
+// - an async function
+// - await
+// - try
+// - catch
+// Write the complete code yourself.
+
+//ans: 
+// async function getDashboardDetails(){
+//     try{
+//         const user = await getuser();
+//         const profile = await getProfile(user.id)
+//         const dashboard = await getDashboard(profile.id)
+
+//         console.log(dashboard)
+//     }catch(error){
+//         console.log(error)
+//     }
+// }
+
+// console.log("1");
+
+// setTimeout(() => {
+//     console.log("2");
+// }, 0);
+
+// Promise.resolve().then(() => {
+//     console.log("3");
+// });
+
+// console.log("4");
+
+// What is the output order?
+
+//ANS: 1 4 3 2
+
+// Now combine async/await, Promise microtasks, and setTimeout:
+// console.log("A");
+
+// async function test() {
+//     console.log("B");
+
+//     await Promise.resolve();
+
+//     console.log("C");
+
+//     setTimeout(() => {
+//         console.log("D");
+//     }, 0);
+
+//     console.log("E");
+// }
+
+// test();
+
+//ans : 
+
+console.log("A");
+
+async function test73() {
+    console.log("B");
+
+    await Promise.resolve();
+
+    console.log("C");
+
+    setTimeout(() => {
+        console.log("D");
+    }, 0);
+
+    console.log("E");
+}
+
+test73();
+
+Promise.resolve().then(() => {
+    console.log("F");
+});
+
+console.log("G");
+
+// When an await resumes an async function, the continuation is one microtask. Everything after the await runs within that microtask until it yields again.
