@@ -3451,7 +3451,6 @@
 // DB-06	Indexes, query plans and performance fundamentals
 // DB-07	Transactions, ACID, concurrency and data consistency
 // DB-08	Practical database design and scenario-based SQL challenges
-// We'll use PostgreSQL-style SQL for practice unless your project or workplace uses a different database.
 
 // Track C — React
 // Module	Topics and practical skills
@@ -6610,3 +6609,95 @@ Promise.resolve().then(() => {
 console.log("G");
 
 // When an await resumes an async function, the continuation is one microtask. Everything after the await runs within that microtask until it yields again.
+
+// Fetch/API handling
+// async function loginUser(username, password) {
+    
+// }
+
+// It should:
+// 1. POST to /api/login
+// 2. Send username and password as JSON.
+// 3. Set the appropriate Content-Type header.
+// 4. Check response.ok.
+// 5. Parse the JSON response.
+// 6. Return the parsed data.
+// 7. Handle errors with try/catch.
+
+//ans:
+// async function loginUser(username, password) {
+//     try{
+//         const response = await fetch("/api/login",{
+//             method: 'POST',
+//             headers: {"Content-Type":"application/json"},
+//             body: JSON.stringify({
+//                 username: username,
+//                 password: password
+//             })
+//         })
+//         if(!response.ok){
+//             throw new Error(`Failed Request${response.status}`)
+//         }
+//         const data = await response.json();
+
+//         return data
+//     }catch(error){
+//         console.error(error)
+//     }
+// }
+
+// error handling / production debugging
+// You're reviewing a junior developer's code:
+// async function getUsers() {
+//     try {
+//         const response = await fetch("/api/users");
+
+//         if (!response.ok) {
+//             throw new Error("Failed");
+//         }
+
+//         return await response.json();
+
+//     } catch (error) {
+//         console.error(error);
+//         return [];
+//     }
+// }
+
+// The junior says:
+// "This is good because the UI will never crash. If the API fails, we just return an empty array."
+
+// Would you approve this implementation for production?
+
+// Explain why or why not.
+
+// I wouldn't automatically approve it. Returning an empty array on failure can mask an API or network failure and make an empty result indistinguishable from a legitimate empty dataset. I'd usually log or transform the error and rethrow it, then let the appropriate higher layer decide how the UI should represent the failure.
+
+// Suppose your API function does this:
+// catch (error) {
+//     console.error(error);
+//     throw error;
+// }
+
+// And your React component does:
+// try {
+//     const users = await getUsers();
+//     setUsers(users);
+// } catch (error) {
+//     setError("Unable to load users");
+// }
+// 
+// 
+// A junior developer writes:
+// const updateRole = (user) => {
+//     user.role = "Senior Developer";
+//     return user;
+// };
+
+// Another developer writes:
+// const updateRole = (user) => {
+//     return {
+//         ...user,
+//         role: "Senior Developer"
+//     };
+// };
